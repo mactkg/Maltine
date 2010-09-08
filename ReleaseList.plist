@@ -278,5 +278,57 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>AlbumInfo</key>
+		<dict>
+			<key>Number</key>
+			<string>MARU-014</string>
+			<key>Artist</key>
+			<string>imoutoid</string>
+			<key>Title</key>
+			<string>ADEPRESSIVE CANNOT GOTO THECEREMONY</string>
+			<key>Image</key>
+			<string>http://maltinerecords.cs8.biz/mp3/maru14/imoutoidDC500x500.jpg</string>
+		</dict>
+		<key>PlayList</key>
+		<array>
+			<dict>
+				<key>Artist</key>
+				<string>imoutoid</string>
+				<key>Title</key>
+				<string>PART1</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru14/part1.mp3</string>
+				<key>Image</key>
+				<string>http://maltinerecords.cs8.biz/mp3/maru14/imoutoidDC500x500.jpg</string>
+				<key>AlbumTitle</key>
+				<string>ADEPRESSIVE CANNOT GOTO THECEREMONY</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>imoutoid</string>
+				<key>Title</key>
+				<string>PART2</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru14/part2.mp3</string>
+				<key>Image</key>
+				<string>http://maltinerecords.cs8.biz/mp3/maru14/imoutoidDC500x500.jpg</string>
+				<key>AlbumTitle</key>
+				<string>ADEPRESSIVE CANNOT GOTO THECEREMONY</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>imoutoid</string>
+				<key>Title</key>
+				<string>PART3</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru14/part3.mp3</string>
+				<key>Image</key>
+				<string>http://maltinerecords.cs8.biz/mp3/maru14/imoutoidDC500x500.jpg</string>
+				<key>AlbumTitle</key>
+				<string>ADEPRESSIVE CANNOT GOTO THECEREMONY</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>

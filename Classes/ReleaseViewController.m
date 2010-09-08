@@ -94,7 +94,8 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    //static NSString *CellIdentifier = @"ReleaseCell";
+	NSString *CellIdentifier = [NSString stringWithFormat:@"ReleaseCell_%d_%d",indexPath.section,indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {

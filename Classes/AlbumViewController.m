@@ -102,9 +102,10 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-	static NSString *AlbumCellIdentifier = @"AlbumCell";
-    
+    //static NSString *CellIdentifier = @"TrackCell";
+	static NSString *AlbumCellIdentifier = @"AlbumCell";	
+	NSString *CellIdentifier = [NSString stringWithFormat:@"TrackCell_%d_%d",indexPath.section,indexPath.row];
+	
 	if (indexPath.section == 0 && indexPath.row == 0) {
 		UIViewController *controller = [[UIViewController alloc] initWithNibName:@"AlbumTableViewCell" bundle:nil];
 		

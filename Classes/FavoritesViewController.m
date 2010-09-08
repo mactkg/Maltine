@@ -107,8 +107,10 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    //static NSString *CellIdentifier = @"FavolitesCell";
     
+	NSString *CellIdentifier = [NSString stringWithFormat:@"FavolitesCell_%d_%d",indexPath.section,indexPath.row];
+	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
@@ -122,7 +124,7 @@
 
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
-		NSLog(@"rowsCount:%d indexpath.row:%d Title:%@",[delegate.favoliteList count],indexPath.row,[[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"]);
+		//NSLog(@"rowsCount:%d indexpath.row:%d Title:%@",[delegate.favoliteList count],indexPath.row,[[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"]);
     }
     
     // Configure the cell...
