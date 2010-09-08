@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>AlbumInfo</key>
+		<dict>
+			<key>Number</key>
+			<string>MARU-078</string>
+			<key>Artist</key>
+			<string>Silvanian Families</string>
+			<key>Title</key>
+			<string>Afterwars United</string>
+			<key>Image</key>
+			<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+		</dict>
+		<key>PlayList</key>
+		<array>
+			<dict>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>Title</key>
+				<string>Sightsberry</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_01.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Good Morning,Sir</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_02.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>missspell</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_03.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Sightsberry (guchon remix)</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_04.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>missspell (Dong Remix)</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_05.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Good Morning,Sir (iserobin remix)</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_06.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Hundred of Steps (hujikopro remix)</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_07.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Hundred of Steps</string>
+				<key>Artist</key>
+				<string>Silvanian Families</string>
+				<key>AlbumTitle</key>
+				<string>Afterwars United</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru78_08.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru78/maru78.jpg</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>AlbumInfo</key>
+		<dict>
+			<key>Number</key>
+			<string>MARU-077</string>
+			<key>Artist</key>
+			<string>Gassyoh</string>
+			<key>Title</key>
+			<string>Jumbo ep</string>
+			<key>Image</key>
+			<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+		</dict>
+		<key>PlayList</key>
+		<array>
+			<dict>
+				<key>Artist</key>
+				<string>Gassyoh</string>
+				<key>Title</key>
+				<string>Jumbo</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/01-Gassyoh_-_Jumbo.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Gassyoh</string>
+				<key>Title</key>
+				<string>Ootani Sucks(Original Mix)</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/02-Gassyoh_-_Ootani Sucks(Original Mix).mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Gassyoh</string>
+				<key>Title</key>
+				<string>Sushi Than My(feat.mochilon)</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/03-Gassyoh_-_Sushi Than My(feat.mochilon).mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Gassyoh</string>
+				<key>Title</key>
+				<string>Bishop</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/04-Gassyoh_-_Bishop.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Gassyoh</string>
+				<key>Title</key>
+				<string>Ootani Sucks(bitscape Remix)</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/05-Gassyoh_-_Ootani Sucks(bitscape Remix).mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Kidro</string>
+				<key>Title</key>
+				<string>Short Circuit(Gassyoh&apos;s Circuit Remix)</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/06-Kidro_-_Short Circuit(Gassyoh&apos;s Circuit Remix).mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Gassyoh</string>
+				<key>Title</key>
+				<string>FAA in the BUU sky</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/07-Gassyoh_-_FAA in the BUU sky.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>Charlot</string>
+				<key>Title</key>
+				<string>Sing Along, Folks</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/08-Charlot_-_Sing Along, Folks.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru77/maru77.jpg</string>
+				<key>AlbumTitle</key>
+				<string>Jumbo ep</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>AlbumInfo</key>
+		<dict>
+			<key>Number</key>
+			<string>MARU-071</string>
+			<key>Artist</key>
+			<string>RE:NDZ</string>
+			<key>Title</key>
+			<string>PLAY ROOM</string>
+			<key>Image</key>
+			<string>http://maltine.b11.coreserver.jp/tai/maru71/maru71_PLAY_ROOM.jpg</string>
+		</dict>
+		<key>PlayList</key>
+		<array>
+			<dict>
+				<key>Artist</key>
+				<string>RE:NDZ</string>
+				<key>Title</key>
+				<string>i want you</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru71/01 i want you.mp3</string>
+				<key>Image</key>
+				<string>http://maltine.b11.coreserver.jp/tai/maru71/maru71_PLAY_ROOM.jpg</string>
+				<key>AlbumTitle</key>
+				<string>PLAY ROOM</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>RE:NDZ</string>
+				<key>Title</key>
+				<string>from ten to nine</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru71/02 from ten to nine.mp3</string>
+				<key>Image</key>
+				<string>http://maltine.b11.coreserver.jp/tai/maru71/maru71_PLAY_ROOM.jpg</string>
+				<key>AlbumTitle</key>
+				<string>PLAY ROOM</string>
+			</dict>
+			<dict>
+				<key>Artist</key>
+				<string>RE:NDZ</string>
+				<key>Title</key>
+				<string>button A button B</string>
+				<key>Url</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru71/03 button A button B.mp3</string>
+				<key>Image</key>
+				<string>http://maltine.b11.coreserver.jp/tai/maru71/maru71_PLAY_ROOM.jpg</string>
+				<key>AlbumTitle</key>
+				<string>PLAY ROOM</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
