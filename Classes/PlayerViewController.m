@@ -73,9 +73,7 @@
 		[self destroyStreamer];		
 		
 		//Image
-		self.imageView.image = nil;		
-		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
-		
+		self.imageView.image = nil;
 		
 		//indicator
 		[indicator startAnimating];
@@ -88,6 +86,9 @@
 		[self.streamer start];
 	}
 	self.stopPlayerWhenViewWillAppear = NO;
+	if (self.imageView.image == nil) {
+		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
+	}
 	
 	
 }	
