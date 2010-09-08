@@ -287,8 +287,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>31</integer>
-									<integer>29</integer>
+									<integer>27</integer>
+									<integer>25</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -331,7 +331,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>FavoritesViewController.m</string>
+								<string>PlayerViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -339,11 +339,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>FavoritesViewController.m</string>
+										<string>PlayerViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>11574AC01237A58100262942</string>
+										<string>11574ACD1237A90200262942</string>
 										<key>history</key>
 										<array>
 											<string>1144FAD7121E67C90037FE71</string>
@@ -392,8 +392,8 @@
 											<string>11574AA91237836B00262942</string>
 											<string>11574AAA1237836B00262942</string>
 											<string>11574AAB1237836B00262942</string>
-											<string>11574ABE1237A58100262942</string>
-											<string>11574ABF1237A58100262942</string>
+											<string>11574AC81237A89100262942</string>
+											<string>11574AC91237A89100262942</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -591,12 +591,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>11574AC11237A58100262942</string>
 		<string>11574A7B12377B4A00262942</string>
 		<string>11574A7C12377B4A00262942</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1144F932121AE6540037FE71</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/viriviri/Documents/xcode/Maltine/Maltine.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -971,7 +970,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

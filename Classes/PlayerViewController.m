@@ -112,19 +112,26 @@
 	}
 	
 	int currentKey = self.trackKey;
-
-	for (int i = 0; i <[self.playList count]; i++ ) {
-		
-		if (i == currentKey) {
-			if (i == 0) {
-				//playListの最後に戻る
-				self.trackKey = [self.playList count] - 1;
-			}else {
-				self.trackKey = i - 1;
+	
+	//favolites編集で個数が変わった場合
+	if (currentKey >= [self.playList count]) {
+		//playListの最後に戻る
+		self.trackKey = [self.playList count] - 1;
+	}else {
+		for (int i = 0; i <[self.playList count]; i++ ) {
+			
+			if (i == currentKey) {
+				if (i == 0) {
+					//playListの最後に戻る
+					self.trackKey = [self.playList count] - 1;
+				}else {
+					self.trackKey = i - 1;
+				}
+				
 			}
-
 		}
 	}
+
 	//slideBar
 	progressSlider.value = 0;
 	
@@ -148,16 +155,23 @@
 
 	int currentKey = self.trackKey;
 
-	for (int i = 0; i <[self.playList count]; i++ ) {
-		
-		if (i == currentKey) {
-			if (i != [self.playList count] - 1) {
-				self.trackKey = i + 1;
-			}else {
-				self.trackKey = 0;				
+	//favolites編集で個数が変わった場合
+	if (currentKey >= [self.playList count]) {
+		//playListの最初に戻る
+		self.trackKey = 0;
+	}else {
+		for (int i = 0; i <[self.playList count]; i++ ) {
+			
+			if (i == currentKey) {
+				if (i != [self.playList count] - 1) {
+					self.trackKey = i + 1;
+				}else {
+					self.trackKey = 0;				
+				}
 			}
-		}
+		}	
 	}	
+	
 	//slideBar
 	progressSlider.value = 0;
 	
