@@ -112,20 +112,19 @@
 	NSString *CellIdentifier = [NSString stringWithFormat:@"FavolitesCell_%d_%d",indexPath.section,indexPath.row];
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+	//削除や並び替えを即時反映させるためにセルを再利用しないで必ず作り直す
+    //if (cell == nil) {
+	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 		
-		MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
+	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
 
-		//cell.textLabel.text = [[self.playList objectAtIndex:indexPath.row] valueForKey:@"Title"];
-		//cell.detailTextLabel.text = [[self.playList objectAtIndex:indexPath.row] valueForKey:@"Artist"];
-		cell.textLabel.text = [[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"];
-		cell.detailTextLabel.text = [[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Artist"];
+	cell.textLabel.text = [[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"];
+	cell.detailTextLabel.text = [[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Artist"];
 
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		
-		//NSLog(@"rowsCount:%d indexpath.row:%d Title:%@",[delegate.favoliteList count],indexPath.row,[[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"]);
-    }
+	//NSLog(@"rowsCount:%d indexpath.row:%d Title:%@",[delegate.favoliteList count],indexPath.row,[[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"]);
+    //}
     
     // Configure the cell...
     
@@ -154,8 +153,8 @@
 		[delegate.favoliteList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
-		NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-		[defaults setObject:delegate.favoliteList forKey:@"favolites"];
+		//NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+		//[defaults setObject:delegate.favoliteList forKey:@"favolites"];
 		//[defaults setObject:self.playList forKey:@"favolites"];
 		//[defaults synchronize];
 		
@@ -180,8 +179,8 @@
 			[delegate.favoliteList insertObject:item atIndex:toIndexPath.row];
 			[item release];
 			//favolitesに保存
-			NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-			[defaults setObject:delegate.favoliteList forKey:@"favolites"];
+			//NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+			//[defaults setObject:delegate.favoliteList forKey:@"favolites"];
 			//[defaults synchronize];
 			
 		}

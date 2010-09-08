@@ -65,12 +65,13 @@
 		self.navigationItem.rightBarButtonItem.enabled = YES;
 	}
 
-	//Title
-	[self setMultilineTitleView];
 	
 	
 	if (self.stopPlayerWhenViewWillAppear) {
 		[self destroyStreamer];		
+		
+		//Title
+		[self setMultilineTitleView];
 		
 		//Image
 		self.imageView.image = nil;
@@ -85,7 +86,9 @@
 		[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
 		[self.streamer start];
 	}
+	
 	self.stopPlayerWhenViewWillAppear = NO;
+	
 	if (self.imageView.image == nil) {
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}
