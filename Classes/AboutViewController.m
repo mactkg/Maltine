@@ -12,6 +12,7 @@
 @implementation AboutViewController
 
 @synthesize lblVersion;
+@synthesize btnTomad;
 
 
 - (IBAction) btnItunesClicked{
@@ -27,6 +28,20 @@
 	NSString *stringURL = @"http://maltinerecords.cs8.biz/index.html";
 	NSURL *url = [NSURL URLWithString:stringURL];
 	[[UIApplication sharedApplication] openURL:url];
+	
+}
+
+- (IBAction) btnTomadClicked{
+	
+	NSArray* images = [NSArray arrayWithObjects:
+					   [UIImage imageNamed:@"tomad_01.png"],
+					   [UIImage imageNamed:@"tomad_02.png"],
+					   nil
+					   ];
+	self.btnTomad.imageView.animationImages = images;
+	self.btnTomad.imageView.animationDuration = 0.2f;
+	self.btnTomad.imageView.animationRepeatCount = 5;
+	[self.btnTomad.imageView startAnimating];
 	
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11019A69122AE59E00F322BB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11019A68122AE59E00F322BB /* MediaPlayer.framework */; };
+		1102D068123A234F00591557 /* tomad_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D066123A234F00591557 /* tomad_01.png */; };
+		1102D069123A234F00591557 /* tomad_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D067123A234F00591557 /* tomad_02.png */; };
 		1144F94A121AEBDA0037FE71 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F948121AEBDA0037FE71 /* NewsViewController.m */; };
 		1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F949121AEBDA0037FE71 /* NewsViewController.xib */; };
 		1144F94F121AEBEE0037FE71 /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		11019A68122AE59E00F322BB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1102D066123A234F00591557 /* tomad_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_01.png; sourceTree = "<group>"; };
+		1102D067123A234F00591557 /* tomad_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_02.png; sourceTree = "<group>"; };
 		1144F947121AEBDA0037FE71 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		1144F948121AEBDA0037FE71 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		1144F949121AEBDA0037FE71 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1102D066123A234F00591557 /* tomad_01.png */,
+				1102D067123A234F00591557 /* tomad_02.png */,
 				11D6DE2A123665C300017E7B /* Localizable.strings */,
 				11FBF454122DC83100D2F9CC /* mp3.png */,
 				11FBF438122D9DE400D2F9CC /* maru50_image.png */,
@@ -406,6 +412,8 @@
 				11FBF46C122E3E8A00D2F9CC /* 120-headphones.png in Resources */,
 				11FBF47A122E40AA00D2F9CC /* icon3030_46.png in Resources */,
 				11D6DE2B123665C300017E7B /* Localizable.strings in Resources */,
+				1102D068123A234F00591557 /* tomad_01.png in Resources */,
+				1102D069123A234F00591557 /* tomad_02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
