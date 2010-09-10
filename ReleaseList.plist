@@ -236,7 +236,7 @@
 			<key>Title</key>
 			<string>みんなのうたりん</string>
 			<key>Image</key>
-			<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76.jpg</string>
+			<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 		</dict>
 		<key>PlayList</key>
 		<array>
@@ -248,7 +248,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 01.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -260,7 +260,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 02.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -272,7 +272,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 03.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -284,7 +284,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 04.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -296,7 +296,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 05.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -308,7 +308,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 06.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -320,7 +320,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 07.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -332,7 +332,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru76/maru76 08.mp3</string>
 				<key>Image</key>
-				<string>http://mimimi.荒川智則.jp/jacket.png</string>
+				<string>http://mimimi.xn--fdr45z90g374a.jp/jacket.png</string>
 				<key>AlbumTitle</key>
 				<string>みんなのうたりん</string>
 			</dict>
@@ -1240,7 +1240,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/01.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
@@ -1252,7 +1252,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/02.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
@@ -1264,7 +1264,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/03.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
@@ -1276,7 +1276,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/04.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
@@ -1288,7 +1288,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/05.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
@@ -1300,7 +1300,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/06.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
@@ -1312,7 +1312,7 @@
 				<key>Url</key>
 				<string>http://maltine.b11.coreserver.jp/iphone/128/maru62/07.mp3</string>
 				<key>Image</key>
-				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62.jpg</string>
+				<string>http://maltinerecords.cs8.biz/mp3/maru62/maru62_D_is_for_dance.jpg</string>
 				<key>AlbumTitle</key>
 				<string>D is for DANCE</string>
 			</dict>
