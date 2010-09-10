@@ -24,8 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
 	
-	static NSString* releaseListUrlString = @"http://viriviri.sakura.ne.jp/tmp/ReleaseList.plist";
-	static NSString* newsUrlString = @"http://viriviri.sakura.ne.jp/tmp/News.plist";
+	static NSString* releaseListUrlString = @"http://maltine.b11.coreserver.jp/iphone/ReleaseList.plist";
+	static NSString* newsUrlString = @"http://maltine.b11.coreserver.jp/iphone/News.plist";
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     // Override point for customization after application launch.
