@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-
-@interface AboutViewController : UIViewController {
+@interface AboutViewController : UIViewController<AVAudioPlayerDelegate> {
 
 	IBOutlet UILabel* lblVersion;
 	IBOutlet UIButton* btnTomad;
-	
+	AVAudioPlayer* avap;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* lblVersion;

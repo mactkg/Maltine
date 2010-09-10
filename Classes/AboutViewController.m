@@ -33,14 +33,7 @@
 
 - (IBAction) btnTomadClicked{
 	
-	NSArray* images = [NSArray arrayWithObjects:
-					   [UIImage imageNamed:@"tomad_01.png"],
-					   [UIImage imageNamed:@"tomad_02.png"],
-					   nil
-					   ];
-	self.btnTomad.imageView.animationImages = images;
-	self.btnTomad.imageView.animationDuration = 0.2f;
-	self.btnTomad.imageView.animationRepeatCount = 5;
+	[avap play];	
 	[self.btnTomad.imageView startAnimating];
 	
 }
@@ -62,6 +55,24 @@
 	
 	NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 	self.lblVersion.text = version;
+	
+	NSBundle* bundle = [NSBundle mainBundle];
+	NSString* path = [bundle pathForResource:@"epoch" ofType:@"caf"];
+	
+	NSURL* url = [NSURL fileURLWithPath:path];
+	avap = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+	avap.delegate = self;
+	[avap prepareToPlay];	
+	
+	NSArray* images = [NSArray arrayWithObjects:
+					   [UIImage imageNamed:@"tomad_01.png"],
+					   [UIImage imageNamed:@"tomad_02.png"],
+					   nil
+					   ];
+	self.btnTomad.imageView.animationImages = images;
+	self.btnTomad.imageView.animationDuration = 0.2f;
+	self.btnTomad.imageView.animationRepeatCount = 8;
+	//[images release];
 	
 }
 

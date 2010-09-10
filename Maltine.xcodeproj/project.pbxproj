@@ -10,6 +10,7 @@
 		11019A69122AE59E00F322BB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11019A68122AE59E00F322BB /* MediaPlayer.framework */; };
 		1102D068123A234F00591557 /* tomad_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D066123A234F00591557 /* tomad_01.png */; };
 		1102D069123A234F00591557 /* tomad_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D067123A234F00591557 /* tomad_02.png */; };
+		1102D0A4123A494800591557 /* epoch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1102D0A3123A494800591557 /* epoch.caf */; };
 		1144F94A121AEBDA0037FE71 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F948121AEBDA0037FE71 /* NewsViewController.m */; };
 		1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F949121AEBDA0037FE71 /* NewsViewController.xib */; };
 		1144F94F121AEBEE0037FE71 /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */; };
@@ -62,6 +63,7 @@
 		11019A68122AE59E00F322BB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1102D066123A234F00591557 /* tomad_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_01.png; sourceTree = "<group>"; };
 		1102D067123A234F00591557 /* tomad_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_02.png; sourceTree = "<group>"; };
+		1102D0A3123A494800591557 /* epoch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = epoch.caf; sourceTree = "<group>"; };
 		1144F947121AEBDA0037FE71 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		1144F948121AEBDA0037FE71 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		1144F949121AEBDA0037FE71 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
@@ -164,6 +166,25 @@
 				11EC5E49121FB20300F3DE68 /* MultilineTitleView */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		1102D0A6123A495200591557 /* tomad */ = {
+			isa = PBXGroup;
+			children = (
+				1102D0A3123A494800591557 /* epoch.caf */,
+				1102D066123A234F00591557 /* tomad_01.png */,
+				1102D067123A234F00591557 /* tomad_02.png */,
+			);
+			name = tomad;
+			sourceTree = "<group>";
+		};
+		1102D0A7123A496200591557 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				11FBF454122DC83100D2F9CC /* mp3.png */,
+				11FBF438122D9DE400D2F9CC /* maru50_image.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		1144F93D121AE9050037FE71 /* NewsViewController */ = {
@@ -309,12 +330,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1102D066123A234F00591557 /* tomad_01.png */,
-				1102D067123A234F00591557 /* tomad_02.png */,
-				11D6DE2A123665C300017E7B /* Localizable.strings */,
-				11FBF454122DC83100D2F9CC /* mp3.png */,
-				11FBF438122D9DE400D2F9CC /* maru50_image.png */,
+				1102D0A7123A496200591557 /* images */,
 				1144FB77121E96240037FE71 /* icons */,
+				1102D0A6123A495200591557 /* tomad */,
+				11D6DE2A123665C300017E7B /* Localizable.strings */,
 				8D1107310486CEB800E47090 /* Maltine-Info.plist */,
 				1144F971121AF64B0037FE71 /* ReleaseList.plist */,
 				1144FA2C121D2DB40037FE71 /* News.plist */,
@@ -414,6 +433,7 @@
 				11D6DE2B123665C300017E7B /* Localizable.strings in Resources */,
 				1102D068123A234F00591557 /* tomad_01.png in Resources */,
 				1102D069123A234F00591557 /* tomad_02.png in Resources */,
+				1102D0A4123A494800591557 /* epoch.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
