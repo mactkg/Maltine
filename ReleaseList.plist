@@ -6,6 +6,182 @@
 		<key>AlbumInfo</key>
 		<dict>
 			<key>Number</key>
+			<string>MARU-080</string>
+			<key>Artist</key>
+			<string>Syem</string>
+			<key>Title</key>
+			<string>RIOT ON THE GRILL</string>
+			<key>Image</key>
+			<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/maru80.jpg</string>
+		</dict>
+		<key>PlayList</key>
+		<array>
+			<dict>
+				<key>Artist</key>
+				<string>Syem</string>
+				<key>Title</key>
+				<string>Lil Mother Fucker</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/01.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru80/maru80.jpg</string>
+				<key>AlbumTitle</key>
+				<string>RIOT ON THE GRILL</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>fuse</string>
+				<key>Artist</key>
+				<string>Syem</string>
+				<key>AlbumTitle</key>
+				<string>RIOT ON THE GRILL</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/02.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru80/maru80.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>getto10</string>
+				<key>Artist</key>
+				<string>Syem</string>
+				<key>AlbumTitle</key>
+				<string>RIOT ON THE GRILL</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/03.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru80/maru80.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>greem</string>
+				<key>Artist</key>
+				<string>Syem</string>
+				<key>AlbumTitle</key>
+				<string>RIOT ON THE GRILL</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/04.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru80/maru80.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Hi</string>
+				<key>Artist</key>
+				<string>Syem</string>
+				<key>AlbumTitle</key>
+				<string>RIOT ON THE GRILL</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/05.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru80/maru80.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Missing</string>
+				<key>Artist</key>
+				<string>Syem</string>
+				<key>AlbumTitle</key>
+				<string>RIOT ON THE GRILL</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru80/06.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru80/maru80.jpg</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>AlbumInfo</key>
+		<dict>
+			<key>Number</key>
+			<string>MARU-079</string>
+			<key>Artist</key>
+			<string>909state</string>
+			<key>Title</key>
+			<string>6tracks(forMirai)</string>
+			<key>Image</key>
+			<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/maru79.jpg</string>
+		</dict>
+		<key>PlayList</key>
+		<array>
+			<dict>
+				<key>Artist</key>
+				<string>909state</string>
+				<key>Title</key>
+				<string>wave rider</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/01.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru79/maru79.jpg</string>
+				<key>AlbumTitle</key>
+				<string>6tracks(forMirai)</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>wave shooter</string>
+				<key>Artist</key>
+				<string>909state</string>
+				<key>AlbumTitle</key>
+				<string>6tracks(forMirai)</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/02.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru79/maru79.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>Fluorescent pink</string>
+				<key>Artist</key>
+				<string>909state</string>
+				<key>AlbumTitle</key>
+				<string>6tracks(forMirai)</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/03.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru79/maru79.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>ジョンスミス</string>
+				<key>Artist</key>
+				<string>909state</string>
+				<key>AlbumTitle</key>
+				<string>6tracks(forMirai)</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/04.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru79/maru79.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>spillover no.9</string>
+				<key>Artist</key>
+				<string>909state</string>
+				<key>AlbumTitle</key>
+				<string>6tracks(forMirai)</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/05.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru79/maru79.jpg</string>
+			</dict>
+			<dict>
+				<key>Title</key>
+				<string>半殺しガール</string>
+				<key>Artist</key>
+				<string>909state</string>
+				<key>AlbumTitle</key>
+				<string>6tracks(forMirai)</string>
+				<key>Url</key>
+				<string>http://maltine.b11.coreserver.jp/iphone/128/maru79/06.mp3</string>
+				<key>Image</key>
+				<string>http://cs8.s140.coreserver.jp/tai/maru79/maru79.jpg</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>AlbumInfo</key>
+		<dict>
+			<key>Number</key>
 			<string>MARU-078</string>
 			<key>Artist</key>
 			<string>Silvanian Families</string>

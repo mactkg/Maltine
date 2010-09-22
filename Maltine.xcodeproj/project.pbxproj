@@ -11,13 +11,13 @@
 		1102D068123A234F00591557 /* tomad_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D066123A234F00591557 /* tomad_01.png */; };
 		1102D069123A234F00591557 /* tomad_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D067123A234F00591557 /* tomad_02.png */; };
 		1102D0A4123A494800591557 /* epoch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1102D0A3123A494800591557 /* epoch.caf */; };
+		11077BF512499DBF00D9DBB8 /* ReleaseList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11077BF412499DBF00D9DBB8 /* ReleaseList.plist */; };
 		1144F94A121AEBDA0037FE71 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F948121AEBDA0037FE71 /* NewsViewController.m */; };
 		1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F949121AEBDA0037FE71 /* NewsViewController.xib */; };
 		1144F94F121AEBEE0037FE71 /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */; };
 		1144F950121AEBEE0037FE71 /* ReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F94E121AEBEE0037FE71 /* ReleaseViewController.xib */; };
 		1144F954121AEC0C0037FE71 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F952121AEC0C0037FE71 /* FavoritesViewController.m */; };
 		1144F955121AEC0C0037FE71 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F953121AEC0C0037FE71 /* FavoritesViewController.xib */; };
-		1144F972121AF64B0037FE71 /* ReleaseList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1144F971121AF64B0037FE71 /* ReleaseList.plist */; };
 		1144F9D5121D053C0037FE71 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F9D3121D053C0037FE71 /* AlbumViewController.m */; };
 		1144F9D6121D053C0037FE71 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F9D4121D053C0037FE71 /* AlbumViewController.xib */; };
 		1144FA2D121D2DB40037FE71 /* News.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1144FA2C121D2DB40037FE71 /* News.plist */; };
@@ -29,6 +29,11 @@
 		1144FAF9121E74FE0037FE71 /* playback_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 1144FAF5121E74FE0037FE71 /* playback_play.png */; };
 		1144FAFA121E74FE0037FE71 /* playback_prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 1144FAF6121E74FE0037FE71 /* playback_prev.png */; };
 		1144FB8E121E9F1D0037FE71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1144FB8D121E9F1D0037FE71 /* AVFoundation.framework */; };
+		1161CBB21244A6C200739CB3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB01244A6C200739CB3 /* Default.png */; };
+		1161CBB31244A6C200739CB3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB11244A6C200739CB3 /* Default@2x.png */; };
+		1161CBB71244A72800739CB3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB41244A72800739CB3 /* Icon-72.png */; };
+		1161CBB81244A72800739CB3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB51244A72800739CB3 /* Icon.png */; };
+		1161CBB91244A72800739CB3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB61244A72800739CB3 /* Icon@2x.png */; };
 		11B9C718121EEF0F008ED520 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B9C717121EEF0F008ED520 /* AudioStreamer.m */; };
 		11B9C725121EEF64008ED520 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C724121EEF64008ED520 /* AudioToolbox.framework */; };
 		11B9C75E121EEFF1008ED520 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C75D121EEFF1008ED520 /* CFNetwork.framework */; };
@@ -64,6 +69,7 @@
 		1102D066123A234F00591557 /* tomad_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_01.png; sourceTree = "<group>"; };
 		1102D067123A234F00591557 /* tomad_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_02.png; sourceTree = "<group>"; };
 		1102D0A3123A494800591557 /* epoch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = epoch.caf; sourceTree = "<group>"; };
+		11077BF412499DBF00D9DBB8 /* ReleaseList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReleaseList.plist; sourceTree = "<group>"; };
 		1144F947121AEBDA0037FE71 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		1144F948121AEBDA0037FE71 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		1144F949121AEBDA0037FE71 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
@@ -73,7 +79,6 @@
 		1144F951121AEC0C0037FE71 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		1144F952121AEC0C0037FE71 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		1144F953121AEC0C0037FE71 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
-		1144F971121AF64B0037FE71 /* ReleaseList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReleaseList.plist; sourceTree = "<group>"; };
 		1144F9D2121D053C0037FE71 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
 		1144F9D3121D053C0037FE71 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		1144F9D4121D053C0037FE71 /* AlbumViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
@@ -88,6 +93,11 @@
 		1144FAF5121E74FE0037FE71 /* playback_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_play.png; sourceTree = "<group>"; };
 		1144FAF6121E74FE0037FE71 /* playback_prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playback_prev.png; sourceTree = "<group>"; };
 		1144FB8D121E9F1D0037FE71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1161CBB01244A6C200739CB3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1161CBB11244A6C200739CB3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1161CBB41244A72800739CB3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		1161CBB51244A72800739CB3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		1161CBB61244A72800739CB3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		11B9C716121EEF0F008ED520 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		11B9C717121EEF0F008ED520 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		11B9C724121EEF64008ED520 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -181,6 +191,8 @@
 		1102D0A7123A496200591557 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1161CBB01244A6C200739CB3 /* Default.png */,
+				1161CBB11244A6C200739CB3 /* Default@2x.png */,
 				11FBF454122DC83100D2F9CC /* mp3.png */,
 				11FBF438122D9DE400D2F9CC /* maru50_image.png */,
 			);
@@ -252,6 +264,9 @@
 		1144FB77121E96240037FE71 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				1161CBB41244A72800739CB3 /* Icon-72.png */,
+				1161CBB51244A72800739CB3 /* Icon.png */,
+				1161CBB61244A72800739CB3 /* Icon@2x.png */,
 				11FBF479122E40AA00D2F9CC /* icon3030_46.png */,
 				11EC607F122129E300F3DE68 /* dummy.png */,
 				11FBF46B122E3E8A00D2F9CC /* 120-headphones.png */,
@@ -335,7 +350,7 @@
 				1102D0A6123A495200591557 /* tomad */,
 				11D6DE2A123665C300017E7B /* Localizable.strings */,
 				8D1107310486CEB800E47090 /* Maltine-Info.plist */,
-				1144F971121AF64B0037FE71 /* ReleaseList.plist */,
+				11077BF412499DBF00D9DBB8 /* ReleaseList.plist */,
 				1144FA2C121D2DB40037FE71 /* News.plist */,
 			);
 			name = Resources;
@@ -409,7 +424,6 @@
 				1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */,
 				1144F950121AEBEE0037FE71 /* ReleaseViewController.xib in Resources */,
 				1144F955121AEC0C0037FE71 /* FavoritesViewController.xib in Resources */,
-				1144F972121AF64B0037FE71 /* ReleaseList.plist in Resources */,
 				1144F9D6121D053C0037FE71 /* AlbumViewController.xib in Resources */,
 				1144FA2D121D2DB40037FE71 /* News.plist in Resources */,
 				1144FAEA121E6AA20037FE71 /* PlayerViewController.xib in Resources */,
@@ -434,6 +448,12 @@
 				1102D068123A234F00591557 /* tomad_01.png in Resources */,
 				1102D069123A234F00591557 /* tomad_02.png in Resources */,
 				1102D0A4123A494800591557 /* epoch.caf in Resources */,
+				1161CBB21244A6C200739CB3 /* Default.png in Resources */,
+				1161CBB31244A6C200739CB3 /* Default@2x.png in Resources */,
+				1161CBB71244A72800739CB3 /* Icon-72.png in Resources */,
+				1161CBB81244A72800739CB3 /* Icon.png in Resources */,
+				1161CBB91244A72800739CB3 /* Icon@2x.png in Resources */,
+				11077BF512499DBF00D9DBB8 /* ReleaseList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +504,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		11C892761249116300F9FA82 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B90749A9-7C39-4F8B-9F25-1565707677C4";
+				SDKROOT = iphoneos4.1;
+			};
+			name = "App Store";
+		};
+		11C892771249116300F9FA82 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
+				INFOPLIST_FILE = "Maltine-Info.plist";
+				PRODUCT_NAME = Maltine;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B90749A9-7C39-4F8B-9F25-1565707677C4";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "App Store";
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -520,6 +571,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
@@ -546,6 +598,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				11C892771249116300F9FA82 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -555,6 +608,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				11C892761249116300F9FA82 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
