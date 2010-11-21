@@ -21,9 +21,15 @@
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	self.releaseList = delegate.releaseList;
+
+	UIBarButtonItem* btnShuffle = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Shuffle",nil)
+																   style:UIBarButtonItemStyleBordered
+																  target:self
+																  action:@selector(btnShuffleClicked)];			
+	self.navigationItem.leftBarButtonItem = btnShuffle;		
+	[btnShuffle release];
 	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
 }
 
 
@@ -43,10 +49,23 @@
 	
 }
 
+#pragma mark -
+#pragma mark button events
 - (void) btnPlayingClicked{
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	[self.navigationController pushViewController:delegate.player animated:YES];	
+	
+}
+
+-(void) btnShuffleClicked{
+	
+	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
+	delegate.player.isShufflePlayer = YES;
+	delegate.player.isFavolitesPlayer = NO;
+	delegate.player.stopPlayerWhenViewWillAppear = YES;
+	delegate.player.hidesBottomBarWhenPushed = YES;
+	[self.navigationController pushViewController:delegate.player animated:YES];
 	
 }
 

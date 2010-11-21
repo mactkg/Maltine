@@ -20,7 +20,6 @@
 	NSDictionary *news;
 	PlayerViewController* player;
 	NSMutableArray *favoliteList;
-	//NSArray *favoliteList;
 	
 }
 
@@ -30,5 +29,5 @@
 @property (nonatomic, retain) NSDictionary *news;
 @property (nonatomic, retain) PlayerViewController* player;
 @property (retain) NSMutableArray* favoliteList;
-//@property (nonatomic, retain) NSArray* favoliteList;
+
 @end

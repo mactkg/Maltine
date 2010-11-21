@@ -20,6 +20,7 @@
 @synthesize informationView;
 @synthesize volumeSlider;
 @synthesize isFavolitesPlayer;
+@synthesize isShufflePlayer;
 @synthesize streamer;
 @synthesize stopPlayerWhenViewWillAppear;
 
@@ -32,8 +33,8 @@
     return self;
 }
 */
-
-
+#pragma mark -
+#pragma mark view lifecycle
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,11 +65,13 @@
 	}else {
 		self.navigationItem.rightBarButtonItem.enabled = YES;
 	}
-
-	
 	
 	if (self.stopPlayerWhenViewWillAppear) {
 		[self destroyStreamer];		
+
+		if (isShufflePlayer) {
+			[self shuffle];
+		}		
 		
 		//Title
 		[self setMultilineTitleView];
@@ -96,6 +99,8 @@
 	
 }	
 
+#pragma mark -
+#pragma mark button events
 
 - (IBAction) btnPauseClicked{
 	if ([streamer isIdle]) {
@@ -111,23 +116,27 @@
 		[self destroyStreamer];
 	}
 	
-	int currentKey = self.trackKey;
-	
-	//favolites編集で個数が変わった場合
-	if (currentKey >= [self.playList count]) {
-		//playListの最後に戻る
-		self.trackKey = [self.playList count] - 1;
+	if (isShufflePlayer) {
+		[self shuffle];
 	}else {
-		for (int i = 0; i <[self.playList count]; i++ ) {
-			
-			if (i == currentKey) {
-				if (i == 0) {
-					//playListの最後に戻る
-					self.trackKey = [self.playList count] - 1;
-				}else {
-					self.trackKey = i - 1;
-				}
+		int currentKey = self.trackKey;
+		
+		//favolites編集で個数が変わった場合
+		if (currentKey >= [self.playList count]) {
+			//playListの最後に戻る
+			self.trackKey = [self.playList count] - 1;
+		}else {
+			for (int i = 0; i <[self.playList count]; i++ ) {
 				
+				if (i == currentKey) {
+					if (i == 0) {
+						//playListの最後に戻る
+						self.trackKey = [self.playList count] - 1;
+					}else {
+						self.trackKey = i - 1;
+					}
+					
+				}
 			}
 		}
 	}
@@ -139,7 +148,7 @@
 	[self setMultilineTitleView];
 	
 	//image
-	if (isFavolitesPlayer) {		
+	if (isFavolitesPlayer||isShufflePlayer) {
 		self.imageView.image = nil;		
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}
@@ -151,45 +160,6 @@
 	
 }
 
-- (void) playNext {
-
-	int currentKey = self.trackKey;
-
-	//favolites編集で個数が変わった場合
-	if (currentKey >= [self.playList count]) {
-		//playListの最初に戻る
-		self.trackKey = 0;
-	}else {
-		for (int i = 0; i <[self.playList count]; i++ ) {
-			
-			if (i == currentKey) {
-				if (i != [self.playList count] - 1) {
-					self.trackKey = i + 1;
-				}else {
-					self.trackKey = 0;				
-				}
-			}
-		}	
-	}	
-	
-	//slideBar
-	progressSlider.value = 0;
-	
-	//title
-	[self setMultilineTitleView];
-	
-	//image
-	if (isFavolitesPlayer) {		
-		self.imageView.image = nil;		
-		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
-	}
-	
-	
-	//Stream
-	[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
-	[self.streamer start];
-
-}
 - (IBAction) btnNextClicked{
 	
 	if ([streamer isPlaying]||[streamer isPaused]) {
@@ -197,7 +167,7 @@
 	}
 	
 	[self playNext];
-
+	
 	
 }
 
@@ -215,28 +185,72 @@
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-
+	
 	//add to favolites
 	if (buttonIndex == 0) {
 		
 		MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 		[delegate.favoliteList addObject:[self.playList objectAtIndex:self.trackKey]];
-
 		
-		/*
-		 NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-		 NSMutableArray* favolites = [NSMutableArray arrayWithArray:[defaults objectForKey:@"favolites"]];
-		 
-		 //favが存在しない場合
-		 if (favolites == nil) {
-			 favolites = [[NSMutableArray alloc] init];		
-		 }
-		 
-		[favolites addObject:[self.playList objectAtIndex:self.trackKey]];
-		[defaults setObject:favolites forKey:@"favolites"];
-		//[defaults synchronize];
-		*/
 	}
+	
+}
+
+#pragma mark -
+#pragma mark utility
+
+- (void) shuffle {
+	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
+	
+	NSUInteger randomIndex = rand() % [delegate.releaseList count];
+	self.playList = [[delegate.releaseList objectAtIndex:randomIndex] valueForKey:@"PlayList"];
+	
+	self.trackKey = rand() % [self.playList count];
+	
+}
+
+- (void) playNext {
+
+	
+	if (isShufflePlayer) {
+		[self shuffle];
+	}else {
+		int currentKey = self.trackKey;
+		
+		//favolites編集で個数が変わった場合
+		if (currentKey >= [self.playList count]) {
+			//playListの最初に戻る
+			self.trackKey = 0;
+		}else {
+			for (int i = 0; i <[self.playList count]; i++ ) {
+				
+				if (i == currentKey) {
+					if (i != [self.playList count] - 1) {
+						self.trackKey = i + 1;
+					}else {
+						self.trackKey = 0;				
+					}
+				}
+			}	
+		}	
+	}
+
+	//slideBar
+	progressSlider.value = 0;
+	
+	//title
+	[self setMultilineTitleView];
+	
+	//image
+	if (isFavolitesPlayer||isShufflePlayer) {		
+		self.imageView.image = nil;		
+		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
+	}
+	
+	
+	//Stream
+	[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
+	[self.streamer start];
 
 }
 
@@ -319,6 +333,8 @@
 	
 }
 
+#pragma mark -
+#pragma mark streamer
 
 - (void)destroyStreamer
 {
@@ -470,6 +486,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+#pragma mark -
+#pragma mark memory management
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

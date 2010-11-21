@@ -33,6 +33,7 @@
 	AudioStreamer *streamer;
 	NSTimer *progressUpdateTimer;
 	BOOL isFavolitesPlayer;
+	BOOL isShufflePlayer;
 	BOOL stopPlayerWhenViewWillAppear;
 	
 }
@@ -47,6 +48,7 @@
 @property (nonatomic, retain) UIView* volumeSlider;
 @property (nonatomic, retain) AudioStreamer* streamer;
 @property BOOL isFavolitesPlayer;
+@property BOOL isShufflePlayer;
 @property BOOL stopPlayerWhenViewWillAppear;
 
 - (IBAction) btnPauseClicked;
@@ -63,5 +65,6 @@
 - (void) destroyStreamer;
 - (void) setMultilineTitleView;
 - (void) playNext;
+- (void) shuffle;
 
 @end

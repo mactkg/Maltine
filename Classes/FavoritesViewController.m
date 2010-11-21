@@ -208,6 +208,7 @@
 	delegate.player.trackKey = indexPath.row;
 	delegate.player.playList = delegate.favoliteList;
 	delegate.player.isFavolitesPlayer = YES;
+	delegate.player.isShufflePlayer = NO;
 	delegate.player.stopPlayerWhenViewWillAppear = YES;
 	delegate.player.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:delegate.player animated:YES];

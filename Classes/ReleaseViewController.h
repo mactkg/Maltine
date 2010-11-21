@@ -17,4 +17,5 @@
 }
 @property (nonatomic,retain) NSArray* releaseList;
 - (void) btnPlayingClicked;
+- (void) btnShuffleClicked;
 @end

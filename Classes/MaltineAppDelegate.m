@@ -26,21 +26,10 @@
 	
 	static NSString* releaseListUrlString = @"http://maltine.b11.coreserver.jp/iphone/ReleaseList.plist";
 	static NSString* newsUrlString = @"http://maltine.b11.coreserver.jp/iphone/News.plist";
-	//static NSString* releaseListUrlString = @"http://viriviri.sakura.ne.jp/tmp/ReleaseList.plist";
-	//static NSString* newsUrlString = @"http://viriviri.sakura.ne.jp/tmp/News.plist";
 	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    // Override point for customization after application launch.
-	
-	//NSBundle* bundle = [NSBundle mainBundle];
-	//NSString* path = [bundle pathForResource:@"ReleaseList" ofType:@"plist"];
-	//self.releaseList = [NSDictionary dictionaryWithContentsOfFile:path];
 		
 	NSURL* releaseListUrl = [[NSURL alloc] initWithString:releaseListUrlString];
 	self.releaseList = [NSArray arrayWithContentsOfURL:releaseListUrl];
-
-	//NSString* path = [bundle pathForResource:@"News" ofType:@"plist"];
-	//self.news = [NSDictionary dictionaryWithContentsOfFile:path];
 		
 	NSURL* newsUrl = [[NSURL alloc] initWithString:newsUrlString];
 	self.news = [NSDictionary dictionaryWithContentsOfURL:newsUrl];
@@ -55,10 +44,6 @@
 		self.favoliteList = [[NSMutableArray alloc] init];		
 	}
 	
-	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	
-    // Add the tab bar controller's view to the window and display.	
     [window addSubview:tabBarController.view];
     [window makeKeyAndVisible];
 
