@@ -51,7 +51,7 @@
 	
 	[btnFav release];
 	
-	
+	srand((unsigned) time(NULL));
 }
 
 - (void) viewWillAppear:(BOOL)animated{
