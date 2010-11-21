@@ -34,6 +34,8 @@
 		1161CBB71244A72800739CB3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB41244A72800739CB3 /* Icon-72.png */; };
 		1161CBB81244A72800739CB3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB51244A72800739CB3 /* Icon.png */; };
 		1161CBB91244A72800739CB3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1161CBB61244A72800739CB3 /* Icon@2x.png */; };
+		118041181299448300EC20A1 /* ipod_shuffle_right_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 118041171299448300EC20A1 /* ipod_shuffle_right_white.png */; };
+		1180411C1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */; };
 		11B9C718121EEF0F008ED520 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B9C717121EEF0F008ED520 /* AudioStreamer.m */; };
 		11B9C725121EEF64008ED520 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C724121EEF64008ED520 /* AudioToolbox.framework */; };
 		11B9C75E121EEFF1008ED520 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C75D121EEFF1008ED520 /* CFNetwork.framework */; };
@@ -98,6 +100,8 @@
 		1161CBB41244A72800739CB3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		1161CBB51244A72800739CB3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		1161CBB61244A72800739CB3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		118041171299448300EC20A1 /* ipod_shuffle_right_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipod_shuffle_right_white.png; sourceTree = "<group>"; };
+		1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipod_shuffle_right_white@2x.png"; sourceTree = "<group>"; };
 		11B9C716121EEF0F008ED520 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		11B9C717121EEF0F008ED520 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		11B9C724121EEF64008ED520 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -264,6 +268,8 @@
 		1144FB77121E96240037FE71 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				118041171299448300EC20A1 /* ipod_shuffle_right_white.png */,
+				1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */,
 				1161CBB41244A72800739CB3 /* Icon-72.png */,
 				1161CBB51244A72800739CB3 /* Icon.png */,
 				1161CBB61244A72800739CB3 /* Icon@2x.png */,
@@ -454,6 +460,8 @@
 				1161CBB81244A72800739CB3 /* Icon.png in Resources */,
 				1161CBB91244A72800739CB3 /* Icon@2x.png in Resources */,
 				11077BF512499DBF00D9DBB8 /* ReleaseList.plist in Resources */,
+				118041181299448300EC20A1 /* ipod_shuffle_right_white.png in Resources */,
+				1180411C1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,12 +21,12 @@
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	self.releaseList = delegate.releaseList;
-
-	UIBarButtonItem* btnShuffle = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Shuffle",nil)
+	 
+	UIBarButtonItem* btnShuffle = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ipod_shuffle_right_white.png"]
 																   style:UIBarButtonItemStyleBordered
 																  target:self
-																  action:@selector(btnShuffleClicked)];			
-	self.navigationItem.leftBarButtonItem = btnShuffle;		
+																  action:@selector(btnShuffleClicked)];
+	self.navigationItem.leftBarButtonItem = btnShuffle;
 	[btnShuffle release];
 	
 	
