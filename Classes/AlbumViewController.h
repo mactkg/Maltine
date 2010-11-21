@@ -11,7 +11,7 @@
 #import "MultilineTitleView.h"
 #import "AlbumTableViewCell.h"
 
-@interface AlbumViewController : UITableViewController {
+@interface AlbumViewController : UITableViewController<UIActionSheetDelegate> {
 
 	NSDictionary* albumInfo; 
 	NSArray* playList;

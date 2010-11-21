@@ -14,6 +14,7 @@
 	IBOutlet UILabel* lblMaru;
 	IBOutlet UILabel* lblAlbumTitle;
 	IBOutlet UILabel* lblAlbumArtist;
+	IBOutlet UIButton* btnAddFavolites;
 	IBOutlet UIAsyncImageView* albumImage;
 }
 
@@ -21,5 +22,6 @@
 @property (nonatomic,retain) IBOutlet UILabel* lblAlbumTitle;
 @property (nonatomic,retain) IBOutlet UILabel* lblAlbumArtist;
 @property (nonatomic,retain) IBOutlet UIAsyncImageView* albumImage;
+@property (nonatomic,retain) IBOutlet UIButton* btnAddFavolites;
 
 @end

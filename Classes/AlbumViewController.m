@@ -50,11 +50,40 @@
 	
 }
 
+#pragma mark -
+#pragma mark button events
 - (void) btnPlayingClicked{
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	[self.navigationController pushViewController:delegate.player animated:YES];	
 }
 
+- (void) btnAddFavolitesClicked{
+	
+	UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+															 delegate:self
+													cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+											   destructiveButtonTitle:nil
+													otherButtonTitles:NSLocalizedString(@"Add to Favolites",nil),nil];
+	
+	[actionSheet showInView:self.tabBarController.view];
+	[actionSheet release];
+	
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	
+	//add to favolites
+	if (buttonIndex == 0) {
+		
+		MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
+
+		for (int i = 0; i < [self.playList count]; i++) {
+			[delegate.favoliteList addObject:[self.playList objectAtIndex:i]];
+		}
+		
+	}
+}
+	
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -117,7 +146,8 @@
 			cell.lblAlbumTitle.text = [self.albumInfo valueForKey:@"Title"];
 			cell.lblAlbumArtist.text = [self.albumInfo valueForKey:@"Artist"];
 			cell.selectionStyle = UITableViewCellSelectionStyleNone;
-			[cell.albumImage loadImage:[self.albumInfo valueForKey:@"Image"]];				
+			[cell.albumImage loadImage:[self.albumInfo valueForKey:@"Image"]];
+			[cell.btnAddFavolites addTarget:self action:@selector(btnAddFavolitesClicked) forControlEvents:UIControlEventTouchUpInside];
 		}
 		return cell;
 		
