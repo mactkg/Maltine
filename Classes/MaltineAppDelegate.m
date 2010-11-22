@@ -7,7 +7,8 @@
 //
 
 #import "MaltineAppDelegate.h"
-
+#define URL_RELEASE @"http://maltine.b11.coreserver.jp/iphone/ReleaseList.plist"
+#define URL_NEWS @"http://maltine.b11.coreserver.jp/iphone/News.plist"
 
 @implementation MaltineAppDelegate
 
@@ -24,18 +25,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
 	
-	static NSString* releaseListUrlString = @"http://maltine.b11.coreserver.jp/iphone/ReleaseList.plist";
-	static NSString* newsUrlString = @"http://maltine.b11.coreserver.jp/iphone/News.plist";
-	
+	self.releaseList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_RELEASE]];
 		
-	NSURL* releaseListUrl = [[NSURL alloc] initWithString:releaseListUrlString];
-	self.releaseList = [NSArray arrayWithContentsOfURL:releaseListUrl];
-		
-	NSURL* newsUrl = [[NSURL alloc] initWithString:newsUrlString];
-	self.news = [NSDictionary dictionaryWithContentsOfURL:newsUrl];
+	self.news = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:URL_NEWS]];
 	
 	
-	self.player = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
+	PlayerViewController* controller =  [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
+	self.player = controller;
+	[controller release];
 	
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 	self.favoliteList = [NSMutableArray arrayWithArray:[defaults objectForKey:@"favolites"]];
@@ -75,6 +72,11 @@
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
+	
+	self.releaseList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_RELEASE]];
+	
+	self.news = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:URL_NEWS]];
+	
 }
 
 

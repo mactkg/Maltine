@@ -46,6 +46,7 @@
 		[btnPlaying release];
 		
 	}
+	[self.tableView reloadData];
 	
 }
 
