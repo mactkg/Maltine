@@ -72,11 +72,7 @@
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
-	
-	self.releaseList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_RELEASE]];
-	
-	self.news = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:URL_NEWS]];
-	
+		
 }
 
 
