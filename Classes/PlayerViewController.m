@@ -9,6 +9,7 @@
 #import "PlayerViewController.h"
 
 
+
 @implementation PlayerViewController
 @synthesize playList;
 @synthesize trackKey;
@@ -23,6 +24,7 @@
 @synthesize isShufflePlayer;
 @synthesize streamer;
 @synthesize stopPlayerWhenViewWillAppear;
+@synthesize twitterEngine;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -44,7 +46,7 @@
 	[volumeView sizeToFit];
 	
 	
-	UIBarButtonItem* btnFav = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+	UIBarButtonItem* btnFav = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 																			target:self
 																			action:@selector(btnFavClicked)];			
 	self.navigationItem.rightBarButtonItem = btnFav;
@@ -52,20 +54,17 @@
 	[btnFav release];
 	
 	srand((unsigned) time(NULL));
+	
+	self.twitterEngine = [[XAuthTwitterEngine alloc] initXAuthWithDelegate:self];
+	self.twitterEngine.consumerKey = kOAuthConsumerKey;
+	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
 	
 	[super viewWillAppear:animated];
 
-	
-	//Fav
-	if (isFavolitesPlayer) {
-		self.navigationItem.rightBarButtonItem.enabled = NO;
-	}else {
-		self.navigationItem.rightBarButtonItem.enabled = YES;
-	}
-	
+		
 	if (self.stopPlayerWhenViewWillAppear) {
 		[self destroyStreamer];		
 
@@ -173,11 +172,21 @@
 
 - (void) btnFavClicked{
 	
-	UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-															 delegate:self
-													cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
-											   destructiveButtonTitle:nil
-													otherButtonTitles:NSLocalizedString(@"Add to Favolites",nil),nil];
+	UIActionSheet* actionSheet;
+	if (isFavolitesPlayer) {
+		actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+												  delegate:self
+										 cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+									destructiveButtonTitle:nil
+										 otherButtonTitles:NSLocalizedString(@"Tweet",nil),nil];
+	}else {
+		actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+												  delegate:self
+										 cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+									destructiveButtonTitle:nil
+										 otherButtonTitles:NSLocalizedString(@"Add to Favolites",nil),NSLocalizedString(@"Tweet",nil),nil];
+	}
+
 	
 	[actionSheet showInView:self.tabBarController.view];
 	[actionSheet release];
@@ -186,13 +195,26 @@
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 	
-	//add to favolites
-	if (buttonIndex == 0) {
+	if (isFavolitesPlayer) {
+		if (buttonIndex == 0) {
+			[self tweet];
+		}
+	}else {
+		//add to favolites
+		if (buttonIndex == 0) {
+			
+			MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
+			[delegate.favoliteList addObject:[self.playList objectAtIndex:self.trackKey]];
+			
+		}
 		
-		MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
-		[delegate.favoliteList addObject:[self.playList objectAtIndex:self.trackKey]];
-		
+		//Tweet
+		if (buttonIndex == 1) {
+			[self tweet];
+		}
 	}
+
+	
 	
 }
 
@@ -332,6 +354,35 @@
 	[UIView commitAnimations];
 	
 }
+
+-(void)tweet{
+	
+	if ([self.twitterEngine isAuthorized]) {
+		//NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
+		NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+		NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+		
+		NSString* trackInfo = [NSString stringWithFormat:@"%@ - \"%@\"", artist, trackName];
+		NSString* message = [NSString stringWithFormat:@"Now playing: %@ #Maltine",trackInfo];
+		//NSLog(@"%@",message);
+		[self.twitterEngine sendUpdate:message];
+	}else{
+		
+		UIAlertViewQuick(@"エラー", @"Twitterアカウントを設定してください。", @"OK");
+		
+	}
+
+}
+
+#pragma mark -
+#pragma mark twitter delegate
+- (NSString *) cachedTwitterXAuthAccessTokenStringForUsername: (NSString *)username;
+{
+	NSString *accessTokenString = [[NSUserDefaults standardUserDefaults] objectForKey:kCachedXAuthAccessTokenStringKey];	
+	NSLog(@"About to return access token string: %@", accessTokenString);	
+	return accessTokenString;
+}
+
 
 #pragma mark -
 #pragma mark streamer

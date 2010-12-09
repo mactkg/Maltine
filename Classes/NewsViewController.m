@@ -26,10 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	news = delegate.news;
 	
-	newsTitle.text = [news valueForKey:@"Title"];
+	navigationTitle.title = [news valueForKey:@"Title"];
 	newsContents.text = [news valueForKey:@"Contents"];
 	newsContents.font = [UIFont systemFontOfSize:12.0];
 	

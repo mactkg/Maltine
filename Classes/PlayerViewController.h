@@ -12,6 +12,12 @@
 #import "MultilineTitleView.h"
 #import "AudioStreamer.h"
 #import "MaltineAppDelegate.h"
+#import "XAuthTwitterEngine.h"
+#import "UIAlertView+Helper.h"
+
+#define kOAuthConsumerKey @"IERBJS05LakdQD9eKCg"
+#define kOAuthConsumerSecret @"p81vkvtQpBAi8QDq5Vrn3BYsEeVMdf9IQm631L7qZQ"
+#define kCachedXAuthAccessTokenStringKey	@"cachedXAuthAccessTokenKey"
 
 
 @class AudioStreamer;
@@ -36,6 +42,8 @@
 	BOOL isShufflePlayer;
 	BOOL stopPlayerWhenViewWillAppear;
 	
+	XAuthTwitterEngine* twitterEngine;
+	
 }
 @property (nonatomic, retain) NSArray* playList;
 @property (nonatomic) int trackKey;
@@ -50,6 +58,7 @@
 @property BOOL isFavolitesPlayer;
 @property BOOL isShufflePlayer;
 @property BOOL stopPlayerWhenViewWillAppear;
+@property (nonatomic, retain) XAuthTwitterEngine* twitterEngine;
 
 - (IBAction) btnPauseClicked;
 - (IBAction) btnPrevClicked;
@@ -66,5 +75,6 @@
 - (void) setMultilineTitleView;
 - (void) playNext;
 - (void) shuffle;
+- (void) tweet;
 
 @end

@@ -13,9 +13,10 @@
 @interface NewsViewController : UIViewController {
 
 	NSDictionary* news;
-	IBOutlet UILabel* newsTitle;
 	IBOutlet UITextView* newsContents;
 	IBOutlet UIAsyncImageView* newsImage;
+	IBOutlet UINavigationBar* navigationBar;
+	IBOutlet UINavigationItem* navigationTitle;
 
 }
 @end

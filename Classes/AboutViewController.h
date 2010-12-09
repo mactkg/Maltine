@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SettingViewController.h"
 
 @interface AboutViewController : UIViewController<AVAudioPlayerDelegate> {
 

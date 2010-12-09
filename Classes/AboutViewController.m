@@ -15,6 +15,9 @@
 @synthesize btnTomad;
 
 
+#pragma mark -
+#pragma mark button action
+
 - (IBAction) btnItunesClicked{
 
 	NSString *stringURL = @"http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?id=383575862";
@@ -38,6 +41,19 @@
 	
 }
 
+- (void)btnTwitterSettingClicked{
+	
+	SettingViewController* controller = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+	UINavigationController* nvc = [[UINavigationController alloc]initWithRootViewController:controller];
+	nvc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[self presentModalViewController:nvc animated:YES];
+	[controller release];
+	[nvc release];
+	
+}
+
+#pragma mark -
+#pragma mark view lifecycle
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -52,6 +68,13 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	UIBarButtonItem* btnTwitterSetting = [[UIBarButtonItem alloc] initWithTitle:@"設定"
+																		  style:UIBarButtonItemStyleBordered
+																		 target:self
+																		 action:@selector(btnTwitterSettingClicked)];
+	
+	self.navigationItem.rightBarButtonItem = btnTwitterSetting;
 	
 	NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 	self.lblVersion.text = version;
