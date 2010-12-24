@@ -40,6 +40,7 @@
 	NSTimer *progressUpdateTimer;
 	BOOL isFavolitesPlayer;
 	BOOL isShufflePlayer;
+	BOOL isSearchPlayer;
 	BOOL stopPlayerWhenViewWillAppear;
 	
 	XAuthTwitterEngine* twitterEngine;
@@ -57,6 +58,7 @@
 @property (nonatomic, retain) AudioStreamer* streamer;
 @property BOOL isFavolitesPlayer;
 @property BOOL isShufflePlayer;
+@property BOOL isSearchPlayer;
 @property BOOL stopPlayerWhenViewWillAppear;
 @property (nonatomic, retain) XAuthTwitterEngine* twitterEngine;
 

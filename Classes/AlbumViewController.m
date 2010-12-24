@@ -232,6 +232,7 @@
 
 		delegate.player.isFavolitesPlayer = NO;
 		delegate.player.isShufflePlayer = NO;
+		delegate.player.isSearchPlayer = NO;
 		delegate.player.stopPlayerWhenViewWillAppear = YES;
 		delegate.player.hidesBottomBarWhenPushed = YES;
 		[self.navigationController pushViewController:delegate.player animated:YES];

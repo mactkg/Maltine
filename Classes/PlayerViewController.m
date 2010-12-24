@@ -22,6 +22,7 @@
 @synthesize volumeSlider;
 @synthesize isFavolitesPlayer;
 @synthesize isShufflePlayer;
+@synthesize isSearchPlayer;
 @synthesize streamer;
 @synthesize stopPlayerWhenViewWillAppear;
 @synthesize twitterEngine;
@@ -147,7 +148,7 @@
 	[self setMultilineTitleView];
 	
 	//image
-	if (isFavolitesPlayer||isShufflePlayer) {
+	if (isFavolitesPlayer||isShufflePlayer||isSearchPlayer) {
 		self.imageView.image = nil;		
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}
@@ -264,7 +265,7 @@
 	[self setMultilineTitleView];
 	
 	//image
-	if (isFavolitesPlayer||isShufflePlayer) {		
+	if (isFavolitesPlayer||isShufflePlayer||isSearchPlayer) {		
 		self.imageView.image = nil;		
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}

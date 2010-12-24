@@ -279,6 +279,7 @@
 		PlayerViewController* player = [MaltineAppDelegate sharedDelegate].player;
 		player.isShufflePlayer = NO;
 		player.isFavolitesPlayer = NO;
+		player.isSearchPlayer = YES;
 		player.stopPlayerWhenViewWillAppear = YES;
 		player.playList = [NSArray arrayWithArray:self.filteredReleaseList];
 		player.trackKey = indexPath.row;
