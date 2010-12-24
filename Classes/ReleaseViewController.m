@@ -12,7 +12,7 @@
 #define MAL_SEARCH_MUSIC 2
 
 @implementation ReleaseViewController
-@synthesize releaseList, filteredReleaseList, allMusicList, savedSearchTerm, savedScopeButtonIndex, searchWasActive;
+@synthesize releaseList, filteredReleaseList, allMusicList, searchMode, savedSearchTerm, savedScopeButtonIndex, searchWasActive;
 
 
 #pragma mark -
@@ -22,8 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
-	self.releaseList = delegate.releaseList;
+	self.releaseList = [MaltineAppDelegate sharedDelegate].releaseList;
 	self.allMusicList = [[NSMutableArray alloc] init];
 	
 	for (NSDictionary* album in self.releaseList) {
@@ -154,28 +153,27 @@
     
 
 	NSArray* targetList;
-	NSInteger mode;
 
 	if (tableView == self.searchDisplayController.searchResultsTableView) {
 		if (self.searchDisplayController.searchBar.selectedScopeButtonIndex == 0) {
-			mode = MAL_SEARCH_ALBUM;
+			self.searchMode = MAL_SEARCH_ALBUM;
 		}else {
-			mode = MAL_SEARCH_MUSIC;
+			self.searchMode = MAL_SEARCH_MUSIC;
 		}		
 		targetList = self.filteredReleaseList;
 	}else {
-		mode = MAL_LIST_RELEASE;
+		self.searchMode = MAL_LIST_RELEASE;
 		targetList = self.releaseList;
 	}	
 
-	NSString *CellIdentifier = [NSString stringWithFormat:@"ReleaseCell_%d_%d",mode,indexPath.row];
+	NSString *CellIdentifier = [NSString stringWithFormat:@"ReleaseCell_%d_%d",self.searchMode,indexPath.row];
 
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 	
-		if (mode != MAL_SEARCH_MUSIC) {
+		if (self.searchMode != MAL_SEARCH_MUSIC) {
 			//dummyを置かないと画像分の枠を用意してくれない
 			cell.imageView.image = [UIImage imageNamed:@"dummy.png"];
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -187,22 +185,22 @@
 			[cell.imageView addSubview:albumImageView];	
 			[albumImageView release];
 			
-			if (mode == MAL_LIST_RELEASE) {
-				[self loadImageForCell:cell mode:mode indexPath:indexPath];
+			if (self.searchMode == MAL_LIST_RELEASE) {
+				[self loadImageForCell:cell indexPath:indexPath];
 			}
 		}
 
 	}
 
-	if (mode == MAL_LIST_RELEASE||mode == MAL_SEARCH_ALBUM) {
+	if (self.searchMode == MAL_LIST_RELEASE||self.searchMode == MAL_SEARCH_ALBUM) {
 		NSString* albumNumber = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Number"];
 		NSString* albumTitle =  [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Title"];
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"[%@] %@", albumNumber, albumTitle];
 		cell.detailTextLabel.text = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Artist"];
 		
-		if (mode == MAL_SEARCH_ALBUM) {
-			[self loadImageForCell:cell mode:mode indexPath:indexPath];
+		if (self.searchMode == MAL_SEARCH_ALBUM) {
+			[self loadImageForCell:cell indexPath:indexPath];
 		}
 	}else {
 		//MAL_SEARCH_MUSIC
@@ -215,10 +213,10 @@
     return cell;
 }
 
-- (void)loadImageForCell:(UITableViewCell*)cell mode:(NSInteger)mode indexPath:(NSIndexPath*)indexPath{
+- (void)loadImageForCell:(UITableViewCell*)cell indexPath:(NSIndexPath*)indexPath{
 
 	NSArray* targetList;
-	if (mode == MAL_LIST_RELEASE) {
+	if (self.searchMode == MAL_LIST_RELEASE) {
 		targetList = self.releaseList;
 	}else {
 		targetList = self.filteredReleaseList;
@@ -276,27 +274,36 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	AlbumViewController *controller = [[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil];
 	
-	if (tableView == self.searchDisplayController.searchResultsTableView){
-		//AlbumInfo
-		controller.albumInfo = [[filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
-		
-		//PlayList
-		controller.playList = [[filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+	if (self.searchMode == MAL_SEARCH_MUSIC) {
+		PlayerViewController* player = [MaltineAppDelegate sharedDelegate].player;
+		player.isShufflePlayer = NO;
+		player.isFavolitesPlayer = NO;
+		player.stopPlayerWhenViewWillAppear = YES;
+		player.playList = [NSArray arrayWithArray:self.filteredReleaseList];
+		player.trackKey = indexPath.row;
+		[self.navigationController pushViewController:player animated:YES];
 		
 	}else {
-		//AlbumInfo
-		controller.albumInfo = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+		AlbumViewController *controller = [[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil];
 		
-		//PlayList
-		controller.playList = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+		if (self.searchMode == MAL_SEARCH_ALBUM){
+			//AlbumInfo
+			controller.albumInfo = [[filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+			//PlayList
+			controller.playList = [[filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+			
+		}else {
+			//AlbumInfo
+			controller.albumInfo = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+			//PlayList
+			controller.playList = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+		}
+		
+		
+		[self.navigationController pushViewController:controller animated:YES];
+		[controller release];
 	}
-
-	
-	[self.navigationController pushViewController:controller animated:YES];
-	[controller release];
-	
 }
 
 #pragma mark -

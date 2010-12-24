@@ -15,7 +15,7 @@
 	NSArray*	releaseList;
 	NSMutableArray* filteredReleaseList;
 	NSMutableArray*	allMusicList;
-	
+	NSInteger searchMode;
 	
 	NSString*	savedSearchTerm;
     NSInteger	savedScopeButtonIndex;
@@ -25,7 +25,7 @@
 @property (nonatomic,retain) NSArray* releaseList;
 @property (nonatomic,retain) NSMutableArray* filteredReleaseList;
 @property (nonatomic,retain) NSMutableArray* allMusicList;
-
+@property (nonatomic,assign) NSInteger searchMode;
 @property (nonatomic, copy) NSString *savedSearchTerm;
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;
@@ -33,6 +33,6 @@
 
 - (void) btnPlayingClicked;
 - (void) btnShuffleClicked;
-- (void)loadImageForCell:(UITableViewCell*)cell mode:(NSInteger)mode indexPath:(NSIndexPath*)indexPath;
+- (void)loadImageForCell:(UITableViewCell*)cell indexPath:(NSIndexPath*)indexPath;
 
 @end
