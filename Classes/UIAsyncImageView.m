@@ -21,13 +21,14 @@
 
 -(void)loadImage:(NSString *)url{
 	[self abort];
-	
-	indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
-	indicator.frame = self.bounds;
-	indicator.hidesWhenStopped = YES;
-	indicator.contentMode = UIViewContentModeCenter;
-	[indicator startAnimating];
-	[self addSubview:indicator];
+	if (!indicator) {
+		indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+		indicator.frame = self.bounds;
+		indicator.hidesWhenStopped = YES;
+		indicator.contentMode = UIViewContentModeCenter;
+		[indicator startAnimating];
+		[self addSubview:indicator];
+	}
 	
 	
 	self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];

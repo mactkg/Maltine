@@ -346,7 +346,6 @@
 			children = (
 				1161CBB01244A6C200739CB3 /* Default.png */,
 				1161CBB11244A6C200739CB3 /* Default@2x.png */,
-				11FBF454122DC83100D2F9CC /* mp3.png */,
 				11FBF438122D9DE400D2F9CC /* maru50_image.png */,
 				1164401512A42D5100A4B13F /* MAL_logo.png */,
 				110918D312C4C36400B90764 /* stickers */,
@@ -357,6 +356,7 @@
 		110918D312C4C36400B90764 /* stickers */ = {
 			isa = PBXGroup;
 			children = (
+				11FBF454122DC83100D2F9CC /* mp3.png */,
 				1109190812C4C60900B90764 /* seal_fix01.png */,
 				1109190912C4C60900B90764 /* seal_fix02.png */,
 				1109190A12C4C60900B90764 /* seal_fix03.png */,
