@@ -89,7 +89,7 @@
 
 - (void) twitterXAuthConnectionDidFailWithError: (NSError *)error;
 {
-	NSLog(@"Error: %@", error);
+	//NSLog(@"Error: %@", error);
 	UIAlertViewQuick(@"エラー", @"Twitterのログインに失敗しました。", @"OK");
 	connectingView.alpha = 0.0f;
 }

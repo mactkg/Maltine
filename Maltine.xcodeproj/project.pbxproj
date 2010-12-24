@@ -12,11 +12,11 @@
 		1102D069123A234F00591557 /* tomad_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D067123A234F00591557 /* tomad_02.png */; };
 		1102D0A4123A494800591557 /* epoch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1102D0A3123A494800591557 /* epoch.caf */; };
 		11077BF512499DBF00D9DBB8 /* ReleaseList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11077BF412499DBF00D9DBB8 /* ReleaseList.plist */; };
+		1109187212C4AA8C00B90764 /* ReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1109187112C4AA8C00B90764 /* ReleaseViewController.xib */; };
 		110A511912AA4F40003365A3 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 110A511812AA4F40003365A3 /* UIAlertView+Helper.m */; };
 		1144F94A121AEBDA0037FE71 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F948121AEBDA0037FE71 /* NewsViewController.m */; };
 		1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F949121AEBDA0037FE71 /* NewsViewController.xib */; };
 		1144F94F121AEBEE0037FE71 /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */; };
-		1144F950121AEBEE0037FE71 /* ReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F94E121AEBEE0037FE71 /* ReleaseViewController.xib */; };
 		1144F954121AEC0C0037FE71 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F952121AEC0C0037FE71 /* FavoritesViewController.m */; };
 		1144F955121AEC0C0037FE71 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F953121AEC0C0037FE71 /* FavoritesViewController.xib */; };
 		1144F9D5121D053C0037FE71 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F9D3121D053C0037FE71 /* AlbumViewController.m */; };
@@ -97,6 +97,7 @@
 		1102D067123A234F00591557 /* tomad_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_02.png; sourceTree = "<group>"; };
 		1102D0A3123A494800591557 /* epoch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = epoch.caf; sourceTree = "<group>"; };
 		11077BF412499DBF00D9DBB8 /* ReleaseList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReleaseList.plist; sourceTree = "<group>"; };
+		1109187312C4AA9900B90764 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = Japanese.lproj/ReleaseViewController.xib; sourceTree = "<group>"; };
 		110A511712AA4F40003365A3 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
 		110A511812AA4F40003365A3 /* UIAlertView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Helper.m"; sourceTree = "<group>"; };
 		1144F947121AEBDA0037FE71 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
@@ -104,7 +105,7 @@
 		1144F949121AEBDA0037FE71 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		1144F94C121AEBEE0037FE71 /* ReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseViewController.h; sourceTree = "<group>"; };
 		1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseViewController.m; sourceTree = "<group>"; };
-		1144F94E121AEBEE0037FE71 /* ReleaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseViewController.xib; sourceTree = "<group>"; };
+		1144F94E121AEBEE0037FE71 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ReleaseViewController.xib; sourceTree = "<group>"; };
 		1144F951121AEC0C0037FE71 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		1144F952121AEC0C0037FE71 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		1144F953121AEC0C0037FE71 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
@@ -320,7 +321,7 @@
 			children = (
 				1144F94C121AEBEE0037FE71 /* ReleaseViewController.h */,
 				1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */,
-				1144F94E121AEBEE0037FE71 /* ReleaseViewController.xib */,
+				1109187112C4AA8C00B90764 /* ReleaseViewController.xib */,
 			);
 			name = ReleaseViewController;
 			sourceTree = "<group>";
@@ -666,7 +667,7 @@
 			files = (
 				11D6DE2E1236662500017E7B /* MainWindow.xib in Resources */,
 				1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */,
-				1144F950121AEBEE0037FE71 /* ReleaseViewController.xib in Resources */,
+				1109187212C4AA8C00B90764 /* ReleaseViewController.xib in Resources */,
 				1144F955121AEC0C0037FE71 /* FavoritesViewController.xib in Resources */,
 				1144F9D6121D053C0037FE71 /* AlbumViewController.xib in Resources */,
 				1144FA2D121D2DB40037FE71 /* News.plist in Resources */,
@@ -752,6 +753,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1109187112C4AA8C00B90764 /* ReleaseViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1144F94E121AEBEE0037FE71 /* English */,
+				1109187312C4AA9900B90764 /* Japanese */,
+			);
+			name = ReleaseViewController.xib;
+			sourceTree = "<group>";
+		};
 		11D6DE2A123665C300017E7B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

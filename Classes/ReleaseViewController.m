@@ -7,10 +7,13 @@
 //
 
 #import "ReleaseViewController.h"
-
+#define MAL_LIST_RELEASE 0
+#define MAL_SEARCH_ALBUM 1
+#define MAL_SEARCH_MUSIC 2
 
 @implementation ReleaseViewController
-@synthesize releaseList;
+@synthesize releaseList, filteredReleaseList, allMusicList, savedSearchTerm, savedScopeButtonIndex, searchWasActive;
+
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -21,14 +24,33 @@
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	self.releaseList = delegate.releaseList;
-	 
+	self.allMusicList = [[NSMutableArray alloc] init];
+	
+	for (NSDictionary* album in self.releaseList) {
+		for (NSDictionary* track in [album objectForKey:@"PlayList"]) {
+			[self.allMusicList addObject:track];
+		}
+	}
+	
+	if (self.savedSearchTerm)
+	{
+        [self.searchDisplayController setActive:self.searchWasActive];
+        [self.searchDisplayController.searchBar setSelectedScopeButtonIndex:self.savedScopeButtonIndex];
+        [self.searchDisplayController.searchBar setText:savedSearchTerm];
+        
+        self.savedSearchTerm = nil;
+    }
+	
+	[self.tableView reloadData];
+	self.tableView.scrollEnabled = YES;
+	
+	
 	UIBarButtonItem* btnShuffle = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ipod_shuffle_right_white.png"]
 																   style:UIBarButtonItemStyleBordered
 																  target:self
 																  action:@selector(btnShuffleClicked)];
 	self.navigationItem.leftBarButtonItem = btnShuffle;
 	[btnShuffle release];
-	
 	
 }
 
@@ -76,17 +98,27 @@
 }
 */
 
-/*
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+	self.searchWasActive = [self.searchDisplayController isActive];
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
+    self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
+	
 }
-*/
 
-/*
+
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+
+    // save the state of the search UI so that it can be restored if the view is re-created
+    self.searchWasActive = [self.searchDisplayController isActive];
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
+    self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
+	
 }
-*/
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -107,55 +139,97 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [releaseList count];
+	if (tableView == self.searchDisplayController.searchResultsTableView){
+		return [self.filteredReleaseList count];		
+	}else {
+		return [self.releaseList count];
+	}
+
+
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //static NSString *CellIdentifier = @"ReleaseCell";
-	NSString *CellIdentifier = [NSString stringWithFormat:@"ReleaseCell_%d_%d",indexPath.section,indexPath.row];
-    
+
+	NSArray* targetList;
+	NSInteger mode;
+
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		if (self.searchDisplayController.searchBar.selectedScopeButtonIndex == 0) {
+			mode = MAL_SEARCH_ALBUM;
+		}else {
+			mode = MAL_SEARCH_MUSIC;
+		}		
+		targetList = self.filteredReleaseList;
+	}else {
+		mode = MAL_LIST_RELEASE;
+		targetList = self.releaseList;
+	}	
+
+	NSString *CellIdentifier = [NSString stringWithFormat:@"ReleaseCell_%d_%d",mode,indexPath.row];
+
+	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
-		NSString* albumNumber = [[[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Number"];
-		NSString* albumTitle = [[[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Title"];
-		NSString* albumArtist = [[[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Artist"];
+	
+		if (mode != MAL_SEARCH_MUSIC) {
+			//dummyを置かないと画像分の枠を用意してくれない
+			cell.imageView.image = [UIImage imageNamed:@"dummy.png"];
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+			UIAsyncImageView* albumImageView = [[UIAsyncImageView alloc] initWithFrame:CGRectMake(4, 1, 39, 39)];
+			albumImageView.layer.masksToBounds = YES;
+			albumImageView.layer.cornerRadius = 8.0f;
+			
+			[cell.imageView addSubview:albumImageView];	
+			[albumImageView release];
+			
+			if (mode == MAL_LIST_RELEASE) {
+				[self loadImageForCell:cell mode:mode indexPath:indexPath];
+			}
+		}
+
+	}
+
+	if (mode == MAL_LIST_RELEASE||mode == MAL_SEARCH_ALBUM) {
+		NSString* albumNumber = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Number"];
+		NSString* albumTitle =  [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Title"];
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"[%@] %@", albumNumber, albumTitle];
-		cell.detailTextLabel.text = albumArtist;
-				
-		//dummyを置かないと画像分の枠を用意してくれない
-		cell.imageView.image = [UIImage imageNamed:@"dummy.png"];
+		cell.detailTextLabel.text = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Artist"];
+		
+		if (mode == MAL_SEARCH_ALBUM) {
+			[self loadImageForCell:cell mode:mode indexPath:indexPath];
+		}
+	}else {
+		//MAL_SEARCH_MUSIC
+		cell.textLabel.text = [[targetList objectAtIndex:indexPath.row] valueForKey:@"Title"];
+		cell.detailTextLabel.text = [[targetList objectAtIndex:indexPath.row] valueForKey:@"Artist"];
+	}
 
-		CGRect frame;
-		frame.size.width = 39;
-		frame.size.height = 39;
-		frame.origin.x = 4;
-		frame.origin.y = 1;		
-		UIAsyncImageView* albumImageView = [[UIAsyncImageView alloc] initWithFrame:frame];
-		[albumImageView loadImage:[[[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Image"]];
 
-		CALayer *layer = albumImageView.layer;
-		layer.masksToBounds = YES;
-		layer.cornerRadius = 8.0f;
-		
-		
-		[cell.imageView addSubview:albumImageView];
-		
-		[albumImageView release];
-		
-    }
-    
-    // Configure the cell...
-    
+	
     return cell;
 }
 
+- (void)loadImageForCell:(UITableViewCell*)cell mode:(NSInteger)mode indexPath:(NSIndexPath*)indexPath{
+
+	NSArray* targetList;
+	if (mode == MAL_LIST_RELEASE) {
+		targetList = self.releaseList;
+	}else {
+		targetList = self.filteredReleaseList;
+	}
+	
+	for (UIView* subView in [cell.imageView subviews]) {
+		if ([subView class] == [UIAsyncImageView class]) {
+			[(UIAsyncImageView*)subView loadImage:[[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Image"]];
+		}
+	}
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -204,15 +278,72 @@
 	
 	AlbumViewController *controller = [[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil];
 	
-	//AlbumInfo
-	controller.albumInfo = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
-	
-	//PlayList
-	controller.playList = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+	if (tableView == self.searchDisplayController.searchResultsTableView){
+		//AlbumInfo
+		controller.albumInfo = [[filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+		
+		//PlayList
+		controller.playList = [[filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+		
+	}else {
+		//AlbumInfo
+		controller.albumInfo = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+		
+		//PlayList
+		controller.playList = [[releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+	}
+
 	
 	[self.navigationController pushViewController:controller animated:YES];
 	[controller release];
 	
+}
+
+#pragma mark -
+#pragma mark Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{	
+	
+	[self.filteredReleaseList removeAllObjects]; // First clear the filtered array.
+	
+	switch (self.searchDisplayController.searchBar.selectedScopeButtonIndex) {
+		case 0:
+		{
+			NSPredicate* predicate = [NSPredicate predicateWithFormat:@"(AlbumInfo.Title CONTAINS[cd] %@) OR (AlbumInfo.Artist CONTAINS[cd] %@)",searchText,searchText];
+			self.filteredReleaseList = [NSMutableArray arrayWithArray:[self.releaseList filteredArrayUsingPredicate:predicate]];
+			break;
+		}
+		case 1:
+		{
+			NSPredicate* predicate = [NSPredicate predicateWithFormat:@"(Title CONTAINS[cd] %@) OR (Artist CONTAINS[cd] %@)",searchText,searchText];
+			self.filteredReleaseList = [NSMutableArray arrayWithArray:[self.allMusicList filteredArrayUsingPredicate:predicate]];			
+			break;
+		}
+	}
+	
+}
+
+#pragma mark -
+#pragma mark UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:
+	 [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
+	 [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 
@@ -229,11 +360,14 @@
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+	self.filteredReleaseList = nil;
 }
 
 
 - (void)dealloc {
     [super dealloc];
+	[releaseList release];
+	[filteredReleaseList release];
 }
 
 
