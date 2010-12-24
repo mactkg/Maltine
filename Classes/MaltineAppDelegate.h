@@ -30,4 +30,6 @@
 @property (nonatomic, retain) PlayerViewController* player;
 @property (retain) NSMutableArray* favoliteList;
 
++ (MaltineAppDelegate *)sharedDelegate;
+
 @end

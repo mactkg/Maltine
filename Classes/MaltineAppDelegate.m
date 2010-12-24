@@ -22,6 +22,11 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
++ (MaltineAppDelegate *)sharedDelegate
+{
+	return (MaltineAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
 	
