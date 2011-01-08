@@ -34,8 +34,17 @@
 	self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
 	data = [[NSMutableData alloc] initWithCapacity:0];
 	
+	NSString *escapedValue =
+	[(NSString *)CFURLCreateStringByAddingPercentEscapes(
+														 nil,
+														 (CFStringRef)url,
+														 NULL,
+														 NULL,
+														 kCFStringEncodingUTF8)
+	 autorelease];
+	
 	NSURLRequest *req = [NSURLRequest 
-						 requestWithURL:[NSURL URLWithString:url]
+						 requestWithURL:[NSURL URLWithString:escapedValue]
 						 cachePolicy:NSURLRequestUseProtocolCachePolicy
 						 timeoutInterval:30.0];
 	conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
