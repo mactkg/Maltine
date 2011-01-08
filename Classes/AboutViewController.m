@@ -7,13 +7,14 @@
 //
 
 #import "AboutViewController.h"
-
+#define MAL_TRANSITION_DURATION 2
+#define MAL_NEXT_TRANS_DURATION 4
 
 @implementation AboutViewController
 
 @synthesize lblVersion;
 @synthesize btnTomad;
-
+@synthesize stickerArray;
 
 #pragma mark -
 #pragma mark button action
@@ -53,6 +54,43 @@
 }
 
 #pragma mark -
+#pragma mark Image Transition
+
+- (void)startTransition{
+	
+	stickerIndex = (stickerIndex + 1) % [self.stickerArray count];
+	stickerImageView2.image = [self.stickerArray objectAtIndex:stickerIndex];
+	
+	CATransition *animation = [CATransition animation];
+	
+	// アニメーションのタイプ
+	animation.type = kCATransitionFade;
+	animation.subtype = kCATransitionFromBottom;
+	
+	// アニメーションの長さ
+	animation.duration = MAL_TRANSITION_DURATION;
+	
+	// アニメーションのタイミング
+	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	
+	// 終了時のイベントを受け取る
+	//animation.delegate = self;
+	
+	// アニメーションを登録する。forKeyはアニメの識別子
+	[[stickerBaseView layer] addAnimation:animation forKey:@"transitionViewAnimation"];	
+	
+	//描画処理
+	stickerImageView1.hidden = YES;
+	stickerImageView2.hidden = NO;
+	UIImageView* tmp = stickerImageView2;
+	stickerImageView2 = stickerImageView1;
+	stickerImageView1 = tmp;
+	
+	
+}
+
+#pragma mark -
 #pragma mark view lifecycle
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -68,6 +106,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	stickerIndex = 0;
 	
 	UIBarButtonItem* btnTwitterSetting = [[UIBarButtonItem alloc] initWithTitle:@"設定"
 																		  style:UIBarButtonItemStyleBordered
@@ -96,6 +136,33 @@
 	self.btnTomad.imageView.animationDuration = 0.2f;
 	self.btnTomad.imageView.animationRepeatCount = 8;
 	//[images release];
+
+	self.stickerArray = [NSArray arrayWithObjects:
+					[UIImage imageNamed:@"mp3.png"],
+					[UIImage imageNamed:@"seal_fix01.png"],
+					[UIImage imageNamed:@"seal_fix02.png"],
+					[UIImage imageNamed:@"seal_fix03.png"],
+					[UIImage imageNamed:@"seal_fix04.png"],
+					[UIImage imageNamed:@"seal_fix05.png"],
+//					[UIImage imageNamed:@"seal_fix06.png"],
+					[UIImage imageNamed:@"seal_fix07.png"],
+					[UIImage imageNamed:@"seal_fix08.png"],
+					[UIImage imageNamed:@"seal_fix09.png"],
+					[UIImage imageNamed:@"seal_fix10.png"],
+					[UIImage imageNamed:@"seal_fix11.png"],
+					[UIImage imageNamed:@"seal_fix12.png"],
+					[UIImage imageNamed:@"seal_fix13.png"],
+					[UIImage imageNamed:@"seal_fix14.png"],
+					nil
+					];
+
+
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:MAL_NEXT_TRANS_DURATION
+											 target:self
+										   selector:@selector(startTransition)
+										   userInfo:nil
+											repeats:YES];
 	
 }
 

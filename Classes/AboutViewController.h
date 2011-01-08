@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
 #import "SettingViewController.h"
 
 @interface AboutViewController : UIViewController<AVAudioPlayerDelegate> {
@@ -15,11 +16,18 @@
 	IBOutlet UILabel* lblVersion;
 	IBOutlet UIButton* btnTomad;
 	AVAudioPlayer* avap;
+	
+	NSInteger stickerIndex;
+	IBOutlet UIView* stickerBaseView;
+	IBOutlet UIImageView* stickerImageView1;
+	IBOutlet UIImageView* stickerImageView2;
+	NSArray* stickerArray;
+	NSTimer* timer;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* lblVersion;
 @property (nonatomic, retain) IBOutlet UIButton* btnTomad;
-
+@property (nonatomic, retain) NSArray* stickerArray;
 
 - (IBAction) btnItunesClicked;
 - (IBAction) btnInfoClicked;
