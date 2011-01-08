@@ -195,9 +195,10 @@
 	if (self.searchMode == MAL_LIST_RELEASE||self.searchMode == MAL_SEARCH_ALBUM) {
 		NSString* albumNumber = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Number"];
 		NSString* albumTitle =  [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Title"];
+		NSString* albumArtist = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Artist"];
 		
-		cell.textLabel.text = [NSString stringWithFormat:@"[%@] %@", albumNumber, albumTitle];
-		cell.detailTextLabel.text = [[[targetList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] valueForKey:@"Artist"];
+		cell.textLabel.text = [NSString stringWithFormat:@"%@", albumTitle];
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ | %@", albumNumber,albumArtist];
 		
 		if (self.searchMode == MAL_SEARCH_ALBUM) {
 			[self loadImageForCell:cell indexPath:indexPath];
