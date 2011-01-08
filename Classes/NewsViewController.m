@@ -29,8 +29,15 @@
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	news = delegate.news;
+	UILabel* titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+	titleLabel.backgroundColor = [UIColor clearColor];
+	titleLabel.numberOfLines = 0;
+	titleLabel.textColor = [UIColor whiteColor];
+	titleLabel.textAlignment = UITextAlignmentCenter;
+	titleLabel.text = [news valueForKey:@"Title"];
+	navigationTitle.titleView = titleLabel;
 	
-	navigationTitle.title = [news valueForKey:@"Title"];
+	//navigationTitle.title = [news valueForKey:@"Title"];
 	newsContents.text = [news valueForKey:@"Contents"];
 	newsContents.font = [UIFont systemFontOfSize:12.0];
 	
