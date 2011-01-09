@@ -21,13 +21,11 @@
     [super viewDidLoad];
 
 	
-	MultilineTitleView* multiTitleView = [[MultilineTitleView alloc] initWithNibName:@"MultilineTitleView" bundle:nil];
-	//loadViewしないとUILabelのインスタンスが生成されない
-	[multiTitleView loadView];
+	MultilineTitleView* multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 160, 40)];
 	multiTitleView.topText.text = [NSString stringWithFormat:@"[%@]", [self.albumInfo valueForKey:@"Number"]];
 	multiTitleView.middleText.text = [self.albumInfo valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [self.albumInfo valueForKey:@"Artist"];
-	self.navigationItem.titleView = multiTitleView.view;
+	self.navigationItem.titleView = multiTitleView;
 	[multiTitleView release];
 	
 	

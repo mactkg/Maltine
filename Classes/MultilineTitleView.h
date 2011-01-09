@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MultilineTitleView : UIViewController {
+@interface MultilineTitleView : UIView {
 
-	IBOutlet UILabel* topText;
-	IBOutlet UILabel* middleText;
-	IBOutlet UILabel* bottomText;
+	UILabel* topText;
+	UILabel* middleText;
+	UILabel* bottomText;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel* topText;
-@property (nonatomic, retain) IBOutlet UILabel* middleText;
-@property (nonatomic, retain) IBOutlet UILabel* bottomText;
+@property (nonatomic, retain) UILabel* topText;
+@property (nonatomic, retain) UILabel* middleText;
+@property (nonatomic, retain) UILabel* bottomText;
 @end

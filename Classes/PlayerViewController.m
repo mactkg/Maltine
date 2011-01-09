@@ -280,13 +280,12 @@
 - (void) setMultilineTitleView{
 	
 	//Title
-	MultilineTitleView* multiTitleView = [[MultilineTitleView alloc] initWithNibName:@"MultilineTitleView" bundle:nil];
+	MultilineTitleView* multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
 	
-	[multiTitleView loadView];
 	multiTitleView.topText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
 	multiTitleView.middleText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
-	self.navigationItem.titleView = multiTitleView.view;
+	self.navigationItem.titleView = multiTitleView;
 	[multiTitleView release];
 }
 
