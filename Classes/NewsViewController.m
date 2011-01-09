@@ -35,6 +35,7 @@
 	titleLabel.textColor = [UIColor whiteColor];
 	titleLabel.textAlignment = UITextAlignmentCenter;
 	titleLabel.text = [news valueForKey:@"Title"];
+	titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
 	navigationTitle.titleView = titleLabel;
 	
 	//navigationTitle.title = [news valueForKey:@"Title"];
