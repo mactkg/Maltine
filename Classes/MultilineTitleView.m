@@ -23,7 +23,7 @@
 		bottomText = [[UILabel alloc] initWithFrame:CGRectMake(0, 26, frame.size.width, 13)];
 		
 		topText.font    = [UIFont fontWithName:@"Helvetica" size:10.0];
-		middleText.font = [UIFont fontWithName:@"Helvetica-Bold" size:12.0];
+		middleText.font = [UIFont fontWithName:@"Helvetica-Bold" size:10.0];
 		bottomText.font = [UIFont fontWithName:@"Helvetica-Oblique" size:10.0];
 		
 		topText.textColor    = [UIColor lightGrayColor];
