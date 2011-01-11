@@ -112,7 +112,7 @@
 
 - (IBAction) btnPrevClicked{
 	
-	if (streamer.progress > 5.0) {
+	if (streamer.progress > 4.0) {
 		[streamer seekToTime:0];
 	}else {
 		[self playPrevOrNext:NO];
