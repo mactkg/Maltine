@@ -75,7 +75,7 @@
 - (IBAction) sliderMoved:(UISlider *)aSlider;
 - (void) destroyStreamer;
 - (void) setMultilineTitleView;
-- (void) playNext;
+- (void) playPrevOrNext:(BOOL)isNext;
 - (void) shuffle;
 - (void) tweet;
 

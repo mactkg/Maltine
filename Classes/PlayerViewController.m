@@ -112,63 +112,17 @@
 
 - (IBAction) btnPrevClicked{
 	
-	if ([streamer isPlaying]||[streamer isPaused]) {
-		[self destroyStreamer];
-	}
-	
-	if (isShufflePlayer) {
-		[self shuffle];
+	if (streamer.progress > 5.0) {
+		[streamer seekToTime:0];
 	}else {
-		int currentKey = self.trackKey;
-		
-		//favolites編集で個数が変わった場合
-		if (currentKey >= [self.playList count]) {
-			//playListの最後に戻る
-			self.trackKey = [self.playList count] - 1;
-		}else {
-			for (int i = 0; i <[self.playList count]; i++ ) {
-				
-				if (i == currentKey) {
-					if (i == 0) {
-						//playListの最後に戻る
-						self.trackKey = [self.playList count] - 1;
-					}else {
-						self.trackKey = i - 1;
-					}
-					
-				}
-			}
-		}
+		[self playPrevOrNext:NO];
 	}
-
-	//slideBar
-	progressSlider.value = 0;
-	
-	//title
-	[self setMultilineTitleView];
-	
-	//image
-	if (isFavolitesPlayer||isShufflePlayer||isSearchPlayer) {
-		self.imageView.image = nil;		
-		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
-	}
-	
-	//Stream
-	[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
-	[self.streamer start];
-	
 	
 }
 
 - (IBAction) btnNextClicked{
 	
-	if ([streamer isPlaying]||[streamer isPaused]) {
-		[self destroyStreamer];
-	}
-	
-	[self playNext];
-	
-	
+	[self playPrevOrNext:YES];
 }
 
 - (void) btnFavClicked{
@@ -232,32 +186,52 @@
 	
 }
 
-- (void) playNext {
-
+- (void) playPrevOrNext:(BOOL)isNext {
+	
+	if ([streamer isPlaying]||[streamer isPaused]) {
+		[self destroyStreamer];
+	}
+	
+	int currentKey = self.trackKey;
 	
 	if (isShufflePlayer) {
 		[self shuffle];
 	}else {
-		int currentKey = self.trackKey;
 		
 		//favolites編集で個数が変わった場合
 		if (currentKey >= [self.playList count]) {
-			//playListの最初に戻る
-			self.trackKey = 0;
+			if (isNext) {
+				//playListの最初に戻る
+				self.trackKey = 0;
+			}else {
+				//playListの最後に戻る
+				self.trackKey = [self.playList count] - 1;
+			}
+
 		}else {
 			for (int i = 0; i <[self.playList count]; i++ ) {
 				
 				if (i == currentKey) {
-					if (i != [self.playList count] - 1) {
-						self.trackKey = i + 1;
+					if (isNext) {
+						if (i != [self.playList count] - 1) {
+							self.trackKey = i + 1;
+						}else {
+							self.trackKey = 0;				
+						}
 					}else {
-						self.trackKey = 0;				
+						if (i == 0) {
+							//playListの最後に戻る
+							self.trackKey = [self.playList count] - 1;
+						}else {
+							self.trackKey = i - 1;
+						}
 					}
+
 				}
 			}	
-		}	
+		}
 	}
-
+	
 	//slideBar
 	progressSlider.value = 0;
 	
@@ -265,16 +239,25 @@
 	[self setMultilineTitleView];
 	
 	//image
-	if (isFavolitesPlayer||isShufflePlayer||isSearchPlayer) {		
+	if (isShufflePlayer) {
 		self.imageView.image = nil;		
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
+	}else {
+		NSString* beforeImageUrl = [[self.playList objectAtIndex:currentKey] valueForKey:@"Image"];
+		NSString* nextImageUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"];
+		
+		if (![nextImageUrl isEqualToString:beforeImageUrl]) {
+			self.imageView.image = nil;		
+			[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];			
+		}
 	}
-	
 	
 	//Stream
 	[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
 	[self.streamer start];
-
+	
+	
+	
 }
 
 - (void) setMultilineTitleView{
@@ -477,7 +460,7 @@
 	{
 		[self destroyStreamer];
 		//[self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
-		[self playNext];
+		[self playPrevOrNext:YES];
 		
 	}
 	else if ([streamer isPaused]) {
