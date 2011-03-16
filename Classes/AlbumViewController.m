@@ -137,7 +137,7 @@
 		UIViewController *controller = [[UIViewController alloc] initWithNibName:@"AlbumTableViewCell" bundle:nil];
 		
 		AlbumTableViewCell *cell = (AlbumTableViewCell*)[tableView dequeueReusableCellWithIdentifier:AlbumCellIdentifier];
-		if (cell == nil) {			
+		if (cell == nil) {
 			cell = (AlbumTableViewCell*)controller.view;
 			[controller release];
 			cell.lblMaru.text = [NSString stringWithFormat:@"[%@]", [self.albumInfo valueForKey:@"Number"]];
@@ -163,16 +163,15 @@
 			return cell;
 		}
 	}
+    return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 	if (indexPath.section == 0 && indexPath.row == 0) {
 		return 132.0;
-	}else {
-		return 44.0;
 	}
-
+    return 44.0;
 }
 
 

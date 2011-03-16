@@ -112,21 +112,15 @@
 	NSString *CellIdentifier = [NSString stringWithFormat:@"FavolitesCell_%d_%d",indexPath.section,indexPath.row];
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	//削除や並び替えを即時反映させるためにセルを再利用しないで必ず作り直す
-    //if (cell == nil) {
-	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-		
+    
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
-
+    
 	cell.textLabel.text = [[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"];
 	cell.detailTextLabel.text = [[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Artist"];
-
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
-	//NSLog(@"rowsCount:%d indexpath.row:%d Title:%@",[delegate.favoliteList count],indexPath.row,[[delegate.favoliteList objectAtIndex:indexPath.row] valueForKey:@"Title"]);
-    //}
-    
-    // Configure the cell...
     
     return cell;
 }
@@ -162,6 +156,7 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
+    [self.tableView reloadData];
 }
 
 
