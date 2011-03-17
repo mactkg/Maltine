@@ -35,7 +35,7 @@
 	{
         [self.searchDisplayController setActive:self.searchWasActive];
         [self.searchDisplayController.searchBar setSelectedScopeButtonIndex:self.savedScopeButtonIndex];
-        [self.searchDisplayController.searchBar setText:savedSearchTerm];
+        [self.searchDisplayController.searchBar setText:self.savedSearchTerm];
         
         self.savedSearchTerm = nil;
     }
@@ -99,11 +99,7 @@
 
 /*
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-	self.searchWasActive = [self.searchDisplayController isActive];
-    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
-    self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
-	
+    [super viewWillDisappear:animated];	
 }
 */
 
@@ -284,15 +280,15 @@
 		
 		if (self.searchDisplayController.active){
 			//AlbumInfo
-			controller.albumInfo = [[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+			controller.albumInfo = [[[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] mutableCopy];
 			//PlayList
-			controller.playList = [[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+			controller.playList = [[[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"] mutableCopy];
 			
 		}else {
 			//AlbumInfo
-			controller.albumInfo = [[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
+			controller.albumInfo = [[[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] mutableCopy];
 			//PlayList
-			controller.playList = [[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
+			controller.playList = [[[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"] mutableCopy];
 		}
 		
 		
