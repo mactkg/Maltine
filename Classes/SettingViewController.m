@@ -7,11 +7,12 @@
 //
 
 #import "SettingViewController.h"
-
+#import "MaltineAppDelegate.h"
 
 @implementation SettingViewController
 
 @synthesize twitterEngine;
+@synthesize titles;
 
 #pragma mark -
 #pragma mark button action
@@ -24,13 +25,15 @@
 
 - (void)btnDoneClicked{
 
-	[[NSUserDefaults standardUserDefaults] removeObjectForKey:kCachedXAuthAccessTokenStringKey];
-
-	connectingView.alpha = 0.5f;
-	
+    [activeField resignFirstResponder];
+    [MaltineAppDelegate lock];
+    
 	UITextField* usernameTextField =  (UITextField*)[self.view viewWithTag:1000];
 	UITextField* passwordTextField =  (UITextField*)[self.view viewWithTag:1001];
-	
+    
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:kCachedXAuthAccessTokenStringKey];
+
+		
 	NSString* username = usernameTextField.text;
 	NSString* password = passwordTextField.text;
 	[self.twitterEngine exchangeAccessTokenForUsername:username password:password];
@@ -76,8 +79,8 @@
 - (void) storeCachedTwitterXAuthAccessTokenString: (NSString *)tokenString forUsername:(NSString *)username
 {
 	[[NSUserDefaults standardUserDefaults] setObject:tokenString forKey:kCachedXAuthAccessTokenStringKey];
-	connectingView.alpha = 0.0f;
-	[self dismissModalViewControllerAnimated:YES];
+	[MaltineAppDelegate unlock];
+    UIAlertViewQuickDelegated(nil, NSLocalizedString(@"Succeeded in authorization.", nil), @"OK", self, 1);
 }
 
 - (NSString *) cachedTwitterXAuthAccessTokenStringForUsername: (NSString *)username;
@@ -89,11 +92,22 @@
 
 - (void) twitterXAuthConnectionDidFailWithError: (NSError *)error;
 {
-	//NSLog(@"Error: %@", error);
-	UIAlertViewQuick(@"エラー", @"Twitterのログインに失敗しました。", @"OK");
-	connectingView.alpha = 0.0f;
+	[MaltineAppDelegate unlock];
+    UIAlertViewQuickDelegated(NSLocalizedString(@"Error", nil), NSLocalizedString(@"Account authorization error.", nil), @"OK", self, -1);
+	//UIAlertViewQuick(@"エラー", @"Twitterのログインに失敗しました。", @"OK");
 }
 
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == -1) {
+        [self.tableView reloadData];
+    }
+    
+    if (alertView.tag == 1) {
+        [self dismissModalViewControllerAnimated:YES];        
+    }
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -102,34 +116,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.title = @"Settings";
+	self.title = NSLocalizedString(@"Settings",nil);
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																						  target:self
 																						  action:@selector(btnCancelClicked)];
 	
-	titles = [NSArray arrayWithObjects:@"username",@"password",nil];
+	self.titles = [NSArray arrayWithObjects:NSLocalizedString(@"username", nil),NSLocalizedString(@"password", nil),nil];
 	
 	self.twitterEngine = [[XAuthTwitterEngine alloc] initXAuthWithDelegate:self];
 	self.twitterEngine.consumerKey = kOAuthConsumerKey;
 	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
-	
-	
-	connectingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
-	connectingView.backgroundColor = [UIColor blackColor];
-	connectingView.alpha = 0.5f;
-	connectingView.autoresizesSubviews = YES;
-	
-	UIActivityIndicatorView* indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	[connectingView addSubview:indicatorView];
-	[indicatorView release];
-	indicatorView.center = connectingView.center;
-	[indicatorView startAnimating];
-	connectingView.alpha = 0.0f;
-	
-	[self.view addSubview:connectingView];
-	[connectingView release];
-	
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -175,7 +172,7 @@
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 	switch (section) {
 		case 0:
-			return @"Twitter Account";
+			return NSLocalizedString(@"Twitter Account", nil);
 			break;
 	}
 	return nil;
@@ -187,11 +184,10 @@
 		case 0:
 			
 			if ([self.twitterEngine isAuthorized]) {
-				return @"Account is authorized.";
+				return NSLocalizedString(@"Account is authorized.", nil);
 			}else {
-				return @"Account is not authorized.";
+				return NSLocalizedString(@"Account is not authorized.", nil);
 			}
-
 			
 			break;
 	}
@@ -224,7 +220,8 @@
 - (void)configureInputStringCell:(InputStringCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
 	cell.textField.tag = 1000 + indexPath.row;
-	cell.label.text = [titles objectAtIndex:indexPath.row];
+	cell.label.text = [self.titles objectAtIndex:indexPath.row];
+    cell.textField.placeholder = [self.titles objectAtIndex:indexPath.row];
 	cell.textField.keyboardType = UIKeyboardTypeAlphabet;
 	cell.textField.delegate = self;
 	switch (indexPath.row) {

@@ -346,12 +346,12 @@
 		NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
 		
 		NSString* trackInfo = [NSString stringWithFormat:@"%@ - \"%@\"", artist, trackName];
-		NSString* message = [NSString stringWithFormat:@"Now playing: %@ #Maltine",trackInfo];
+		NSString* message = [NSString stringWithFormat:@"Now playing: %@ #MaltineApp",trackInfo];
 		//NSLog(@"%@",message);
 		[self.twitterEngine sendUpdate:message];
 	}else{
 		
-		UIAlertViewQuick(@"エラー", @"Twitterアカウントを設定してください。", @"OK");
+		UIAlertViewQuick(NSLocalizedString(@"Error", nil), NSLocalizedString(@"Please sign in to Twitter from About Tab.", nil),@"OK");
 		
 	}
 

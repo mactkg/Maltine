@@ -23,10 +23,10 @@
 
 	NSArray* titles;
 	XAuthTwitterEngine* twitterEngine;
-	UIView* connectingView;
 	UITextField* activeField;
 }
 @property (nonatomic, retain) XAuthTwitterEngine* twitterEngine;
+@property (nonatomic, retain) NSArray* titles;
 
 - (void)configureInputStringCell:(InputStringCell*)cell atIndexPath:(NSIndexPath*)indexPath;
 @end

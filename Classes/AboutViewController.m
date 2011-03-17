@@ -109,7 +109,7 @@
 	
 	stickerIndex = 0;
 	
-	UIBarButtonItem* btnTwitterSetting = [[UIBarButtonItem alloc] initWithTitle:@"設定"
+	UIBarButtonItem* btnTwitterSetting = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Settings", nil)
 																		  style:UIBarButtonItemStyleBordered
 																		 target:self
 																		 action:@selector(btnTwitterSettingClicked)];

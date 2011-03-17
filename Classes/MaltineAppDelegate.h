@@ -20,7 +20,8 @@
 	NSDictionary *news;
 	PlayerViewController* player;
 	NSMutableArray *favoliteList;
-	
+    
+    UIView *lockView;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -29,7 +30,10 @@
 @property (nonatomic, retain) NSDictionary *news;
 @property (nonatomic, retain) PlayerViewController* player;
 @property (retain) NSMutableArray* favoliteList;
+@property (nonatomic, retain) IBOutlet UIView *lockView;
 
 + (MaltineAppDelegate *)sharedDelegate;
++ (void)lock;
++ (void)unlock;
 
 @end

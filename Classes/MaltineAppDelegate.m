@@ -18,6 +18,7 @@
 @synthesize news;
 @synthesize player;
 @synthesize favoliteList;
+@synthesize lockView;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -26,6 +27,17 @@
 {
 	return (MaltineAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
+
++ (void)lock
+{
+	[[MaltineAppDelegate sharedDelegate].window addSubview:[MaltineAppDelegate sharedDelegate].lockView];
+}
+
++ (void)unlock
+{
+	[[MaltineAppDelegate sharedDelegate].lockView removeFromSuperview];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
