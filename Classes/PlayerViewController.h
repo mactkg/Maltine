@@ -21,7 +21,7 @@
 
 
 @class AudioStreamer;
-@interface PlayerViewController : UIViewController<UIActionSheetDelegate> {
+@interface PlayerViewController : UIViewController<UIActionSheetDelegate,XAuthTwitterEngineDelegate> {
 	NSArray* playList;
 	int trackKey;
 	IBOutlet UIAsyncImageView* imageView;

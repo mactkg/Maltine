@@ -341,6 +341,7 @@
 -(void)tweet{
 	
 	if ([self.twitterEngine isAuthorized]) {
+        [MaltineAppDelegate lock];
 		//NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
 		NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
 		NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
@@ -364,6 +365,18 @@
 	NSString *accessTokenString = [[NSUserDefaults standardUserDefaults] objectForKey:kCachedXAuthAccessTokenStringKey];	
 	NSLog(@"About to return access token string: %@", accessTokenString);	
 	return accessTokenString;
+}
+
+- (void)requestSucceeded:(NSString *)connectionIdentifier
+{
+    [MaltineAppDelegate unlock];
+    UIAlertViewQuick(nil, NSLocalizedString(@"Tweet succeeded!", nil),@"OK");
+}
+
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error
+{
+    [MaltineAppDelegate unlock];
+    UIAlertViewQuick(NSLocalizedString(@"Error", nil), NSLocalizedString(@"Tweet failed!", nil),@"OK");
 }
 
 
