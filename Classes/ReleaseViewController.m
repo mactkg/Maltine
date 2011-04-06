@@ -343,6 +343,11 @@
     return YES;
 }
 
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller {
+ 
+    self.filteredReleaseList = nil;
+    [self.tableView reloadData];
+}
 
 #pragma mark -
 #pragma mark Memory management
