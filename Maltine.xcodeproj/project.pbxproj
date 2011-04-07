@@ -244,6 +244,7 @@
 		1164401512A42D5100A4B13F /* MAL_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MAL_logo.png; sourceTree = "<group>"; };
 		118041171299448300EC20A1 /* ipod_shuffle_right_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipod_shuffle_right_white.png; sourceTree = "<group>"; };
 		1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipod_shuffle_right_white@2x.png"; sourceTree = "<group>"; };
+		11B91E99134DAF0A00F05DBA /* UIAlertView+TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TextField.h"; sourceTree = "<group>"; };
 		11B9C716121EEF0F008ED520 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		11B9C717121EEF0F008ED520 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		11B9C724121EEF64008ED520 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -392,6 +393,7 @@
 		110A510512AA4F27003365A3 /* CocoaHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				11B91E99134DAF0A00F05DBA /* UIAlertView+TextField.h */,
 				110A511712AA4F40003365A3 /* UIAlertView+Helper.h */,
 				110A511812AA4F40003365A3 /* UIAlertView+Helper.m */,
 			);

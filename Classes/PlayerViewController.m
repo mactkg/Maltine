@@ -7,7 +7,7 @@
 //
 
 #import "PlayerViewController.h"
-
+#import "UIAlertView+TextField.h"
 
 
 @implementation PlayerViewController
@@ -148,6 +148,8 @@
 	
 }
 
+#pragma mark -
+#pragma mark UIActionSheetDelegate
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 	
 	if (isFavolitesPlayer) {
@@ -165,13 +167,34 @@
 		
 		//Tweet
 		if (buttonIndex == 1) {
-			[self tweet];
+			//[self tweet];
+            UIAlertView  *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"comment (option)", nil)
+                                                             message:nil
+                                                            delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+                                                   otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+            
+            [alert addTextFieldWithValue:nil label:nil];
+            alert.tag = 1;
+            [alert show];
+            [alert release];
 		}
 	}
-
-	
 	
 }
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if (alertView.tag == 1) {
+        if (buttonIndex == 1) {
+            [self tweetWithComment:[alertView textField].text];
+        }
+    }
+    
+}
+
 
 #pragma mark -
 #pragma mark utility
@@ -338,8 +361,8 @@
 	
 }
 
--(void)tweet{
-	
+-(void)tweetWithComment:(NSString*)comment{
+    
 	if ([self.twitterEngine isAuthorized]) {
         [MaltineAppDelegate lock];
 		//NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
@@ -347,7 +370,7 @@
 		NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
 		
 		NSString* trackInfo = [NSString stringWithFormat:@"%@ - \"%@\"", artist, trackName];
-		NSString* message = [NSString stringWithFormat:@"Now playing: %@ #MaltineApp",trackInfo];
+		NSString* message = [NSString stringWithFormat:@"%@ Now playing: %@ #MaltineApp",comment,trackInfo];
 		//NSLog(@"%@",message);
 		[self.twitterEngine sendUpdate:message];
 	}else{
@@ -355,8 +378,14 @@
 		UIAlertViewQuick(NSLocalizedString(@"Error", nil), NSLocalizedString(@"Please sign in to Twitter from About Tab.", nil),@"OK");
 		
 	}
-
+    
 }
+-(void)tweet{
+	
+    [self tweetWithComment:nil];
+    
+}
+
 
 #pragma mark -
 #pragma mark twitter delegate

@@ -21,7 +21,7 @@
 
 
 @class AudioStreamer;
-@interface PlayerViewController : UIViewController<UIActionSheetDelegate,XAuthTwitterEngineDelegate> {
+@interface PlayerViewController : UIViewController<UIActionSheetDelegate,UIAlertViewDelegate,XAuthTwitterEngineDelegate> {
 	NSArray* playList;
 	int trackKey;
 	IBOutlet UIAsyncImageView* imageView;
@@ -77,6 +77,7 @@
 - (void) setMultilineTitleView;
 - (void) playPrevOrNext:(BOOL)isNext;
 - (void) shuffle;
+-(void)tweetWithComment:(NSString*)comment;
 - (void) tweet;
 
 @end
