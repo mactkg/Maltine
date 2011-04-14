@@ -7,7 +7,6 @@
 //
 
 #import "PlayerViewController.h"
-#import "UIAlertView+TextField.h"
 
 @implementation PlayerViewController
 @synthesize playList;
