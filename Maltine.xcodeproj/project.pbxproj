@@ -249,7 +249,6 @@
 		11B1830C1356F3AC00F4A822 /* TweetCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCommentViewController.h; sourceTree = "<group>"; };
 		11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCommentViewController.m; sourceTree = "<group>"; };
 		11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCommentViewController.xib; sourceTree = "<group>"; };
-		11B91E99134DAF0A00F05DBA /* UIAlertView+TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TextField.h"; sourceTree = "<group>"; };
 		11B9C716121EEF0F008ED520 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		11B9C717121EEF0F008ED520 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		11B9C724121EEF64008ED520 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -398,7 +397,6 @@
 		110A510512AA4F27003365A3 /* CocoaHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				11B91E99134DAF0A00F05DBA /* UIAlertView+TextField.h */,
 				110A511712AA4F40003365A3 /* UIAlertView+Helper.h */,
 				110A511812AA4F40003365A3 /* UIAlertView+Helper.m */,
 			);
