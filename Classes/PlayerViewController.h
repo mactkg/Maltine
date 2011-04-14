@@ -14,6 +14,8 @@
 #import "MaltineAppDelegate.h"
 #import "XAuthTwitterEngine.h"
 #import "UIAlertView+Helper.h"
+#import "TweetCommentViewController.h"
+
 
 #define kOAuthConsumerKey @"IERBJS05LakdQD9eKCg"
 #define kOAuthConsumerSecret @"p81vkvtQpBAi8QDq5Vrn3BYsEeVMdf9IQm631L7qZQ"
@@ -21,7 +23,7 @@
 
 
 @class AudioStreamer;
-@interface PlayerViewController : UIViewController<UIActionSheetDelegate,UIAlertViewDelegate,XAuthTwitterEngineDelegate> {
+@interface PlayerViewController : UIViewController<UIActionSheetDelegate,XAuthTwitterEngineDelegate,TweetCommentViewControllerDelegate> {
 	NSArray* playList;
 	int trackKey;
 	IBOutlet UIAsyncImageView* imageView;
@@ -77,7 +79,8 @@
 - (void) setMultilineTitleView;
 - (void) playPrevOrNext:(BOOL)isNext;
 - (void) shuffle;
--(void)tweetWithComment:(NSString*)comment;
+- (void) tweetWithComment:(NSString*)comment;
 - (void) tweet;
+- (NSString *) buildTwitterMessage: (NSString *) comment;
 
 @end

@@ -86,6 +86,8 @@
 		1164401612A42D5100A4B13F /* MAL_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1164401512A42D5100A4B13F /* MAL_logo.png */; };
 		118041181299448300EC20A1 /* ipod_shuffle_right_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 118041171299448300EC20A1 /* ipod_shuffle_right_white.png */; };
 		1180411C1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */; };
+		11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */; };
+		11B183101356F3AC00F4A822 /* TweetCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */; };
 		11B9C718121EEF0F008ED520 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B9C717121EEF0F008ED520 /* AudioStreamer.m */; };
 		11B9C725121EEF64008ED520 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C724121EEF64008ED520 /* AudioToolbox.framework */; };
 		11B9C75E121EEFF1008ED520 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C75D121EEFF1008ED520 /* CFNetwork.framework */; };
@@ -244,6 +246,9 @@
 		1164401512A42D5100A4B13F /* MAL_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MAL_logo.png; sourceTree = "<group>"; };
 		118041171299448300EC20A1 /* ipod_shuffle_right_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipod_shuffle_right_white.png; sourceTree = "<group>"; };
 		1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipod_shuffle_right_white@2x.png"; sourceTree = "<group>"; };
+		11B1830C1356F3AC00F4A822 /* TweetCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCommentViewController.h; sourceTree = "<group>"; };
+		11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCommentViewController.m; sourceTree = "<group>"; };
+		11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCommentViewController.xib; sourceTree = "<group>"; };
 		11B91E99134DAF0A00F05DBA /* UIAlertView+TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TextField.h"; sourceTree = "<group>"; };
 		11B9C716121EEF0F008ED520 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		11B9C717121EEF0F008ED520 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
@@ -457,6 +462,7 @@
 				1144FAE6121E6AA20037FE71 /* PlayerViewController.h */,
 				1144FAE7121E6AA20037FE71 /* PlayerViewController.m */,
 				1144FAE8121E6AA20037FE71 /* PlayerViewController.xib */,
+				11B1830B1356F36100F4A822 /* TweetCommentViewController */,
 			);
 			name = PlayerViewController;
 			sourceTree = "<group>";
@@ -588,6 +594,16 @@
 				11643E9A12A2457B00A4B13F /* jQueryInjectLandscape.txt */,
 			);
 			name = Twitter;
+			sourceTree = "<group>";
+		};
+		11B1830B1356F36100F4A822 /* TweetCommentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11B1830C1356F3AC00F4A822 /* TweetCommentViewController.h */,
+				11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */,
+				11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */,
+			);
+			name = TweetCommentViewController;
 			sourceTree = "<group>";
 		};
 		11E334FF1225EB9600375172 /* AlbumTableViewCell */ = {
@@ -827,6 +843,7 @@
 				1109193D12C4C61900B90764 /* seal_fix12@2x.png in Resources */,
 				1109193E12C4C61900B90764 /* seal_fix13@2x.png in Resources */,
 				1109193F12C4C61900B90764 /* seal_fix14@2x.png in Resources */,
+				11B183101356F3AC00F4A822 /* TweetCommentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,6 +886,7 @@
 				11F7839F12A544D900430B56 /* SettingViewController.m in Sources */,
 				11F783D412A57BEC00430B56 /* InputStringCell.m in Sources */,
 				110A511912AA4F40003365A3 /* UIAlertView+Helper.m in Sources */,
+				11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,6 @@
 #import "PlayerViewController.h"
 #import "UIAlertView+TextField.h"
 
-
 @implementation PlayerViewController
 @synthesize playList;
 @synthesize trackKey;
@@ -139,7 +138,7 @@
 												  delegate:self
 										 cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
 									destructiveButtonTitle:nil
-										 otherButtonTitles:NSLocalizedString(@"Add to Favolites",nil),NSLocalizedString(@"Tweet",nil),nil];
+										 otherButtonTitles:NSLocalizedString(@"Add to Favolites",nil),NSLocalizedString(@"Tweet",nil),NSLocalizedString(@"Tweet with comment", nil),nil];
 	}
 
 	
@@ -167,34 +166,28 @@
 		
 		//Tweet
 		if (buttonIndex == 1) {
-			//[self tweet];
-            UIAlertView  *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"comment (option)", nil)
-                                                             message:nil
-                                                            delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
-                                                   otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-            
-            [alert addTextFieldWithValue:nil label:nil];
-            alert.tag = 1;
-            [alert show];
-            [alert release];
+            [self tweet];
 		}
+        if (buttonIndex == 2) {
+            NSInteger count = [[self buildTwitterMessage:@""] length];
+            TweetCommentViewController* controller = [[[TweetCommentViewController alloc] initWithDelegate:self textCount:count] autorelease];
+            [self.navigationController presentModalViewController:controller animated:YES];            
+        }
 	}
 	
 }
 
 #pragma mark -
-#pragma mark UIAlertViewDelegate
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+#pragma mark TweetCommentViewControllerDelegate
+-(void)didFinishedTweetCommentViewController:(TweetCommentViewController *)controller withComment:(NSString *)comment
 {
-    
-    if (alertView.tag == 1) {
-        if (buttonIndex == 1) {
-            [self tweetWithComment:[alertView textField].text];
-        }
-    }
-    
+    [controller dismissModalViewControllerAnimated:YES];
+    [self tweetWithComment:comment];
 }
-
+-(void)didCanceledTweetCommentViewController:(TweetCommentViewController *)controller
+{
+    [controller dismissModalViewControllerAnimated:YES];
+}
 
 #pragma mark -
 #pragma mark utility
@@ -361,16 +354,21 @@
 	
 }
 
+- (NSString *) buildTwitterMessage: (NSString *) comment  {
+    NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+    NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+    
+    NSString* trackInfo = [NSString stringWithFormat:@"%@ - \"%@\"", artist, trackName];
+    NSString* message = [NSString stringWithFormat:@"%@ Now playing: %@ #MaltineApp",comment,trackInfo];
+    return message;
+}
+
 -(void)tweetWithComment:(NSString*)comment{
     
 	if ([self.twitterEngine isAuthorized]) {
         [MaltineAppDelegate lock];
-		//NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
-		NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
-		NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
-		
-		NSString* trackInfo = [NSString stringWithFormat:@"%@ - \"%@\"", artist, trackName];
-		NSString* message = [NSString stringWithFormat:@"%@ Now playing: %@ #MaltineApp",comment,trackInfo];
+        NSString *message = [self buildTwitterMessage: comment];
+
 		//NSLog(@"%@",message);
 		[self.twitterEngine sendUpdate:message];
 	}else{
@@ -382,7 +380,7 @@
 }
 -(void)tweet{
 	
-    [self tweetWithComment:nil];
+    [self tweetWithComment:@""];
     
 }
 
