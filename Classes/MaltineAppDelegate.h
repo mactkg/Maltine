@@ -18,6 +18,7 @@
     UITabBarController *tabBarController;
 	NSArray *releaseList;
 	NSDictionary *news;
+    NSArray *textList;
 	PlayerViewController* player;
 	NSMutableArray *favoliteList;
     
@@ -28,6 +29,7 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) NSArray *releaseList;
 @property (nonatomic, retain) NSDictionary *news;
+@property (nonatomic, retain) NSArray *textList;
 @property (nonatomic, retain) PlayerViewController* player;
 @property (retain) NSMutableArray* favoliteList;
 @property (nonatomic, retain) IBOutlet UIView *lockView;

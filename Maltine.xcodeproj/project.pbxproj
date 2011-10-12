@@ -12,6 +12,12 @@
 		1102D069123A234F00591557 /* tomad_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1102D067123A234F00591557 /* tomad_02.png */; };
 		1102D0A4123A494800591557 /* epoch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1102D0A3123A494800591557 /* epoch.caf */; };
 		11077BF512499DBF00D9DBB8 /* ReleaseList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11077BF412499DBF00D9DBB8 /* ReleaseList.plist */; };
+		11078AA613CB1BFE0054905E /* WebReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11078AA413CB1BFE0054905E /* WebReaderViewController.m */; };
+		11078AA713CB1BFE0054905E /* WebReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11078AA513CB1BFE0054905E /* WebReaderViewController.xib */; };
+		11078AAB13CB1F1B0054905E /* psysphere1_2.xhtml in Resources */ = {isa = PBXBuildFile; fileRef = 11078AA913CB1F1B0054905E /* psysphere1_2.xhtml */; };
+		11078AAC13CB1F1B0054905E /* syoseki.css in Resources */ = {isa = PBXBuildFile; fileRef = 11078AAA13CB1F1B0054905E /* syoseki.css */; };
+		1107D1AA13C7082900FF8EC0 /* TextListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1107D1A813C7082900FF8EC0 /* TextListViewController.m */; };
+		1107D1AB13C7082900FF8EC0 /* TextListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1107D1A913C7082900FF8EC0 /* TextListViewController.xib */; };
 		1109187212C4AA8C00B90764 /* ReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1109187112C4AA8C00B90764 /* ReleaseViewController.xib */; };
 		1109191612C4C60900B90764 /* seal_fix01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1109190812C4C60900B90764 /* seal_fix01.png */; };
 		1109191712C4C60900B90764 /* seal_fix02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1109190912C4C60900B90764 /* seal_fix02.png */; };
@@ -84,6 +90,7 @@
 		11643EF912A2457C00A4B13F /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 11643EE012A2457B00A4B13F /* NSString+UUID.m */; };
 		11643EFD12A245F300A4B13F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 11643EFC12A245F300A4B13F /* libxml2.dylib */; };
 		1164401612A42D5100A4B13F /* MAL_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1164401512A42D5100A4B13F /* MAL_logo.png */; };
+		117C997B1442E41F00BE3E3E /* TextList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C997A1442E41F00BE3E3E /* TextList.plist */; };
 		118041181299448300EC20A1 /* ipod_shuffle_right_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 118041171299448300EC20A1 /* ipod_shuffle_right_white.png */; };
 		1180411C1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */; };
 		11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */; };
@@ -127,6 +134,14 @@
 		1102D067123A234F00591557 /* tomad_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomad_02.png; sourceTree = "<group>"; };
 		1102D0A3123A494800591557 /* epoch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = epoch.caf; sourceTree = "<group>"; };
 		11077BF412499DBF00D9DBB8 /* ReleaseList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReleaseList.plist; sourceTree = "<group>"; };
+		11078AA313CB1BFE0054905E /* WebReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebReaderViewController.h; sourceTree = "<group>"; };
+		11078AA413CB1BFE0054905E /* WebReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebReaderViewController.m; sourceTree = "<group>"; };
+		11078AA513CB1BFE0054905E /* WebReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebReaderViewController.xib; sourceTree = "<group>"; };
+		11078AA913CB1F1B0054905E /* psysphere1_2.xhtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = psysphere1_2.xhtml; sourceTree = "<group>"; };
+		11078AAA13CB1F1B0054905E /* syoseki.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = syoseki.css; sourceTree = "<group>"; };
+		1107D1A713C7082900FF8EC0 /* TextListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextListViewController.h; sourceTree = "<group>"; };
+		1107D1A813C7082900FF8EC0 /* TextListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextListViewController.m; sourceTree = "<group>"; };
+		1107D1A913C7082900FF8EC0 /* TextListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextListViewController.xib; sourceTree = "<group>"; };
 		1109187312C4AA9900B90764 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = Japanese.lproj/ReleaseViewController.xib; sourceTree = "<group>"; };
 		1109190812C4C60900B90764 /* seal_fix01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seal_fix01.png; sourceTree = "<group>"; };
 		1109190912C4C60900B90764 /* seal_fix02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seal_fix02.png; sourceTree = "<group>"; };
@@ -244,6 +259,7 @@
 		11643EE012A2457B00A4B13F /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
 		11643EFC12A245F300A4B13F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1164401512A42D5100A4B13F /* MAL_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MAL_logo.png; sourceTree = "<group>"; };
+		117C997A1442E41F00BE3E3E /* TextList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextList.plist; sourceTree = "<group>"; };
 		118041171299448300EC20A1 /* ipod_shuffle_right_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipod_shuffle_right_white.png; sourceTree = "<group>"; };
 		1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipod_shuffle_right_white@2x.png"; sourceTree = "<group>"; };
 		11B1830C1356F3AC00F4A822 /* TweetCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCommentViewController.h; sourceTree = "<group>"; };
@@ -332,6 +348,8 @@
 				1144F946121AEA5E0037FE71 /* FavoritesViewController */,
 				11FBF425122D247200D2F9CC /* AboutViewController */,
 				11F7839512A5445700430B56 /* SettingViewController */,
+				1107D1A113C7060400FF8EC0 /* TextListViewController */,
+				11078AA213CB1BCA0054905E /* WebReaderViewController */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -356,6 +374,35 @@
 				110918D312C4C36400B90764 /* stickers */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		11078AA213CB1BCA0054905E /* WebReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11078AA313CB1BFE0054905E /* WebReaderViewController.h */,
+				11078AA413CB1BFE0054905E /* WebReaderViewController.m */,
+				11078AA513CB1BFE0054905E /* WebReaderViewController.xib */,
+			);
+			name = WebReaderViewController;
+			sourceTree = "<group>";
+		};
+		11078AA813CB1EF90054905E /* amano */ = {
+			isa = PBXGroup;
+			children = (
+				11078AA913CB1F1B0054905E /* psysphere1_2.xhtml */,
+				11078AAA13CB1F1B0054905E /* syoseki.css */,
+			);
+			name = amano;
+			sourceTree = "<group>";
+		};
+		1107D1A113C7060400FF8EC0 /* TextListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1107D1A713C7082900FF8EC0 /* TextListViewController.h */,
+				1107D1A813C7082900FF8EC0 /* TextListViewController.m */,
+				1107D1A913C7082900FF8EC0 /* TextListViewController.xib */,
+			);
+			name = TextListViewController;
 			sourceTree = "<group>";
 		};
 		110918D312C4C36400B90764 /* stickers */ = {
@@ -697,6 +744,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11078AA813CB1EF90054905E /* amano */,
 				1102D0A7123A496200591557 /* images */,
 				1144FB77121E96240037FE71 /* icons */,
 				1102D0A6123A495200591557 /* tomad */,
@@ -704,6 +752,7 @@
 				8D1107310486CEB800E47090 /* Maltine-Info.plist */,
 				11077BF412499DBF00D9DBB8 /* ReleaseList.plist */,
 				1144FA2C121D2DB40037FE71 /* News.plist */,
+				117C997A1442E41F00BE3E3E /* TextList.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -842,6 +891,11 @@
 				1109193E12C4C61900B90764 /* seal_fix13@2x.png in Resources */,
 				1109193F12C4C61900B90764 /* seal_fix14@2x.png in Resources */,
 				11B183101356F3AC00F4A822 /* TweetCommentViewController.xib in Resources */,
+				1107D1AB13C7082900FF8EC0 /* TextListViewController.xib in Resources */,
+				11078AA713CB1BFE0054905E /* WebReaderViewController.xib in Resources */,
+				11078AAB13CB1F1B0054905E /* psysphere1_2.xhtml in Resources */,
+				11078AAC13CB1F1B0054905E /* syoseki.css in Resources */,
+				117C997B1442E41F00BE3E3E /* TextList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,6 +939,8 @@
 				11F783D412A57BEC00430B56 /* InputStringCell.m in Sources */,
 				110A511912AA4F40003365A3 /* UIAlertView+Helper.m in Sources */,
 				11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */,
+				1107D1AA13C7082900FF8EC0 /* TextListViewController.m in Sources */,
+				11078AA613CB1BFE0054905E /* WebReaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

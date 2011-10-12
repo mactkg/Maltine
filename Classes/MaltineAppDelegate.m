@@ -9,6 +9,7 @@
 #import "MaltineAppDelegate.h"
 #define URL_RELEASE @"http://maltine.b11.coreserver.jp/iphone/ReleaseList.plist"
 #define URL_NEWS @"http://maltine.b11.coreserver.jp/iphone/News.plist"
+#define URL_TEXT @"http://viriviri.sakura.ne.jp/tmp/TextList.plist"
 
 @implementation MaltineAppDelegate
 
@@ -16,6 +17,7 @@
 @synthesize tabBarController;
 @synthesize releaseList;
 @synthesize news;
+@synthesize textList;
 @synthesize player;
 @synthesize favoliteList;
 @synthesize lockView;
@@ -45,6 +47,8 @@
 	self.releaseList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_RELEASE]];
 		
 	self.news = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:URL_NEWS]];
+    
+    self.textList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_TEXT]];
 	
 	
 	PlayerViewController* controller =  [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];

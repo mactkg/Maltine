@@ -1,0 +1,35 @@
+h1.title{font-size:xx-large}
+h1.author{
+    font-size:large;
+    text-align:right}
+h2{
+    margin-top:2em;
+    margin-bottom:2em;
+    margin-left:15%;
+    margin-right:50%;
+    border-bottom:1px dotted black;
+	}
+
+h3.pretitle{
+    margin-top:5em;
+    margin-bottom:0em;
+    font-size:small
+    }
+
+h3.title{
+    margin-top:0em;
+    margin-bottom:2em;
+    text-indent:3%;
+    }
+
+h4{
+    text-indent: 10%;
+	}
+p{text-indent: 1em;
+  margin:0em;}
+p.bold{font-weight: bold;}
+p.dialog{text-indent: 0em}
+p.doubledash{text-indent: 0em}
+p.footnote{font-size:x-small}
+
+//構造的な意味を持たない本文中の改行は、からのbrタグで処理しています。
