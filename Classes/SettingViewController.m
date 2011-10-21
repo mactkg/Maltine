@@ -50,12 +50,14 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
 	
-	if (textField.tag == 1000) {
-		[[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterIdStringKey];
-	}
-	if (textField.tag == 1001) {
-		[[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterPasswordStringKey];
-	}
+    if (textField.text != nil) {
+        if (textField.tag == 1000) {
+            [[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterIdStringKey];
+        }
+        if (textField.tag == 1001) {
+            [[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterPasswordStringKey];
+        }
+    }
 	
 }
 
@@ -118,9 +120,9 @@
 	
 	self.title = NSLocalizedString(@"Settings",nil);
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																						  target:self
-																						  action:@selector(btnCancelClicked)];
+																						  action:@selector(btnCancelClicked)] autorelease];
 	
 	self.titles = [NSArray arrayWithObjects:NSLocalizedString(@"username", nil),NSLocalizedString(@"password", nil),nil];
 	
@@ -205,9 +207,9 @@
     
 	NSString *CellIdentifier = [NSString stringWithFormat:@"Cell_%d_%d",indexPath.section,indexPath.row];
     
-    InputStringCell *cell = (InputStringCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[InputStringCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
@@ -217,22 +219,30 @@
     return cell;
 }
 
-- (void)configureInputStringCell:(InputStringCell*)cell atIndexPath:(NSIndexPath*)indexPath
+- (void)configureInputStringCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-	cell.textField.tag = 1000 + indexPath.row;
-	cell.label.text = [self.titles objectAtIndex:indexPath.row];
-    cell.textField.placeholder = [self.titles objectAtIndex:indexPath.row];
-	cell.textField.keyboardType = UIKeyboardTypeAlphabet;
-	cell.textField.delegate = self;
+    
+    UITextField* field = [[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 180, cell.frame.size.height)] autorelease];
+    field.textColor = [UIColor colorWithRed:59.0/255.0 green:85.0/255.0 blue:133.0/255.0 alpha:1.0];
+    field.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    field.textAlignment = UITextAlignmentLeft;
+    field.delegate = self;
+    field.tag = 1000 + indexPath.row;
+    field.keyboardType = UIKeyboardTypeAlphabet;
+    field.placeholder = [self.titles objectAtIndex:indexPath.row];
+    
+    cell.accessoryView = field;
+	cell.textLabel.text = [self.titles objectAtIndex:indexPath.row];
+
 	switch (indexPath.row) {
 		case 0:
-			cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:kTwitterIdStringKey];
-			cell.textField.returnKeyType = UIReturnKeyNext;
+			field.returnKeyType = UIReturnKeyNext;
+			field.text = [[NSUserDefaults standardUserDefaults] stringForKey:kTwitterIdStringKey];
 			break;
 		case 1:			
-			cell.textField.secureTextEntry = YES;
-			cell.textField.returnKeyType = UIReturnKeyDone;
-			cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:kTwitterPasswordStringKey];			
+			field.secureTextEntry = YES;
+			field.returnKeyType = UIReturnKeyDone;
+			field.text = [[NSUserDefaults standardUserDefaults] stringForKey:kTwitterPasswordStringKey];			
 			break;
 	}
 }

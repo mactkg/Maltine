@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "InputStringCell.h"
 #import "XAuthTwitterEngine.h"
 #import "UIAlertView+Helper.h"
 
@@ -28,5 +27,5 @@
 @property (nonatomic, retain) XAuthTwitterEngine* twitterEngine;
 @property (nonatomic, retain) NSArray* titles;
 
-- (void)configureInputStringCell:(InputStringCell*)cell atIndexPath:(NSIndexPath*)indexPath;
+- (void)configureInputStringCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
 @end

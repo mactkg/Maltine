@@ -113,7 +113,6 @@
 		11EC60F81221755300F3DE68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EC60F71221755300F3DE68 /* QuartzCore.framework */; };
 		11F7839F12A544D900430B56 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F7839D12A544D900430B56 /* SettingViewController.m */; };
 		11F783A012A544D900430B56 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F7839E12A544D900430B56 /* SettingViewController.xib */; };
-		11F783D412A57BEC00430B56 /* InputStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F783D312A57BEC00430B56 /* InputStringCell.m */; };
 		11FBF429122D249C00D2F9CC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FBF427122D249C00D2F9CC /* AboutViewController.m */; };
 		11FBF42A122D249C00D2F9CC /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF428122D249C00D2F9CC /* AboutViewController.xib */; };
 		11FBF439122D9DE400D2F9CC /* maru50_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF438122D9DE400D2F9CC /* maru50_image.png */; };
@@ -290,8 +289,6 @@
 		11F7839C12A544D900430B56 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		11F7839D12A544D900430B56 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		11F7839E12A544D900430B56 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
-		11F783D212A57BEC00430B56 /* InputStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputStringCell.h; sourceTree = "<group>"; };
-		11F783D312A57BEC00430B56 /* InputStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputStringCell.m; sourceTree = "<group>"; };
 		11FBF426122D249C00D2F9CC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		11FBF427122D249C00D2F9CC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		11FBF428122D249C00D2F9CC /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -687,21 +684,11 @@
 		11F783C612A5757700430B56 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
-				11F783D112A57BEC00430B56 /* InputStringCell */,
 				11E334FF1225EB9600375172 /* AlbumTableViewCell */,
 				1144FAB9121E5F310037FE71 /* UIAsyncImageView */,
 				11EC5E49121FB20300F3DE68 /* MultilineTitleView */,
 			);
 			name = CustomControl;
-			sourceTree = "<group>";
-		};
-		11F783D112A57BEC00430B56 /* InputStringCell */ = {
-			isa = PBXGroup;
-			children = (
-				11F783D212A57BEC00430B56 /* InputStringCell.h */,
-				11F783D312A57BEC00430B56 /* InputStringCell.m */,
-			);
-			name = InputStringCell;
 			sourceTree = "<group>";
 		};
 		11FBF425122D247200D2F9CC /* AboutViewController */ = {
@@ -940,7 +927,6 @@
 				11643EF812A2457C00A4B13F /* NSData+MGTwitterBase64.m in Sources */,
 				11643EF912A2457C00A4B13F /* NSString+UUID.m in Sources */,
 				11F7839F12A544D900430B56 /* SettingViewController.m in Sources */,
-				11F783D412A57BEC00430B56 /* InputStringCell.m in Sources */,
 				110A511912AA4F40003365A3 /* UIAlertView+Helper.m in Sources */,
 				11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */,
 				1107D1AA13C7082900FF8EC0 /* TextListViewController.m in Sources */,
