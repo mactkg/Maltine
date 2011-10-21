@@ -29,7 +29,7 @@
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	news = delegate.news;
-	UILabel* titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+	UILabel* titleLabel = [[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)] autorelease];
 	titleLabel.backgroundColor = [UIColor clearColor];
 	titleLabel.numberOfLines = 0;
 	titleLabel.textColor = [UIColor whiteColor];

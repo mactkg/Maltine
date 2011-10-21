@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	
 	self.releaseList = [MaltineAppDelegate sharedDelegate].releaseList;
-	self.allMusicList = [[NSMutableArray alloc] init];
+	self.allMusicList = [[[NSMutableArray alloc] init] autorelease];
 	
 	for (NSDictionary* album in self.releaseList) {
 		for (NSDictionary* track in [album objectForKey:@"PlayList"]) {
@@ -273,7 +273,7 @@
 		[self.navigationController pushViewController:player animated:YES];
 		
 	}else {
-		AlbumViewController *controller = [[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil];
+		AlbumViewController *controller = [[[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil] autorelease];
 		
 		if (self.searchDisplayController.active){
 			//AlbumInfo
@@ -290,7 +290,6 @@
 		
 		
 		[self.navigationController pushViewController:controller animated:YES];
-		[controller release];
 	}
 }
 

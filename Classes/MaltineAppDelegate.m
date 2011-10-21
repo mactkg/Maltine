@@ -59,7 +59,7 @@
 	self.favoliteList = [NSMutableArray arrayWithArray:[defaults objectForKey:@"favolites"]];
 	//favが存在しない場合
 	if (self.favoliteList == nil) {
-		self.favoliteList = [[NSMutableArray alloc] init];		
+		self.favoliteList = [[[NSMutableArray alloc] init] autorelease];
 	}
 	
     [window addSubview:tabBarController.view];

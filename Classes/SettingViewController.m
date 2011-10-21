@@ -126,7 +126,7 @@
 	
 	self.titles = [NSArray arrayWithObjects:NSLocalizedString(@"username", nil),NSLocalizedString(@"password", nil),nil];
 	
-	self.twitterEngine = [[XAuthTwitterEngine alloc] initXAuthWithDelegate:self];
+	self.twitterEngine = [[[XAuthTwitterEngine alloc] initXAuthWithDelegate:self] autorelease];
 	self.twitterEngine.consumerKey = kOAuthConsumerKey;
 	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
 
