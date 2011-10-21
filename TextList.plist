@@ -17,6 +17,8 @@
 		<string>http://maltine.b11.coreserver.jp/iphone/text/marut1/psysphere1.xhtml</string>
 		<key>IndexUrl</key>
 		<string>http://maltine.b11.coreserver.jp/iphone/text/marut1/psysphere_index.xhtml</string>
+		<key>MusicUrl</key>
+		<string>http://maltine.b11.coreserver.jp/iphone/text/marut1/1.mp3</string>
 	</dict>
 </array>
 </plist>

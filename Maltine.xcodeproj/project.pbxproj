@@ -93,6 +93,7 @@
 		117C997B1442E41F00BE3E3E /* TextList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C997A1442E41F00BE3E3E /* TextList.plist */; };
 		118041181299448300EC20A1 /* ipod_shuffle_right_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 118041171299448300EC20A1 /* ipod_shuffle_right_white.png */; };
 		1180411C1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */; };
+		11A4AF881450675500304BA9 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A4AF871450675500304BA9 /* 96-book.png */; };
 		11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */; };
 		11B183101356F3AC00F4A822 /* TweetCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */; };
 		11B9C718121EEF0F008ED520 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B9C717121EEF0F008ED520 /* AudioStreamer.m */; };
@@ -262,6 +263,7 @@
 		117C997A1442E41F00BE3E3E /* TextList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextList.plist; sourceTree = "<group>"; };
 		118041171299448300EC20A1 /* ipod_shuffle_right_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipod_shuffle_right_white.png; sourceTree = "<group>"; };
 		1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipod_shuffle_right_white@2x.png"; sourceTree = "<group>"; };
+		11A4AF871450675500304BA9 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
 		11B1830C1356F3AC00F4A822 /* TweetCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCommentViewController.h; sourceTree = "<group>"; };
 		11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCommentViewController.m; sourceTree = "<group>"; };
 		11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCommentViewController.xib; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				11FBF479122E40AA00D2F9CC /* icon3030_46.png */,
 				11EC607F122129E300F3DE68 /* dummy.png */,
 				11FBF46B122E3E8A00D2F9CC /* 120-headphones.png */,
+				11A4AF871450675500304BA9 /* 96-book.png */,
 				11FBF469122E3E4E00D2F9CC /* icon3030_42.png */,
 				11FBF467122E3DF100D2F9CC /* icon3030_65.png */,
 				11EC5F79122020BA00F3DE68 /* star_fav.png */,
@@ -896,6 +899,7 @@
 				11078AAB13CB1F1B0054905E /* psysphere1_2.xhtml in Resources */,
 				11078AAC13CB1F1B0054905E /* syoseki.css in Resources */,
 				117C997B1442E41F00BE3E3E /* TextList.plist in Resources */,
+				11A4AF881450675500304BA9 /* 96-book.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,7 +1004,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1012,7 +1016,7 @@
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B90749A9-7C39-4F8B-9F25-1565707677C4";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1022,7 +1026,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1035,7 +1039,7 @@
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
 			};
 			name = Debug;
 		};
@@ -1043,7 +1047,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
@@ -1054,7 +1058,7 @@
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

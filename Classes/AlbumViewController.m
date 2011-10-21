@@ -7,7 +7,7 @@
 //
 
 #import "AlbumViewController.h"
-
+#import "PlayerViewController.h"
 
 @implementation AlbumViewController
 @synthesize albumInfo;
@@ -36,7 +36,7 @@
     [super viewWillAppear:animated];
 
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
-	if ([delegate.player.streamer isPlaying]) {
+	if (![delegate.player isTextPlayer] && [delegate.player.streamer isPlaying]) {
 		UIBarButtonItem* btnPlaying = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Now Playing",nil)
 																	   style:UIBarButtonItemStyleBordered
 																	  target:self
@@ -226,10 +226,7 @@
 		
 		delegate.player.playList = self.playList;
 		delegate.player.trackKey = indexPath.row;
-
-		delegate.player.isFavolitesPlayer = NO;
-		delegate.player.isShufflePlayer = NO;
-		delegate.player.isSearchPlayer = NO;
+        delegate.player.currentPlayerType = AlbumPlayer;
 		delegate.player.stopPlayerWhenViewWillAppear = YES;
 		delegate.player.hidesBottomBarWhenPushed = YES;
 		[self.navigationController pushViewController:delegate.player animated:YES];

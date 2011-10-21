@@ -18,12 +18,12 @@
 @synthesize controllerView;
 @synthesize informationView;
 @synthesize volumeSlider;
-@synthesize isFavolitesPlayer;
-@synthesize isShufflePlayer;
-@synthesize isSearchPlayer;
+@synthesize currentPlayerType;
 @synthesize streamer;
 @synthesize stopPlayerWhenViewWillAppear;
 @synthesize twitterEngine;
+
+
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -67,7 +67,7 @@
 	if (self.stopPlayerWhenViewWillAppear) {
 		[self destroyStreamer];		
 
-		if (isShufflePlayer) {
+		if ([self isShufflePlayer]) {
 			[self shuffle];
 		}		
 		
@@ -126,7 +126,7 @@
 - (void) btnFavClicked{
 	
 	UIActionSheet* actionSheet;
-	if (isFavolitesPlayer) {
+	if ([self isFavolitesPlayer]) {
 		actionSheet = [[UIActionSheet alloc] initWithTitle:nil
 												  delegate:self
 										 cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
@@ -150,7 +150,7 @@
 #pragma mark UIActionSheetDelegate
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 	
-	if (isFavolitesPlayer) {
+	if ([self isFavolitesPlayer]) {
 		if (buttonIndex == 0) {
 			[self tweet];
 		}
@@ -209,7 +209,7 @@
 	
 	int currentKey = self.trackKey;
 	
-	if (isShufflePlayer) {
+	if ([self isShufflePlayer]) {
 		[self shuffle];
 	}else {
 		
@@ -254,7 +254,7 @@
 	[self setMultilineTitleView];
 	
 	//image
-	if (isShufflePlayer) {
+	if ([self isShufflePlayer]) {
 		self.imageView.image = nil;		
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}else {
@@ -271,8 +271,17 @@
 	[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
 	[self.streamer start];
 	
-	
-	
+}
+
+- (void)playForText:(NSString*)musicUrl{
+    
+    if ([streamer isPlaying]||[streamer isPaused]) {
+		[self destroyStreamer];
+	}
+	//Stream
+	[self createStreamerWithUrlString:musicUrl];
+	[self.streamer start];
+
 }
 
 - (void) setMultilineTitleView{
@@ -383,6 +392,31 @@
     
 }
 
+#pragma mark - is*Player
+-(BOOL)isFavolitesPlayer{
+    if (self.currentPlayerType == FavolitesPlayer) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL)isShufflePlayer{
+    if (self.currentPlayerType == ShufflePlayer) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL)isSearchPlayer{
+    if (self.currentPlayerType == SearchPlayer) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL)isTextPlayer{
+    if (self.currentPlayerType == TextPlayer) {
+        return YES;
+    }
+    return NO;    
+}
 
 #pragma mark -
 #pragma mark twitter delegate
@@ -497,10 +531,13 @@
 	}
 	else if ([streamer isIdle])
 	{
-		[self destroyStreamer];
 		//[self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
-		[self playPrevOrNext:YES];
-		
+        if ([self isTextPlayer]) {
+            [self.streamer start];
+        }else{
+            [self destroyStreamer];
+            [self playPrevOrNext:YES];
+		}
 	}
 	else if ([streamer isPaused]) {
 		[self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];

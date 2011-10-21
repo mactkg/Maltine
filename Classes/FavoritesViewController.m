@@ -42,7 +42,7 @@
 
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
 	
-	if ([delegate.player.streamer isPlaying]) {
+	if (![delegate.player isTextPlayer] && [delegate.player.streamer isPlaying]) {
 		UIBarButtonItem* btnPlaying = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Now Playing",nil)
 																	   style:UIBarButtonItemStyleBordered
 																	  target:self
@@ -202,8 +202,7 @@
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	delegate.player.trackKey = indexPath.row;
 	delegate.player.playList = delegate.favoliteList;
-	delegate.player.isFavolitesPlayer = YES;
-	delegate.player.isShufflePlayer = NO;
+    delegate.player.currentPlayerType = FavolitesPlayer;
 	delegate.player.stopPlayerWhenViewWillAppear = YES;
 	delegate.player.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:delegate.player animated:YES];

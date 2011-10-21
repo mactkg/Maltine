@@ -58,7 +58,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
-	if ([delegate.player.streamer isPlaying]) {
+	if (![delegate.player isTextPlayer] && [delegate.player.streamer isPlaying]) {
 		UIBarButtonItem* btnPlaying = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Now Playing",nil)
 																	   style:UIBarButtonItemStyleBordered
 																	  target:self
@@ -83,8 +83,7 @@
 -(void) btnShuffleClicked{
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
-	delegate.player.isShufflePlayer = YES;
-	delegate.player.isFavolitesPlayer = NO;
+    delegate.player.currentPlayerType = ShufflePlayer;
 	delegate.player.stopPlayerWhenViewWillAppear = YES;
 	delegate.player.hidesBottomBarWhenPushed = YES;
 	[self.navigationController pushViewController:delegate.player animated:YES];
@@ -267,9 +266,7 @@
 	
 	if (self.searchDisplayController.active && self.searchDisplayController.searchBar.selectedScopeButtonIndex == 1) {
 		PlayerViewController* player = [MaltineAppDelegate sharedDelegate].player;
-		player.isShufflePlayer = NO;
-		player.isFavolitesPlayer = NO;
-		player.isSearchPlayer = YES;
+        player.currentPlayerType = SearchPlayer;
 		player.stopPlayerWhenViewWillAppear = YES;
 		player.playList = [NSArray arrayWithArray:self.filteredReleaseList];
 		player.trackKey = indexPath.row;

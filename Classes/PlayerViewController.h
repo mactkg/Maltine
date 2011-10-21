@@ -40,9 +40,8 @@
 	IBOutlet UISlider *progressSlider;
 	AudioStreamer *streamer;
 	NSTimer *progressUpdateTimer;
-	BOOL isFavolitesPlayer;
-	BOOL isShufflePlayer;
-	BOOL isSearchPlayer;
+    
+    int currentPlayerType;
 	BOOL stopPlayerWhenViewWillAppear;
 	
 	XAuthTwitterEngine* twitterEngine;
@@ -58,9 +57,7 @@
 @property (nonatomic, retain) UIView* informationView;
 @property (nonatomic, retain) UIView* volumeSlider;
 @property (nonatomic, retain) AudioStreamer* streamer;
-@property BOOL isFavolitesPlayer;
-@property BOOL isShufflePlayer;
-@property BOOL isSearchPlayer;
+@property (nonatomic, assign) int currentPlayerType;
 @property BOOL stopPlayerWhenViewWillAppear;
 @property (nonatomic, retain) XAuthTwitterEngine* twitterEngine;
 
@@ -82,5 +79,20 @@
 - (void) tweetWithComment:(NSString*)comment;
 - (void) tweet;
 - (NSString *) buildTwitterMessage: (NSString *) comment;
+
+- (BOOL)isFavolitesPlayer;
+- (BOOL)isShufflePlayer;
+- (BOOL)isSearchPlayer;
+- (BOOL)isTextPlayer;
+
+- (void)playForText:(NSString*)musicUrl;
+
+typedef enum{
+    AlbumPlayer,
+    ShufflePlayer,
+    FavolitesPlayer,
+    SearchPlayer,
+    TextPlayer
+}PlayerType;
 
 @end

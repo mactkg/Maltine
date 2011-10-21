@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebReaderViewController.h"
 
-
-@interface TextListViewController : UITableViewController {
-    
+@interface TextListViewController : UITableViewController<NSURLConnectionDelegate,NSURLConnectionDataDelegate,UIActionSheetDelegate>
+{
+    NSMutableData* imageData;
+    IBOutlet UIImageView* titleImageView;
+    NSDictionary* currentTextInfoDictionary;
 }
+@property (nonatomic, retain) NSMutableData* imageData;
+@property (nonatomic, retain) UIImageView* titleImageView;
+@property (nonatomic, retain) NSDictionary* currentTextInfoDictionary;
 
 @end

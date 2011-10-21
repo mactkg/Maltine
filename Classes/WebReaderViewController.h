@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-
+@protocol WebReaderViewControllerDelegate;
 @interface WebReaderViewController : UIViewController<UIWebViewDelegate> {
     
     IBOutlet UIWebView* webView;
-    
-    NSString* urlString;
+    NSDictionary* textInfoDictionary;
+    BOOL loadIndex;
 }
 
-@property (nonatomic, retain) NSString* urlString;
-
+@property (nonatomic, retain) NSDictionary* textInfoDictionary;
+@property BOOL loadIndex;
 @end

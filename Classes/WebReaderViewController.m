@@ -10,8 +10,8 @@
 #import "MaltineAppDelegate.h"
 #import "UIAlertView+Helper.h"
 @implementation WebReaderViewController
-@synthesize urlString;
-
+@synthesize textInfoDictionary;
+@synthesize loadIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,17 +35,46 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
+-(void)btnPlayForText{
+    
+    if (![[MaltineAppDelegate sharedDelegate].player isTextPlayer] || ![[MaltineAppDelegate sharedDelegate].player.streamer isPlaying]) {
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(btnPlayForText)] autorelease];
+        [MaltineAppDelegate sharedDelegate].player.currentPlayerType = TextPlayer;
+        [[MaltineAppDelegate sharedDelegate].player playForText:[self.textInfoDictionary objectForKey:@"MusicUrl"]];
 
+        
+    }else{
+        [[MaltineAppDelegate sharedDelegate].player destroyStreamer];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(btnPlayForText)] autorelease];        
+    }
+    
+}
+
+#pragma mark - View lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]];
-    [webView loadRequest:req];
-}
 
+    if ([[MaltineAppDelegate sharedDelegate].player isTextPlayer] && [[MaltineAppDelegate sharedDelegate].player.streamer isPlaying]) {
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(btnPlayForText)] autorelease];    
+
+    }else{
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(btnPlayForText)] autorelease]; 
+    }
+    self.title = [self.textInfoDictionary objectForKey:@"Title"];
+    
+    if (self.loadIndex) {
+        NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:[self.textInfoDictionary objectForKey:@"IndexUrl"]]];
+        [webView loadRequest:req];
+
+    }else{
+        NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:[self.textInfoDictionary objectForKey:@"Url"]]];
+        [webView loadRequest:req];
+        
+    }
+    
+}
 
 #pragma mark - UIWebViewDelegate
 
