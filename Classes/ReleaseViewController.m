@@ -277,15 +277,15 @@
 		
 		if (self.searchDisplayController.active){
 			//AlbumInfo
-			controller.albumInfo = [[[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] mutableCopy];
+			controller.albumInfo = [[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
 			//PlayList
-			controller.playList = [[[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"] mutableCopy];
+			controller.playList = [[self.filteredReleaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
 			
 		}else {
 			//AlbumInfo
-			controller.albumInfo = [[[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"] mutableCopy];
+			controller.albumInfo = [[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"AlbumInfo"];
 			//PlayList
-			controller.playList = [[[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"] mutableCopy];
+			controller.playList = [[self.releaseList objectAtIndex:indexPath.row] valueForKey:@"PlayList"];
 		}
 		
 		

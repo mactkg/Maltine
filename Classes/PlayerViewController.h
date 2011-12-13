@@ -45,6 +45,8 @@
 	BOOL stopPlayerWhenViewWillAppear;
 	
 	XAuthTwitterEngine* twitterEngine;
+    
+    MultilineTitleView* multiTitleView;
 	
 }
 @property (nonatomic, retain) NSArray* playList;
@@ -86,6 +88,11 @@
 - (BOOL)isTextPlayer;
 
 - (void)playForText:(NSString*)musicUrl;
+
+- (void)forceUIUpdate;
+- (void)createTimers:(BOOL)create;
+
+
 
 typedef enum{
     AlbumPlayer,

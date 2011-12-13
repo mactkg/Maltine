@@ -11,13 +11,18 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 //
+#define SHOUTCAST_METADATA
 
-#ifdef TARGET_OS_IPHONE			
+#if TARGET_OS_IPHONE			
 #import <UIKit/UIKit.h>
+#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_4_0
+#define kCFCoreFoundationVersionNumber_iPhoneOS_4_0 550.32
+#endif
 #else
 #import <Cocoa/Cocoa.h>
 #endif TARGET_OS_IPHONE			
 
+#import <Foundation/Foundation.h>
 #include <pthread.h>
 #include <AudioToolbox/AudioToolbox.h>
 
@@ -97,9 +102,16 @@ typedef enum
 } AudioStreamerErrorCode;
 
 extern NSString * const ASStatusChangedNotification;
+extern NSString * const ASPresentAlertWithTitleNotification;
+#ifdef SHOUTCAST_METADATA
+extern NSString * const ASUpdateMetadataNotification;
+#endif
 
 @interface AudioStreamer : NSObject
 {
+#if TARGET_OS_IPHONE    
+	UIBackgroundTaskIdentifier bgTaskId;
+#endif    
 	NSURL *url;
 
 	//
@@ -155,14 +167,31 @@ extern NSString * const ASStatusChangedNotification;
 								// time)
 	double packetDuration;		// sample rate times frames per packet
 	double lastProgress;		// last calculated progress point
+	UInt32 numberOfChannels;	// Number of audio channels in the stream (1 = mono, 2 = stereo)
+
+#ifdef SHOUTCAST_METADATA
+	BOOL foundIcyStart;
+	BOOL foundIcyEnd;
+	BOOL parsedHeaders;
+	unsigned int metaDataInterval;					// how many data bytes between meta data
+	unsigned int metaDataBytesRemaining;	// how many bytes of metadata remain to be read
+	unsigned int dataBytesRead;							// how many bytes of data have been read
+	NSMutableString *metaDataString;			// the metaDataString
+#endif
+	BOOL vbr; // indicates VBR (or not) stream
 }
 
 @property AudioStreamerErrorCode errorCode;
 @property (readonly) AudioStreamerState state;
+@property (readonly) AudioStreamerStopReason stopReason;
 @property (readonly) double progress;
+@property (readonly) double bufferFillPercentage;
 @property (readonly) double duration;
 @property (readwrite) UInt32 bitRate;
 @property (readonly) NSDictionary *httpHeaders;
+@property (readonly) UInt32 numberOfChannels;
+@property (assign, getter=isMeteringEnabled) BOOL meteringEnabled;
+@property (readonly) BOOL vbr;
 
 - (id)initWithURL:(NSURL *)aURL;
 - (void)start;
@@ -174,6 +203,11 @@ extern NSString * const ASStatusChangedNotification;
 - (BOOL)isIdle;
 - (void)seekToTime:(double)newSeekTime;
 - (double)calculatedBitRate;
+
+// level metering
+- (float)peakPowerForChannel:(NSUInteger)channelNumber;
+- (float)averagePowerForChannel:(NSUInteger)channelNumber;
+
 
 @end
 

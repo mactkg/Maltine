@@ -35,7 +35,7 @@ connectionIdentifier:(NSString *)theIdentifier requestType:(MGTwitterRequestType
 {
     if (self = [super init]) {
 		
-		self.dateFormatter = [[NSDateFormatter alloc] init];
+		self.dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 		[self.dateFormatter setDateFormat:kMGTwitterDateFormatString];		
 		
         xml = [theXML retain];
@@ -62,7 +62,7 @@ connectionIdentifier:(NSString *)theIdentifier requestType:(MGTwitterRequestType
 
 - (void)dealloc
 {
-	[self.dateFormatter release];
+	[dateFormatter release];
     [parser release];
     [parsedObjects release];
     [xml release];

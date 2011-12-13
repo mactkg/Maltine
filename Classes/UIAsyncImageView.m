@@ -65,7 +65,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
 	self.image = [UIImage imageWithData:data];
 	self.contentMode = UIViewContentModeScaleAspectFit;
-	self.autoresizingMask = UIViewAutoresizingFlexibleWidth || UIViewAutoresizingFlexibleHeight;
+	self.autoresizingMask = UIViewAutoresizingNone;
 	[indicator stopAnimating];
 	[self abort];
 }

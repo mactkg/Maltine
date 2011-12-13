@@ -39,22 +39,24 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    multiTitleView = [[[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)] autorelease];
+	self.navigationItem.titleView = multiTitleView;
+
 	
 	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:volumeSlider.bounds] autorelease];
 	[volumeSlider addSubview:volumeView];
 	[volumeView sizeToFit];
 	
 	
-	UIBarButtonItem* btnFav = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+	UIBarButtonItem* btnFav = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 																			target:self
-																			action:@selector(btnFavClicked)];			
+																			action:@selector(btnFavClicked)] autorelease];			
 	self.navigationItem.rightBarButtonItem = btnFav;
-	
-	[btnFav release];
 	
 	srand((unsigned) time(NULL));
 	
-	self.twitterEngine = [[XAuthTwitterEngine alloc] initXAuthWithDelegate:self];
+	self.twitterEngine = [[[XAuthTwitterEngine alloc] initXAuthWithDelegate:self] autorelease];
 	self.twitterEngine.consumerKey = kOAuthConsumerKey;
 	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
 }
@@ -63,6 +65,18 @@
 	
 	[super viewWillAppear:animated];
 
+    
+    
+    UIApplication *application = [UIApplication sharedApplication];
+	if([application respondsToSelector:@selector(beginReceivingRemoteControlEvents)]){
+		[application beginReceivingRemoteControlEvents];
+    }
+	[self becomeFirstResponder]; // this enables listening for events
+    
+	// update the UI in case we were in the background
+	NSNotification *notification = [NSNotification notificationWithName:ASStatusChangedNotification object:self];
+	[[NSNotificationCenter defaultCenter] postNotification:notification];
+    
 		
 	if (self.stopPlayerWhenViewWillAppear) {
 		[self destroyStreamer];		
@@ -96,6 +110,17 @@
 	
 	
 }	
+/*
+-(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];  
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];  
+    [self resignFirstResponder];
+}
+*/
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
 
 #pragma mark -
 #pragma mark button events
@@ -287,13 +312,10 @@
 - (void) setMultilineTitleView{
 	
 	//Title
-	MultilineTitleView* multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
 	
 	multiTitleView.topText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
 	multiTitleView.middleText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
-	self.navigationItem.titleView = multiTitleView;
-	[multiTitleView release];
 }
 
 - (void) enterOrExitFullScreen{
@@ -481,7 +503,9 @@
 	NSURL *url = [NSURL URLWithString:escapedValue];
 	
 	streamer = [[AudioStreamer alloc] initWithURL:url];
-	
+    [self createTimers:YES];
+
+    
 	progressUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
 														   target:self
 														 selector:@selector(updateProgress:)
@@ -518,29 +542,36 @@
 //
 - (void)playbackStateChanged:(NSNotification *)aNotification
 {
-	if ([streamer isWaiting])
+    MaltineAppDelegate* appDelegate = [MaltineAppDelegate sharedDelegate]; 
+	
+    if ([streamer isWaiting])
 	{
-		[indicator startAnimating];
-		[self hideOrAppearControllerButtons:YES];
+        if (appDelegate.uiIsVisible) {
+            [indicator startAnimating];
+            [self hideOrAppearControllerButtons:YES];
+        }
 	}
 	else if ([streamer isPlaying])
 	{
-		[indicator stopAnimating];
-		[self hideOrAppearControllerButtons:NO];
-		[self.btnPause setImage:[UIImage imageNamed:@"playback_pause.png"] forState:UIControlStateNormal];
+        if (appDelegate.uiIsVisible) {
+            [indicator stopAnimating];
+            [self hideOrAppearControllerButtons:NO];
+            [self.btnPause setImage:[UIImage imageNamed:@"playback_pause.png"] forState:UIControlStateNormal];
+        }
 	}
 	else if ([streamer isIdle])
 	{
-		//[self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
         if ([self isTextPlayer]) {
             [self.streamer start];
         }else{
             [self destroyStreamer];
             [self playPrevOrNext:YES];
-		}
+        }
 	}
 	else if ([streamer isPaused]) {
-		[self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
+        if (appDelegate.uiIsVisible) {
+            [self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
+        }
 	}
 
 }
@@ -587,7 +618,84 @@
 	}
 }
 
+#pragma mark - background
+//
+// forceUIUpdate
+//
+// When foregrounded force UI update since we didn't update in the background
+//
+-(void)forceUIUpdate {
+    
+    if (self.playList) {
+        [self setMultilineTitleView];
+    }
+    if (streamer) {
+        [self playbackStateChanged:nil];
+    }
+}
 
+
+//
+// createTimers
+//
+// Creates or destoys the timers
+//
+-(void)createTimers:(BOOL)create {
+	if (create) {
+		if (streamer) {
+            [self createTimers:NO];
+            progressUpdateTimer =
+            [NSTimer
+             scheduledTimerWithTimeInterval:0.1
+             target:self
+             selector:@selector(updateProgress:)
+             userInfo:nil
+             repeats:YES];
+		}
+	}
+	else {
+		if (progressUpdateTimer)
+		{
+			[progressUpdateTimer invalidate];
+			progressUpdateTimer = nil;
+		}
+	}
+}
+
+
+#pragma mark - Remote Control Events
+/* The iPod controls will send these events when the app is in the background */
+/*
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    //handle in RCUIWindow
+    
+	switch (event.subtype) {
+		case UIEventSubtypeRemoteControlTogglePlayPause:
+			[streamer pause];
+			break;
+		case UIEventSubtypeRemoteControlPlay:
+			[streamer start];
+			break;
+		case UIEventSubtypeRemoteControlPause:
+			[streamer pause];
+			break;
+		case UIEventSubtypeRemoteControlStop:
+			[streamer stop];
+			break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            if (![self isTextPlayer]) {
+                [self playPrevOrNext:YES];
+            }
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            if (![self isTextPlayer]) {
+                [self playPrevOrNext:NO];
+            }
+		default:
+			break;
+	}
+}
+*/
 
 /*
 // Override to allow orientations other than the default portrait orientation.

@@ -51,7 +51,7 @@
 	self.accessTokenURL = nil;
 	
 	[self.operationQueue cancelAllOperations];
-	[self.operationQueue release];	
+	[_operationQueue release];	
 	
 	[_accessToken release];
 	[_consumer release];
@@ -67,7 +67,7 @@
 - (XAuthTwitterEngine *) initXAuthWithDelegate: (NSObject *) delegate {
     if (self = (id) [super initWithDelegate: delegate]) {
 		self.accessTokenURL = [NSURL URLWithString: @"http://twitter.com/oauth/access_token"];
-		self.operationQueue = [[NSOperationQueue alloc] init];
+		self.operationQueue = [[[NSOperationQueue alloc] init] autorelease];
 	}
     return self;
 }

@@ -48,6 +48,7 @@
 		1109193E12C4C61900B90764 /* seal_fix13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1109193012C4C61900B90764 /* seal_fix13@2x.png */; };
 		1109193F12C4C61900B90764 /* seal_fix14@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1109193112C4C61900B90764 /* seal_fix14@2x.png */; };
 		110A511912AA4F40003365A3 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 110A511812AA4F40003365A3 /* UIAlertView+Helper.m */; };
+		11152A03148A0F3900A86DA2 /* RCUIWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 11152A02148A0F3900A86DA2 /* RCUIWindow.m */; };
 		1144F94A121AEBDA0037FE71 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F948121AEBDA0037FE71 /* NewsViewController.m */; };
 		1144F94B121AEBDA0037FE71 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144F949121AEBDA0037FE71 /* NewsViewController.xib */; };
 		1144F94F121AEBEE0037FE71 /* ReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1144F94D121AEBEE0037FE71 /* ReleaseViewController.m */; };
@@ -96,7 +97,6 @@
 		11A4AF881450675500304BA9 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A4AF871450675500304BA9 /* 96-book.png */; };
 		11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */; };
 		11B183101356F3AC00F4A822 /* TweetCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */; };
-		11B9C718121EEF0F008ED520 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B9C717121EEF0F008ED520 /* AudioStreamer.m */; };
 		11B9C725121EEF64008ED520 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C724121EEF64008ED520 /* AudioToolbox.framework */; };
 		11B9C75E121EEFF1008ED520 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C75D121EEFF1008ED520 /* CFNetwork.framework */; };
 		11D6DE2B123665C300017E7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11D6DE2A123665C300017E7B /* Localizable.strings */; };
@@ -121,6 +121,8 @@
 		11FBF46A122E3E4E00D2F9CC /* icon3030_42.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF469122E3E4E00D2F9CC /* icon3030_42.png */; };
 		11FBF46C122E3E8A00D2F9CC /* 120-headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF46B122E3E8A00D2F9CC /* 120-headphones.png */; };
 		11FBF47A122E40AA00D2F9CC /* icon3030_46.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF479122E40AA00D2F9CC /* icon3030_46.png */; };
+		11FCD1631488B2FB00C5F651 /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FCD1621488B2FB00C5F651 /* UIDevice+Hardware.m */; };
+		11FCD1661488B62300C5F651 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FCD1651488B62300C5F651 /* AudioStreamer.m */; };
 		1D3623260D0F684500981E51 /* MaltineAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MaltineAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -173,6 +175,8 @@
 		1109193112C4C61900B90764 /* seal_fix14@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seal_fix14@2x.png"; sourceTree = "<group>"; };
 		110A511712AA4F40003365A3 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
 		110A511812AA4F40003365A3 /* UIAlertView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Helper.m"; sourceTree = "<group>"; };
+		11152A01148A0F3900A86DA2 /* RCUIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUIWindow.h; sourceTree = "<group>"; };
+		11152A02148A0F3900A86DA2 /* RCUIWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUIWindow.m; sourceTree = "<group>"; };
 		1144F947121AEBDA0037FE71 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		1144F948121AEBDA0037FE71 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		1144F949121AEBDA0037FE71 /* NewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
@@ -266,8 +270,6 @@
 		11B1830C1356F3AC00F4A822 /* TweetCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCommentViewController.h; sourceTree = "<group>"; };
 		11B1830D1356F3AC00F4A822 /* TweetCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCommentViewController.m; sourceTree = "<group>"; };
 		11B1830E1356F3AC00F4A822 /* TweetCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCommentViewController.xib; sourceTree = "<group>"; };
-		11B9C716121EEF0F008ED520 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
-		11B9C717121EEF0F008ED520 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		11B9C724121EEF64008ED520 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		11B9C75D121EEFF1008ED520 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		11D6DE281236657700017E7B /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -298,6 +300,10 @@
 		11FBF469122E3E4E00D2F9CC /* icon3030_42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3030_42.png; sourceTree = "<group>"; };
 		11FBF46B122E3E8A00D2F9CC /* 120-headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120-headphones.png"; sourceTree = "<group>"; };
 		11FBF479122E40AA00D2F9CC /* icon3030_46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3030_46.png; sourceTree = "<group>"; };
+		11FCD1611488B2FB00C5F651 /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
+		11FCD1621488B2FB00C5F651 /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		11FCD1641488B62300C5F651 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		11FCD1651488B62300C5F651 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* MaltineAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaltineAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* MaltineAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaltineAppDelegate.m; sourceTree = "<group>"; };
@@ -335,10 +341,12 @@
 			isa = PBXGroup;
 			children = (
 				11D6DE2D1236662500017E7B /* MainWindow.xib */,
-				11B9C716121EEF0F008ED520 /* AudioStreamer.h */,
-				11B9C717121EEF0F008ED520 /* AudioStreamer.m */,
+				11FCD1641488B62300C5F651 /* AudioStreamer.h */,
+				11FCD1651488B62300C5F651 /* AudioStreamer.m */,
 				1D3623240D0F684500981E51 /* MaltineAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MaltineAppDelegate.m */,
+				11152A01148A0F3900A86DA2 /* RCUIWindow.h */,
+				11152A02148A0F3900A86DA2 /* RCUIWindow.m */,
 				11F783C612A5757700430B56 /* CustomControl */,
 				1144F93D121AE9050037FE71 /* NewsViewController */,
 				1144F93E121AE9520037FE71 /* ReleaseViewController */,
@@ -539,6 +547,7 @@
 		11643E9812A2457B00A4B13F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				11FCD1601488B2E900C5F651 /* Additions */,
 				110A510512AA4F27003365A3 /* CocoaHelpers */,
 				11643F0B12A24A2000A4B13F /* Twitter */,
 			);
@@ -699,6 +708,15 @@
 				11FBF428122D249C00D2F9CC /* AboutViewController.xib */,
 			);
 			name = AboutViewController;
+			sourceTree = "<group>";
+		};
+		11FCD1601488B2E900C5F651 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				11FCD1611488B2FB00C5F651 /* UIDevice+Hardware.h */,
+				11FCD1621488B2FB00C5F651 /* UIDevice+Hardware.m */,
+			);
+			name = Additions;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -905,7 +923,6 @@
 				1144F9D5121D053C0037FE71 /* AlbumViewController.m in Sources */,
 				1144FABE121E602F0037FE71 /* UIAsyncImageView.m in Sources */,
 				1144FAE9121E6AA20037FE71 /* PlayerViewController.m in Sources */,
-				11B9C718121EEF0F008ED520 /* AudioStreamer.m in Sources */,
 				11EC5E57121FB6F900F3DE68 /* MultilineTitleView.m in Sources */,
 				11EC5FFC122114EB00F3DE68 /* UIAsyncImageViewForPlayer.m in Sources */,
 				11E335031225EBD700375172 /* AlbumTableViewCell.m in Sources */,
@@ -931,6 +948,9 @@
 				11B1830F1356F3AC00F4A822 /* TweetCommentViewController.m in Sources */,
 				1107D1AA13C7082900FF8EC0 /* TextListViewController.m in Sources */,
 				11078AA613CB1BFE0054905E /* WebReaderViewController.m in Sources */,
+				11FCD1631488B2FB00C5F651 /* UIDevice+Hardware.m in Sources */,
+				11FCD1661488B62300C5F651 /* AudioStreamer.m in Sources */,
+				11152A03148A0F3900A86DA2 /* RCUIWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,7 +1016,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
@@ -1004,6 +1024,7 @@
 				PRODUCT_NAME = Maltine;
 				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B90749A9-7C39-4F8B-9F25-1565707677C4";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = "App Store";
@@ -1019,13 +1040,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
 				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1038,13 +1060,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
 				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
