@@ -34,6 +34,12 @@
     return self;
 }
 */
+-(void)handleTapGesture:(UITapGestureRecognizer*)sender
+{
+    [self performSelector:@selector(enterOrExitFullScreen) withObject:nil afterDelay:0.4f];			
+
+}
+
 #pragma mark -
 #pragma mark view lifecycle
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -59,6 +65,11 @@
 	self.twitterEngine = [[[XAuthTwitterEngine alloc] initXAuthWithDelegate:self] autorelease];
 	self.twitterEngine.consumerKey = kOAuthConsumerKey;
 	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
+    
+    UITapGestureRecognizer* recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)] autorelease];
+    [self.imageView addGestureRecognizer:recognizer];
+    
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated{

@@ -108,7 +108,6 @@
 		11EC5E4F121FB25400F3DE68 /* MultilineTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11EC5E4E121FB25400F3DE68 /* MultilineTitleView.xib */; };
 		11EC5E57121FB6F900F3DE68 /* MultilineTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EC5E56121FB6F900F3DE68 /* MultilineTitleView.m */; };
 		11EC5F7A122020BA00F3DE68 /* star_fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 11EC5F79122020BA00F3DE68 /* star_fav.png */; };
-		11EC5FFC122114EB00F3DE68 /* UIAsyncImageViewForPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EC5FFB122114EB00F3DE68 /* UIAsyncImageViewForPlayer.m */; };
 		11EC6080122129E300F3DE68 /* dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 11EC607F122129E300F3DE68 /* dummy.png */; };
 		11EC60F81221755300F3DE68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EC60F71221755300F3DE68 /* QuartzCore.framework */; };
 		11F7839F12A544D900430B56 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F7839D12A544D900430B56 /* SettingViewController.m */; };
@@ -284,8 +283,6 @@
 		11EC5E55121FB6F900F3DE68 /* MultilineTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineTitleView.h; sourceTree = "<group>"; };
 		11EC5E56121FB6F900F3DE68 /* MultilineTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineTitleView.m; sourceTree = "<group>"; };
 		11EC5F79122020BA00F3DE68 /* star_fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_fav.png; sourceTree = "<group>"; };
-		11EC5FFA122114EB00F3DE68 /* UIAsyncImageViewForPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAsyncImageViewForPlayer.h; sourceTree = "<group>"; };
-		11EC5FFB122114EB00F3DE68 /* UIAsyncImageViewForPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAsyncImageViewForPlayer.m; sourceTree = "<group>"; };
 		11EC607F122129E300F3DE68 /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
 		11EC60F71221755300F3DE68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		11F7839C12A544D900430B56 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -502,8 +499,6 @@
 			children = (
 				1144FABC121E602F0037FE71 /* UIAsyncImageView.h */,
 				1144FABD121E602F0037FE71 /* UIAsyncImageView.m */,
-				11EC5FFA122114EB00F3DE68 /* UIAsyncImageViewForPlayer.h */,
-				11EC5FFB122114EB00F3DE68 /* UIAsyncImageViewForPlayer.m */,
 			);
 			name = UIAsyncImageView;
 			sourceTree = "<group>";
@@ -924,7 +919,6 @@
 				1144FABE121E602F0037FE71 /* UIAsyncImageView.m in Sources */,
 				1144FAE9121E6AA20037FE71 /* PlayerViewController.m in Sources */,
 				11EC5E57121FB6F900F3DE68 /* MultilineTitleView.m in Sources */,
-				11EC5FFC122114EB00F3DE68 /* UIAsyncImageViewForPlayer.m in Sources */,
 				11E335031225EBD700375172 /* AlbumTableViewCell.m in Sources */,
 				11FBF429122D249C00D2F9CC /* AboutViewController.m in Sources */,
 				11643EE312A2457B00A4B13F /* ExchangeCredentialsOperation.m in Sources */,
