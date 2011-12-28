@@ -47,6 +47,17 @@
 	XAuthTwitterEngine* twitterEngine;
     
     MultilineTitleView* multiTitleView;
+    
+    IBOutlet UIView* controllerLSView;
+    IBOutlet UIButton* btnPauseLS;
+    IBOutlet UIButton* btnPrevLS;
+    IBOutlet UIButton* btnNextLS;
+    
+    IBOutlet UILabel* lblAlbumLS;
+    IBOutlet UILabel* lblTrackLS;
+    IBOutlet UILabel* lblArtistLS;
+    IBOutlet UIActivityIndicatorView* indicatorLS;
+    
 	
 }
 @property (nonatomic, retain) NSArray* playList;

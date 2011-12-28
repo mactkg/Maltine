@@ -13,7 +13,10 @@
 
 @interface AboutViewController : UIViewController<AVAudioPlayerDelegate> {
 
+    IBOutlet UIImageView* malLogoImageView;
+    IBOutlet UILabel* lblVersionStr;
 	IBOutlet UILabel* lblVersion;
+    IBOutlet UIButton* btnInfo;
 	IBOutlet UIButton* btnTomad;
 	AVAudioPlayer* avap;
 	
@@ -23,6 +26,7 @@
 	IBOutlet UIImageView* stickerImageView2;
 	NSArray* stickerArray;
 	NSTimer* timer;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* lblVersion;

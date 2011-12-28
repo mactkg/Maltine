@@ -157,23 +157,75 @@
 					];
 
 
-	
 	timer = [NSTimer scheduledTimerWithTimeInterval:MAL_NEXT_TRANS_DURATION
 											 target:self
 										   selector:@selector(startTransition)
 										   userInfo:nil
 											repeats:YES];
 	
+    
+    
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (UIInterfaceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
 
-/*
+        //portrait
+        lblVersionStr.alpha = 1;
+        btnInfo.alpha = 1;
+        malLogoImageView.alpha = 1;
+        
+        stickerBaseView.frame = CGRectMake(0, 60, 320, 197);
+
+    }else{
+        //landscape
+        lblVersionStr.alpha = 0;
+        btnInfo.alpha = 0;
+        malLogoImageView.alpha = 0;
+        
+        stickerBaseView.frame = CGRectMake(0, 0, 480, 217);
+        
+    }
+    
+}
+
+#pragma mark - rotation
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
-*/
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    
+    [UIView animateWithDuration:0.2 animations:^(void){
+    
+        if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+            //portrait -> landscape
+            lblVersionStr.alpha = 0;
+            btnInfo.alpha = 0;
+            malLogoImageView.alpha = 0;
+            
+            stickerBaseView.frame = CGRectMake(0, 0, 480, 217);
+            
+        }else{
+            //landscape -> portrait
+            lblVersionStr.alpha = 1;
+            btnInfo.alpha = 1;
+            malLogoImageView.alpha = 1;
+            
+            stickerBaseView.frame = CGRectMake(0, 60, 320, 197);
+        }
+    
+    }];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

@@ -52,6 +52,7 @@
 	
 	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:volumeSlider.bounds] autorelease];
 	[volumeSlider addSubview:volumeView];
+    volumeView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth;
 	[volumeView sizeToFit];
 	
 	
@@ -104,6 +105,7 @@
 		
 		//indicator
 		[indicator startAnimating];
+        [indicatorLS startAnimating];
 		
 		//slideBar
 		progressSlider.value = 0;
@@ -118,6 +120,25 @@
 	if (self.imageView.image == nil) {
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}
+    
+    if (UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation])) {
+        //portrait
+        self.navigationController.navigationBarHidden = NO;
+        self.imageView.frame = CGRectMake(0, 24, 320, 320);
+        controllerView.alpha = 0.5;
+        controllerLSView.alpha = 0;
+        volumeSlider.alpha = 0.5;
+        [UIApplication sharedApplication].statusBarHidden = NO;
+        
+    }else{
+        //landscape
+        self.navigationController.navigationBarHidden = YES;
+        self.imageView.frame = CGRectMake(80, 0, 320, 320);
+        controllerView.alpha = 0;
+        controllerLSView.alpha = 0.5;
+        volumeSlider.alpha = 0;
+        [UIApplication sharedApplication].statusBarHidden = YES;
+    }
 	
 	
 }	
@@ -288,6 +309,18 @@
 	
 	//title
 	[self setMultilineTitleView];
+    
+    //Notification
+    UILocalNotification* notification = [[[UILocalNotification alloc] init] autorelease];
+    if (notification) {
+        notification.hasAction = NO;
+        notification.alertBody = [NSString stringWithFormat:@"[%@] %@ - %@",
+                                  [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"],
+                                  [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"],
+                                  [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"]];
+        
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 	
 	//image
 	if ([self isShufflePlayer]) {
@@ -327,71 +360,89 @@
 	multiTitleView.topText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
 	multiTitleView.middleText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+    
+    lblAlbumLS.text = [NSString stringWithFormat:@"[%@] %@",
+                       [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"],
+                       [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"]];
+    lblTrackLS.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+    lblArtistLS.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
 }
 
 - (void) enterOrExitFullScreen{
 	
-	[UIView setAnimationsEnabled:YES];
-	
-	[UIView beginAnimations:@"FullScreen" context:nil];
-	
-	CGPoint center1 = controllerView.center;
-	CGPoint center2 = informaitonView.center;
-	CGPoint center3 = volumeSlider.center;
-	CGPoint center4 = self.navigationController.navigationBar.center;
-	
-	
-	CGRect frame1 = controllerView.frame;
-	CGRect frame2 = informaitonView.frame;
-	CGRect frame3 = volumeSlider.frame;
-	CGRect frame4 = self.navigationController.navigationBar.frame;
-	
-	CGFloat height1 = CGRectGetHeight(frame1);
-	CGFloat height2 = CGRectGetHeight(frame2);
-	CGFloat height3 = CGRectGetHeight(frame3);
-	CGFloat height4 = CGRectGetHeight(frame4);
-	
-	if (controllerView.alpha==0.5f) {
-		controllerView.alpha = 0.0f;
-		center1.y += height1;
-	}else {
-		controllerView.alpha=0.5f;
-		center1.y -= height1;
-	}
-	if (informaitonView.alpha==0.5f) {
-		informaitonView.alpha = 0.0f;
-		center2.y -= height2;
-	}else {
-		informaitonView.alpha=0.5f;
-		center2.y += height2;
-	}
-
-	if (volumeSlider.alpha == 0.5f) {
-		volumeSlider.alpha = 0.0f;
-		center3.y += height3;
-	}else {
-		volumeSlider.alpha = 0.5f;
-		center3.y -= height3;
-	}
-
-	if (self.navigationController.navigationBar.alpha == 1.0f) {
-		self.navigationController.navigationBar.alpha = 0.0f;
-		center4.y -= height4;
-	}else {
-		self.navigationController.navigationBar.alpha = 1.0f;
-		center4.y += height4;
-	}
-	
-	controllerView.center = center1;
-	informaitonView.center = center2;
-	volumeSlider.center = center3;
-	self.navigationController.navigationBar.center = center4;
-	
-	UIApplication* app = [UIApplication sharedApplication];
-	app.statusBarHidden = !app.statusBarHidden;
-	
-	
-	[UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^(void){
+        CGPoint center1 = controllerView.center;
+        CGPoint center2 = informaitonView.center;
+        CGPoint center3 = volumeSlider.center;
+        CGPoint center4 = self.navigationController.navigationBar.center;
+        CGPoint center5 = controllerLSView.center;
+        
+        
+        CGRect frame1 = controllerView.frame;
+        CGRect frame2 = informaitonView.frame;
+        CGRect frame3 = volumeSlider.frame;
+        CGRect frame4 = self.navigationController.navigationBar.frame;
+        CGRect frame5 = controllerLSView.frame;
+        
+        CGFloat height1 = CGRectGetHeight(frame1);
+        CGFloat height2 = CGRectGetHeight(frame2);
+        CGFloat height3 = CGRectGetHeight(frame3);
+        CGFloat height4 = CGRectGetHeight(frame4);
+        CGFloat height5 = CGRectGetHeight(frame5);
+    
+        if (UIInterfaceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+            if (controllerView.alpha==0.5f) {
+                controllerView.alpha = 0.0f;
+                center1.y += height1;
+            }else {
+                controllerView.alpha=0.5f;
+                center1.y -= height1;
+            }
+            
+            if (volumeSlider.alpha == 0.5f) {
+                volumeSlider.alpha = 0.0f;
+                center3.y += height3;
+            }else {
+                volumeSlider.alpha = 0.5f;
+                center3.y -= height3;
+            }
+            
+            if (self.navigationController.navigationBar.alpha == 1.0f) {
+                self.navigationController.navigationBar.alpha = 0.0f;
+                center4.y -= height4;
+            }else {
+                self.navigationController.navigationBar.alpha = 1.0f;
+                center4.y += height4;
+            }
+            
+            controllerView.center = center1;
+            volumeSlider.center = center3;
+            self.navigationController.navigationBar.center = center4;
+            [UIApplication sharedApplication].statusBarHidden = ![UIApplication sharedApplication].statusBarHidden;
+            
+        }else{
+            if (controllerLSView.alpha == 0.5f) {
+                controllerLSView.alpha = 0.0f;
+                center5.y += height5;
+            }else{
+                controllerLSView.alpha = 0.5f;
+                center5.y -= height5;
+            }
+            controllerLSView.center = center5;
+        }
+        
+        if (informaitonView.alpha==0.5f) {
+            informaitonView.alpha = 0.0f;
+            center2.y -= height2;
+        }else {
+            informaitonView.alpha=0.5f;
+            center2.y += height2;
+        }
+        informaitonView.center = center2;
+    
+    }];
+    
+    	
 	
 }
 
@@ -559,6 +610,7 @@
 	{
         if (appDelegate.uiIsVisible) {
             [indicator startAnimating];
+            [indicatorLS startAnimating];
             [self hideOrAppearControllerButtons:YES];
         }
 	}
@@ -566,8 +618,10 @@
 	{
         if (appDelegate.uiIsVisible) {
             [indicator stopAnimating];
+            [indicatorLS stopAnimating];
             [self hideOrAppearControllerButtons:NO];
             [self.btnPause setImage:[UIImage imageNamed:@"playback_pause.png"] forState:UIControlStateNormal];
+            [btnPauseLS setImage:[UIImage imageNamed:@"playback_pause.png"] forState:UIControlStateNormal];
         }
 	}
 	else if ([streamer isIdle])
@@ -582,6 +636,7 @@
 	else if ([streamer isPaused]) {
         if (appDelegate.uiIsVisible) {
             [self.btnPause setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
+            [btnPauseLS setImage:[UIImage imageNamed:@"playback_play.png"] forState:UIControlStateNormal];
         }
 	}
 
@@ -592,7 +647,10 @@
 	self.btnPause.hidden = hide;
 	self.btnPrev.hidden = hide;
 	self.btnNext.hidden = hide;
-	
+    
+	btnPauseLS.hidden = hide;
+    btnPrevLS.hidden = hide;
+    btnNextLS.hidden = hide;
 }
 
 
@@ -708,13 +766,51 @@
 }
 */
 
-/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
-*/
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        //portrait -> landscape
+        self.navigationController.navigationBarHidden = YES;
+        controllerView.alpha = 0;
+        controllerLSView.alpha = 0.5;
+        volumeSlider.alpha = 0;
+        [UIApplication sharedApplication].statusBarHidden = YES;
+        
+    }else{
+        //landscape -> portrait
+        self.navigationController.navigationBarHidden = NO;
+        controllerView.alpha = 0.5;
+        controllerLSView.alpha = 0;
+        volumeSlider.alpha = 0.5;
+        [UIApplication sharedApplication].statusBarHidden = NO;
+    }
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+        //portrait -> landscape
+        
+        [UIView animateWithDuration:0.2 animations:^(void){
+            self.imageView.frame = CGRectMake(80, 0, 320, 320);
+        }];
+        
+    }else{
+        //landscape -> portrait
+        [UIView animateWithDuration:0.2 animations:^(void){
+            self.imageView.frame = CGRectMake(0, 24, 320, 320);
+        }];
+    }
+    
+}
+
 
 #pragma mark -
 #pragma mark memory management
