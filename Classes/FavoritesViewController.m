@@ -50,7 +50,9 @@
 		self.navigationItem.rightBarButtonItem = btnPlaying;		
 		[btnPlaying release];
 		
-	}
+	}else{
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 	
 }
 
