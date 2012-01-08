@@ -447,11 +447,13 @@
 }
 
 - (NSString *) buildTwitterMessage: (NSString *) comment  {
+    NSString* catNum = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
     NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
     NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+    NSString* releaseUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"ReleaseUrl"]; 
     
-    NSString* trackInfo = [NSString stringWithFormat:@"%@ - \"%@\"", artist, trackName];
-    NSString* message = [NSString stringWithFormat:@"%@ Now playing: %@ #MaltineApp",comment,trackInfo];
+    NSString* trackInfo = [NSString stringWithFormat:@"[%@] %@ - %@ %@", catNum, artist, trackName, releaseUrl];
+    NSString* message = [NSString stringWithFormat:@"%@ %@ #MaltineApp",comment,trackInfo];
     return message;
 }
 
