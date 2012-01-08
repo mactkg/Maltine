@@ -205,7 +205,7 @@
     
     [UIView animateWithDuration:0.2 animations:^(void){
     
-        if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+        if (UIInterfaceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
             //portrait -> landscape
             lblVersionStr.alpha = 0;
             btnInfo.alpha = 0;

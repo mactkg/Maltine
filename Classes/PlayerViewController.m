@@ -795,7 +795,7 @@
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+    if (UIInterfaceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
         //portrait -> landscape
         
         [UIView animateWithDuration:0.2 animations:^(void){
