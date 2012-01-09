@@ -21,7 +21,7 @@
     [super viewDidLoad];
 
 	
-	MultilineTitleView* multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 160, 40)];
+	multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
 	multiTitleView.topText.text = [NSString stringWithFormat:@"[%@]", [self.albumInfo valueForKey:@"Number"]];
 	multiTitleView.middleText.text = [self.albumInfo valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [self.albumInfo valueForKey:@"Artist"];
@@ -46,6 +46,23 @@
 		
 	}else{
         self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+        //landscape
+        
+        multiTitleView.frame = CGRectMake(0, 0, 220, 32);
+        multiTitleView.topText.frame = CGRectMake(0, 0, 220, 13);
+        multiTitleView.middleText.frame = CGRectMake(0, 9, 220, 16);
+        multiTitleView.bottomText.frame = CGRectMake(0, 21, 220, 13);
+        
+    }else{
+        //portrait
+        multiTitleView.frame = CGRectMake(0, 0, 180, 40);
+        multiTitleView.topText.frame = CGRectMake(0, 0, 180, 13);
+        multiTitleView.middleText.frame = CGRectMake(0, 12, 180, 16);
+        multiTitleView.bottomText.frame = CGRectMake(0, 27, 180, 13);
+        
     }
 	
 }
@@ -106,6 +123,25 @@
     return YES;
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if (UIInterfaceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+        //landscpae
+        multiTitleView.frame = CGRectMake(0, 0, 220, 32);
+        multiTitleView.topText.frame = CGRectMake(0, 0, 220, 13);
+        multiTitleView.middleText.frame = CGRectMake(0, 9, 220, 16);
+        multiTitleView.bottomText.frame = CGRectMake(0, 21, 220, 13);
+
+    }else{
+        //portrait
+        multiTitleView.frame = CGRectMake(0, 0, 180, 40);
+        multiTitleView.topText.frame = CGRectMake(0, 0, 180, 13);
+        multiTitleView.middleText.frame = CGRectMake(0, 12, 180, 16);
+        multiTitleView.bottomText.frame = CGRectMake(0, 27, 180, 13);
+        
+    }
+
+}
 
 #pragma mark -
 #pragma mark Table view data source

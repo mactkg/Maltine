@@ -15,6 +15,7 @@
 
 	NSDictionary* albumInfo; 
 	NSArray* playList;
+    MultilineTitleView* multiTitleView;
 	
 }
 
