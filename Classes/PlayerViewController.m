@@ -121,16 +121,7 @@
 		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
 	}
     
-    if (UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation])) {
-        //portrait
-        self.navigationController.navigationBarHidden = NO;
-        self.imageView.frame = CGRectMake(0, 24, 320, 320);
-        controllerView.alpha = 0.5;
-        controllerLSView.alpha = 0;
-        volumeSlider.alpha = 0.5;
-        [UIApplication sharedApplication].statusBarHidden = NO;
-        
-    }else{
+    if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
         //landscape
         self.navigationController.navigationBarHidden = YES;
         self.imageView.frame = CGRectMake(80, 0, 320, 320);
@@ -138,6 +129,15 @@
         controllerLSView.alpha = 0.5;
         volumeSlider.alpha = 0;
         [UIApplication sharedApplication].statusBarHidden = YES;
+        
+    }else{
+        //portrait
+        self.navigationController.navigationBarHidden = NO;
+        self.imageView.frame = CGRectMake(0, 24, 320, 320);
+        controllerView.alpha = 0.5;
+        controllerLSView.alpha = 0;
+        volumeSlider.alpha = 0.5;
+        [UIApplication sharedApplication].statusBarHidden = NO;
     }
 	
 	

@@ -171,22 +171,22 @@
 {
     [super viewWillAppear:animated];
     
-    if (UIInterfaceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
 
-        //portrait
-        lblVersionStr.alpha = 1;
-        btnInfo.alpha = 1;
-        malLogoImageView.alpha = 1;
-        
-        stickerBaseView.frame = CGRectMake(0, 60, 320, 197);
-
-    }else{
         //landscape
         lblVersionStr.alpha = 0;
         btnInfo.alpha = 0;
         malLogoImageView.alpha = 0;
         
         stickerBaseView.frame = CGRectMake(0, 0, 480, 217);
+
+    }else{
+        //portrait
+        lblVersionStr.alpha = 1;
+        btnInfo.alpha = 1;
+        malLogoImageView.alpha = 1;
+        
+        stickerBaseView.frame = CGRectMake(0, 60, 320, 197);
         
     }
     
