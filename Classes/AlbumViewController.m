@@ -19,16 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-	
-	multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
-	multiTitleView.topText.text = [NSString stringWithFormat:@"[%@]", [self.albumInfo valueForKey:@"Number"]];
-	multiTitleView.middleText.text = [self.albumInfo valueForKey:@"Title"];
-	multiTitleView.bottomText.text = [self.albumInfo valueForKey:@"Artist"];
-	self.navigationItem.titleView = multiTitleView;
-	[multiTitleView release];
-	
-	
 }
 
 
@@ -47,7 +37,15 @@
 	}else{
         self.navigationItem.rightBarButtonItem = nil;
     }
+
     
+    multiTitleView = [[MultilineTitleView alloc] init];
+	multiTitleView.topText.text = [NSString stringWithFormat:@"[%@]", [self.albumInfo valueForKey:@"Number"]];
+	multiTitleView.middleText.text = [self.albumInfo valueForKey:@"Title"];
+	multiTitleView.bottomText.text = [self.albumInfo valueForKey:@"Artist"];
+	self.navigationItem.titleView = multiTitleView;
+	[multiTitleView release];
+
     if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
         //landscape
         
