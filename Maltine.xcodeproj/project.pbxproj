@@ -1000,6 +1000,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1013,6 +1014,7 @@
 				);
 				PRODUCT_NAME = Maltine;
 				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8F44DE1-2D28-4082-A921-1378A6954894";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1022,6 +1024,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
@@ -1033,6 +1036,7 @@
 				);
 				PRODUCT_NAME = Maltine;
 				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8F44DE1-2D28-4082-A921-1378A6954894";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};

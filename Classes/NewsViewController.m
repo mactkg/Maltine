@@ -29,6 +29,7 @@
 	
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];
 	news = delegate.news;
+    /*
 	UILabel* titleLabel = [[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)] autorelease];
 	titleLabel.backgroundColor = [UIColor clearColor];
 	titleLabel.numberOfLines = 0;
@@ -37,14 +38,22 @@
 	titleLabel.text = [news valueForKey:@"Title"];
 	titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
 	navigationTitle.titleView = titleLabel;
-	
-	//navigationTitle.title = [news valueForKey:@"Title"];
+	*/
+    
+	navigationTitle.title = [news valueForKey:@"Title"];
 	newsContents.text = [news valueForKey:@"Contents"];
 	newsContents.font = [UIFont systemFontOfSize:12.0];
 	
 	[newsImage loadImage:[news valueForKey:@"ImageUrl"]];
+        
 }
 
+- (IBAction)btnInfoClicked:(id)sender{
+	NSString *stringURL = [news valueForKey:@"InfoUrl"];
+	NSURL *url = [NSURL URLWithString:stringURL];
+	[[UIApplication sharedApplication] openURL:url];
+    
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

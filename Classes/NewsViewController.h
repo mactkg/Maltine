@@ -19,4 +19,6 @@
 	IBOutlet UINavigationItem* navigationTitle;
 
 }
+
+-(IBAction)btnInfoClicked:(id)sender;
 @end
