@@ -453,7 +453,7 @@
     NSString* releaseUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"ReleaseUrl"]; 
     
     NSString* trackInfo = [NSString stringWithFormat:@"[%@] %@ - %@ %@", catNum, artist, trackName, releaseUrl];
-    NSString* message = [NSString stringWithFormat:@"%@ %@ #MaltineApp",comment,trackInfo];
+    NSString* message = [NSString stringWithFormat:@"%@ Maltine Records %@ #MaltineApp",comment,trackInfo];
     return message;
 }
 

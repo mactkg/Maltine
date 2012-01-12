@@ -982,14 +982,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
 				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B90749A9-7C39-4F8B-9F25-1565707677C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA9A8674-4F4F-46B8-BBC9-F56E41B35A36";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1006,7 +1006,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
@@ -1026,7 +1026,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
