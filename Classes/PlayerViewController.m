@@ -69,6 +69,7 @@
     
     UITapGestureRecognizer* recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)] autorelease];
     [self.imageView addGestureRecognizer:recognizer];
+    self.imageView.delegate = self;
     
     
 }
@@ -310,32 +311,41 @@
 	//title
 	[self setMultilineTitleView];
     
+    //Items
+    NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+    NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+    NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+    NSString* imageUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"];
+    
+    
     //Notification
     UILocalNotification* notification = [[[UILocalNotification alloc] init] autorelease];
     if (notification) {
         notification.hasAction = NO;
-        notification.alertBody = [NSString stringWithFormat:@"[%@] %@ - %@",
-                                  [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"],
-                                  [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"],
-                                  [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"]];
+        notification.alertBody = [NSString stringWithFormat:@"[%@] %@ - %@", number, artist, title];
         
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
 	
+    
 	//image
 	if ([self isShufflePlayer]) {
 		self.imageView.image = nil;		
-		[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];	
+		[self.imageView loadImage:imageUrl];	
 	}else {
 		NSString* beforeImageUrl = [[self.playList objectAtIndex:currentKey] valueForKey:@"Image"];
-		NSString* nextImageUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"];
+		NSString* nextImageUrl = imageUrl;
 		
 		if (![nextImageUrl isEqualToString:beforeImageUrl]) {
 			self.imageView.image = nil;		
-			[self.imageView loadImage:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"]];			
-		}
+			[self.imageView loadImage:imageUrl];
+		}else{
+            [self didFinishedLoadImage];
+        }
 	}
-	
+
+
+    
 	//Stream
 	[self createStreamerWithUrlString:[[self.playList objectAtIndex:self.trackKey] valueForKey:@"Url"]];
 	[self.streamer start];
@@ -733,6 +743,27 @@
 	}
 }
 
+#pragma mark - UIAsyncImageViewDelegate
+-(void)didFinishedLoadImage{
+    
+    //Now Playing Info (Background)
+    if ([MPNowPlayingInfoCenter class]) {
+        /* we're on iOS 5, so set up the now playing center */
+        NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+        NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
+        NSString* num_alTitle = [NSString stringWithFormat:@"[%@] %@",number,albumTitle];
+        NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+        NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+        
+        MPMediaItemArtwork* artWork = [[[MPMediaItemArtwork alloc] initWithImage:self.imageView.image] autorelease];
+        
+        NSDictionary* currentPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artist, title,num_alTitle,artWork, nil]
+                                                                            forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyArtist,MPMediaItemPropertyTitle,MPMediaItemPropertyAlbumTitle,MPMediaItemPropertyArtwork, nil]
+                                                 ];
+        [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentPlayingTrackInfo;
+    }
+    
+}
 
 #pragma mark - Remote Control Events
 /* The iPod controls will send these events when the app is in the background */

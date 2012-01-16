@@ -8,12 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UIAsyncImageViewDelegate <NSObject>
+
+@optional
+-(void)didFinishedLoadImage;
+
+@end
 
 @interface UIAsyncImageView : UIImageView {
 	NSURLConnection *conn;
 	NSMutableData *data;
-	UIActivityIndicatorView *indicator;	
+	UIActivityIndicatorView *indicator;
+    id<UIAsyncImageViewDelegate> delegate;
 }
+
+@property(nonatomic,assign) id<UIAsyncImageViewDelegate> delegate;
 
 -(void)loadImage:(NSString *)url;
 -(void)abort;

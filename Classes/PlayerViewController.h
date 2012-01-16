@@ -23,7 +23,7 @@
 
 
 @class AudioStreamer;
-@interface PlayerViewController : UIViewController<UIActionSheetDelegate,XAuthTwitterEngineDelegate,TweetCommentViewControllerDelegate> {
+@interface PlayerViewController : UIViewController<UIActionSheetDelegate,XAuthTwitterEngineDelegate,TweetCommentViewControllerDelegate,UIAsyncImageViewDelegate> {
 	NSArray* playList;
 	int trackKey;
 	IBOutlet UIAsyncImageView* imageView;

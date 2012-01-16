@@ -10,7 +10,7 @@
 
 
 @implementation UIAsyncImageView
-
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -66,6 +66,9 @@
 	self.image = [UIImage imageWithData:data];
 	[indicator stopAnimating];
 	[self abort];
+    if (self.delegate) {
+        [self.delegate didFinishedLoadImage];
+    }
 }
 
 -(void)abort{
