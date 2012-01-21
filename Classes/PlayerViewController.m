@@ -189,7 +189,7 @@
 												  delegate:self
 										 cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
 									destructiveButtonTitle:nil
-										 otherButtonTitles:NSLocalizedString(@"Tweet",nil),nil];
+										 otherButtonTitles:NSLocalizedString(@"Tweet",nil),NSLocalizedString(@"Tweet with comment", nil),nil];
 	}else {
 		actionSheet = [[UIActionSheet alloc] initWithTitle:nil
 												  delegate:self
@@ -212,6 +212,11 @@
 		if (buttonIndex == 0) {
 			[self tweet];
 		}
+        if (buttonIndex == 1) {
+            NSInteger count = [[self buildTwitterMessage:@""] length];
+            TweetCommentViewController* controller = [[[TweetCommentViewController alloc] initWithDelegate:self textCount:count] autorelease];
+            [self.navigationController presentModalViewController:controller animated:YES];            
+        }
 	}else {
 		//add to favolites
 		if (buttonIndex == 0) {
