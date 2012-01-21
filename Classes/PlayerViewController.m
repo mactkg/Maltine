@@ -341,7 +341,11 @@
 			self.imageView.image = nil;		
 			[self.imageView loadImage:imageUrl];
 		}else{
-            [self didFinishedLoadImage];
+            if (self.imageView.image) {
+                [self didFinishedLoadImage];
+            }else{
+                [self didFailedLoadImage];
+            }
         }
 	}
 
@@ -795,6 +799,36 @@
         }
     }
     
+}
+
+-(void)didFailedLoadImage{
+    //Now Playing Info (Background)
+    if ([MPNowPlayingInfoCenter class]) {
+        /* we're on iOS 5, so set up the now playing center */
+        NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
+        NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+        NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+
+        if ([[[self.playList objectAtIndex:self.trackKey] allKeys] containsObject:@"Number"]) {
+            //1.3
+            NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+            NSString* num_alTitle = [NSString stringWithFormat:@"[%@] %@",number,albumTitle];
+            
+            
+            NSDictionary* currentPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artist, title,num_alTitle, nil]
+                                                                                forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyArtist,MPMediaItemPropertyTitle,MPMediaItemPropertyAlbumTitle, nil]
+                                                     ];
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentPlayingTrackInfo;
+        }else{
+            //1.2以前のお気に入りリスト
+            NSDictionary* currentPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artist, title,albumTitle, nil]
+                                                                                forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyArtist,MPMediaItemPropertyTitle,MPMediaItemPropertyAlbumTitle, nil]
+                                                     ];
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentPlayingTrackInfo;
+            
+        }
+        
+    }
 }
 
 #pragma mark - Remote Control Events

@@ -12,6 +12,7 @@
 
 @optional
 -(void)didFinishedLoadImage;
+-(void)didFailedLoadImage;
 
 @end
 

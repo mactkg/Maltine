@@ -60,6 +60,9 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
 	[self abort];
+    if (self.delegate) {
+        [self.delegate didFailedLoadImage];
+    }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
