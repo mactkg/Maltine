@@ -312,13 +312,14 @@
 	[self setMultilineTitleView];
     
     //Items
-    NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
-    NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
-    NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
+    //NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+    //NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
+    //NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
     NSString* imageUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Image"];
     
     
     //Notification
+    /*
     UILocalNotification* notification = [[[UILocalNotification alloc] init] autorelease];
     if (notification) {
         notification.hasAction = NO;
@@ -326,7 +327,7 @@
         
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
-	
+	*/
     
 	//image
 	if ([self isShufflePlayer]) {
@@ -371,9 +372,13 @@
 	multiTitleView.middleText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
     
-    lblAlbumLS.text = [NSString stringWithFormat:@"[%@] %@",
-                       [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"],
-                       [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"]];
+    if ([[[self.playList objectAtIndex:self.trackKey] allKeys] containsObject:@"Number"]) {
+        lblAlbumLS.text = [NSString stringWithFormat:@"[%@] %@",
+                           [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"],
+                           [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"]];
+    }else{
+        lblAlbumLS.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
+    }
     lblTrackLS.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
     lblArtistLS.text = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
 }
@@ -457,13 +462,28 @@
 }
 
 - (NSString *) buildTwitterMessage: (NSString *) comment  {
-    NSString* catNum = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+    
+    NSString* message = @"";
     NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
     NSString* trackName = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
-    NSString* releaseUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"ReleaseUrl"]; 
     
-    NSString* trackInfo = [NSString stringWithFormat:@"[%@] %@ - %@ %@", catNum, artist, trackName, releaseUrl];
-    NSString* message = [NSString stringWithFormat:@"%@ Maltine Records %@ #MaltineApp",comment,trackInfo];
+    if ([[[self.playList objectAtIndex:self.trackKey] allKeys] containsObject:@"Number"] && 
+        [[[self.playList objectAtIndex:self.trackKey] allKeys] containsObject:@"ReleaseUrl"]
+        )
+    {
+        //1.3
+        NSString* catNum = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+        NSString* releaseUrl = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"ReleaseUrl"]; 
+        
+        NSString* trackInfo = [NSString stringWithFormat:@"[%@] %@ - %@ %@", catNum, artist, trackName, releaseUrl];
+        message = [NSString stringWithFormat:@"%@ Maltine Records %@ #MaltineApp",comment,trackInfo];
+        
+    }else{
+        //1.2未満のお気に入りリスト
+        NSString* trackInfo = [NSString stringWithFormat:@"%@ - %@", artist, trackName];
+        message = [NSString stringWithFormat:@"%@ Maltine Records %@ #MaltineApp",comment,trackInfo];
+    }
+    
     return message;
 }
 
@@ -749,18 +769,30 @@
     //Now Playing Info (Background)
     if ([MPNowPlayingInfoCenter class]) {
         /* we're on iOS 5, so set up the now playing center */
-        NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+
         NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
-        NSString* num_alTitle = [NSString stringWithFormat:@"[%@] %@",number,albumTitle];
         NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
         NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
-        
         MPMediaItemArtwork* artWork = [[[MPMediaItemArtwork alloc] initWithImage:self.imageView.image] autorelease];
-        
-        NSDictionary* currentPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artist, title,num_alTitle,artWork, nil]
-                                                                            forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyArtist,MPMediaItemPropertyTitle,MPMediaItemPropertyAlbumTitle,MPMediaItemPropertyArtwork, nil]
-                                                 ];
-        [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentPlayingTrackInfo;
+
+        if ([[[self.playList objectAtIndex:self.trackKey] allKeys] containsObject:@"Number"]) {
+            //1.3
+            NSString* number = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Number"];
+            NSString* num_alTitle = [NSString stringWithFormat:@"[%@] %@",number,albumTitle];
+            
+            
+            NSDictionary* currentPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artist, title,num_alTitle,artWork, nil]
+                                                                                forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyArtist,MPMediaItemPropertyTitle,MPMediaItemPropertyAlbumTitle,MPMediaItemPropertyArtwork, nil]
+                                                     ];
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentPlayingTrackInfo;
+        }else{
+            //1.2以前のお気に入りリスト
+            NSDictionary* currentPlayingTrackInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:artist, title,albumTitle,artWork, nil]
+                                                                                forKeys:[NSArray arrayWithObjects:MPMediaItemPropertyArtist,MPMediaItemPropertyTitle,MPMediaItemPropertyAlbumTitle,MPMediaItemPropertyArtwork, nil]
+                                                     ];
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = currentPlayingTrackInfo;
+            
+        }
     }
     
 }
