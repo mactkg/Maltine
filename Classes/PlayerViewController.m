@@ -414,7 +414,7 @@
         CGFloat height4 = CGRectGetHeight(frame4);
         CGFloat height5 = CGRectGetHeight(frame5);
     
-        if (UIInterfaceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
             if (controllerView.alpha==0.5f) {
                 controllerView.alpha = 0.0f;
                 center1.y += height1;
@@ -869,6 +869,8 @@
 	}
 }
 */
+
+#pragma mark - rotation
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
