@@ -82,6 +82,26 @@
     }
 
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (!self.loadIndex) {
+        CGPoint currentPoint = webView.scrollView.contentOffset;
+        
+        
+        NSMutableDictionary* textSave = [[NSUserDefaults standardUserDefaults] objectForKey:@"textSave"];
+        
+        if (!textSave) {
+            textSave = [[[NSMutableDictionary alloc] init] autorelease];
+        }
+        
+        [textSave setValue:[NSNumber numberWithFloat:currentPoint.y] forKey:[self.textInfoDictionary objectForKey:@"Url"]];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:textSave forKey:@"textSave"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [super viewWillDisappear:animated];
+    }
+}
 
 #pragma mark - UIWebViewDelegate
 
@@ -90,9 +110,21 @@
     [MaltineAppDelegate lock];    
 }
 
--(void)webViewDidFinishLoad:(UIWebView *)webView
+-(void)webViewDidFinishLoad:(UIWebView *)_webView
 {
+    if (!self.loadIndex) {
+        NSDictionary* textSave = [[NSUserDefaults standardUserDefaults] objectForKey:@"textSave"];
+        
+        if (textSave) {
+            
+            NSNumber* savedY = [textSave objectForKey:[self.textInfoDictionary objectForKey:@"Url"]];
+            if (savedY) {
+                [_webView.scrollView setContentOffset:CGPointMake(0, [savedY floatValue]) animated:NO];
+            }
+        }
+    }
     
+
     [MaltineAppDelegate unlock];
 }
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
