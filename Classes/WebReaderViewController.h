@@ -14,6 +14,12 @@
     IBOutlet UIWebView* webView;
     NSDictionary* textInfoDictionary;
     BOOL loadIndex;
+    
+    UIPinchGestureRecognizer* pinchGesture;
+    UISegmentedControl* segTextSize;
+    int textSize;
+    
+    BOOL heightChanged;
 }
 
 @property (nonatomic, retain) NSDictionary* textInfoDictionary;

@@ -107,6 +107,8 @@
 		11EC60F81221755300F3DE68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11EC60F71221755300F3DE68 /* QuartzCore.framework */; };
 		11F7839F12A544D900430B56 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F7839D12A544D900430B56 /* SettingViewController.m */; };
 		11F783A012A544D900430B56 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F7839E12A544D900430B56 /* SettingViewController.xib */; };
+		11F95AC814F50916000DA31E /* icon3030_21.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F95AC614F50916000DA31E /* icon3030_21.png */; };
+		11F95AC914F50916000DA31E /* icon3030_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F95AC714F50916000DA31E /* icon3030_22.png */; };
 		11FBF429122D249C00D2F9CC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FBF427122D249C00D2F9CC /* AboutViewController.m */; };
 		11FBF42A122D249C00D2F9CC /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF428122D249C00D2F9CC /* AboutViewController.xib */; };
 		11FBF439122D9DE400D2F9CC /* maru50_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 11FBF438122D9DE400D2F9CC /* maru50_image.png */; };
@@ -278,6 +280,8 @@
 		11F7839C12A544D900430B56 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		11F7839D12A544D900430B56 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		11F7839E12A544D900430B56 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		11F95AC614F50916000DA31E /* icon3030_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3030_21.png; sourceTree = "<group>"; };
+		11F95AC714F50916000DA31E /* icon3030_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3030_22.png; sourceTree = "<group>"; };
 		11FBF426122D249C00D2F9CC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		11FBF427122D249C00D2F9CC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		11FBF428122D249C00D2F9CC /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -498,6 +502,8 @@
 		1144FB77121E96240037FE71 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				11F95AC614F50916000DA31E /* icon3030_21.png */,
+				11F95AC714F50916000DA31E /* icon3030_22.png */,
 				118041171299448300EC20A1 /* ipod_shuffle_right_white.png */,
 				1180411B1299452A00EC20A1 /* ipod_shuffle_right_white@2x.png */,
 				1161CBB41244A72800739CB3 /* Icon-72.png */,
@@ -778,6 +784,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Maltine" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -872,6 +881,8 @@
 				11A4AF881450675500304BA9 /* 96-book.png in Resources */,
 				114ABF8E14A2FCCB0091BF62 /* Default@2x.png in Resources */,
 				114ABF9014A2FD940091BF62 /* Default.png in Resources */,
+				11F95AC814F50916000DA31E /* icon3030_21.png in Resources */,
+				11F95AC914F50916000DA31E /* icon3030_22.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,48 +964,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		11C892761249116300F9FA82 /* App Store */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B90749A9-7C39-4F8B-9F25-1565707677C4";
-				SDKROOT = iphoneos;
-			};
-			name = "App Store";
-		};
-		11C892771249116300F9FA82 /* App Store */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
-				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
-				);
-				PRODUCT_NAME = Maltine;
-				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA9A8674-4F4F-46B8-BBC9-F56E41B35A36";
-				TARGETED_DEVICE_FAMILY = 1;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "App Store";
-		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1013,8 +982,6 @@
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
-				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8F44DE1-2D28-4082-A921-1378A6954894";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1035,8 +1002,6 @@
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
-				PROVISIONING_PROFILE = "D957FFFC-8AC2-4FE5-B0FB-4EBF65EA8619";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8F44DE1-2D28-4082-A921-1378A6954894";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1045,17 +1010,19 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "0F05BF3C-6E0D-4212-A100-C987F92E8E6B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0F05BF3C-6E0D-4212-A100-C987F92E8E6B";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1064,17 +1031,20 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yu Miyachika";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FA9A8674-4F4F-46B8-BBC9-F56E41B35A36";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA9A8674-4F4F-46B8-BBC9-F56E41B35A36";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1087,7 +1057,6 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-				11C892771249116300F9FA82 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1097,7 +1066,6 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-				11C892761249116300F9FA82 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
