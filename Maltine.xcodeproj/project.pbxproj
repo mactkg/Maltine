@@ -70,7 +70,6 @@
 		11643EE212A2457B00A4B13F /* jQueryInjectLandscape.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11643E9A12A2457B00A4B13F /* jQueryInjectLandscape.txt */; };
 		11643EE312A2457B00A4B13F /* ExchangeCredentialsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 11643E9E12A2457B00A4B13F /* ExchangeCredentialsOperation.m */; };
 		11643EE412A2457B00A4B13F /* XAuthTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 11643EA112A2457B00A4B13F /* XAuthTwitterEngine.m */; };
-		11643EE512A2457B00A4B13F /* libOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11643EA412A2457B00A4B13F /* libOAuth.a */; };
 		11643EE612A2457C00A4B13F /* MGTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 11643EB612A2457B00A4B13F /* MGTwitterEngine.m */; };
 		11643EE712A2457C00A4B13F /* MGTwitterHTTPURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 11643EBA12A2457B00A4B13F /* MGTwitterHTTPURLConnection.m */; };
 		11643EE812A2457C00A4B13F /* MGTwitterLibXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11643EBC12A2457B00A4B13F /* MGTwitterLibXMLParser.m */; };
@@ -96,6 +95,8 @@
 		11B9C75E121EEFF1008ED520 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11B9C75D121EEFF1008ED520 /* CFNetwork.framework */; };
 		11D6DE2B123665C300017E7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11D6DE2A123665C300017E7B /* Localizable.strings */; };
 		11D6DE2E1236662500017E7B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D6DE2D1236662500017E7B /* MainWindow.xib */; };
+		11E2A00E16522D4300AB188B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E2A00D16522D4300AB188B /* Default-568h@2x.png */; };
+		11E2A010165240F000AB188B /* libOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E2A00F165240F000AB188B /* libOAuth.a */; };
 		11E335031225EBD700375172 /* AlbumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E335021225EBD700375172 /* AlbumTableViewCell.m */; };
 		11E335051225EC2400375172 /* AlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E335041225EC2400375172 /* AlbumTableViewCell.xib */; };
 		11EC5E3C121FA8D900F3DE68 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = 11EC5E3B121FA8D900F3DE68 /* music.png */; };
@@ -205,7 +206,6 @@
 		11643EA012A2457B00A4B13F /* XAuthTwitterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAuthTwitterEngine.h; sourceTree = "<group>"; };
 		11643EA112A2457B00A4B13F /* XAuthTwitterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAuthTwitterEngine.m; sourceTree = "<group>"; };
 		11643EA212A2457B00A4B13F /* XAuthTwitterEngineDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAuthTwitterEngineDelegate.h; sourceTree = "<group>"; };
-		11643EA412A2457B00A4B13F /* libOAuth.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOAuth.a; sourceTree = "<group>"; };
 		11643EA512A2457B00A4B13F /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
 		11643EA612A2457B00A4B13F /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		11643EA712A2457B00A4B13F /* NSURL+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Base.h"; sourceTree = "<group>"; };
@@ -266,6 +266,8 @@
 		11D6DE281236657700017E7B /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		11D6DE2C123665D200017E7B /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		11D6DE2F1236662C00017E7B /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Japanese; path = ../Japanese.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		11E2A00D16522D4300AB188B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		11E2A00F165240F000AB188B /* libOAuth.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOAuth.a; sourceTree = "<group>"; };
 		11E335011225EBD700375172 /* AlbumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewCell.h; sourceTree = "<group>"; };
 		11E335021225EBD700375172 /* AlbumTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewCell.m; sourceTree = "<group>"; };
 		11E335041225EC2400375172 /* AlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTableViewCell.xib; sourceTree = "<group>"; };
@@ -320,8 +322,8 @@
 				11B9C75E121EEFF1008ED520 /* CFNetwork.framework in Frameworks */,
 				11EC60F81221755300F3DE68 /* QuartzCore.framework in Frameworks */,
 				11019A69122AE59E00F322BB /* MediaPlayer.framework in Frameworks */,
-				11643EE512A2457B00A4B13F /* libOAuth.a in Frameworks */,
 				11643EFD12A245F300A4B13F /* libxml2.dylib in Frameworks */,
+				11E2A010165240F000AB188B /* libOAuth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +367,7 @@
 		1102D0A7123A496200591557 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				11E2A00D16522D4300AB188B /* Default-568h@2x.png */,
 				114ABF8F14A2FD940091BF62 /* Default.png */,
 				114ABF8D14A2FCCB0091BF62 /* Default@2x.png */,
 				11FBF438122D9DE400D2F9CC /* maru50_image.png */,
@@ -561,7 +564,7 @@
 		11643EA312A2457B00A4B13F /* OAuthConsumer */ = {
 			isa = PBXGroup;
 			children = (
-				11643EA412A2457B00A4B13F /* libOAuth.a */,
+				11E2A00F165240F000AB188B /* libOAuth.a */,
 				11643EA512A2457B00A4B13F /* NSMutableURLRequest+Parameters.h */,
 				11643EA612A2457B00A4B13F /* NSString+URLEncoding.h */,
 				11643EA712A2457B00A4B13F /* NSURL+Base.h */,
@@ -883,6 +886,7 @@
 				114ABF9014A2FD940091BF62 /* Default.png in Resources */,
 				11F95AC814F50916000DA31E /* icon3030_21.png in Resources */,
 				11F95AC914F50916000DA31E /* icon3030_22.png in Resources */,
+				11E2A00E16522D4300AB188B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,13 +980,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
+				PROVISIONING_PROFILE = "89892EE8-B27B-4112-94AB-9207404AE5F5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89892EE8-B27B-4112-94AB-9207404AE5F5";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -996,14 +1003,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Maltine_Prefix.pch;
 				INFOPLIST_FILE = "Maltine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libraries & Headers/OAuthConsumer\"",
 				);
 				PRODUCT_NAME = Maltine;
+				PROVISIONING_PROFILE = "89892EE8-B27B-4112-94AB-9207404AE5F5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89892EE8-B27B-4112-94AB-9207404AE5F5";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1020,11 +1030,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "0F05BF3C-6E0D-4212-A100-C987F92E8E6B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0F05BF3C-6E0D-4212-A100-C987F92E8E6B";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "89892EE8-B27B-4112-94AB-9207404AE5F5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89892EE8-B27B-4112-94AB-9207404AE5F5";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1035,17 +1046,18 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yu Miyachika";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yu Miyachika";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yu Miyachika (FSFU6ANMXL)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "FA9A8674-4F4F-46B8-BBC9-F56E41B35A36";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA9A8674-4F4F-46B8-BBC9-F56E41B35A36";
+				PROVISIONING_PROFILE = "89892EE8-B27B-4112-94AB-9207404AE5F5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89892EE8-B27B-4112-94AB-9207404AE5F5";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
