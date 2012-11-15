@@ -19,7 +19,7 @@
 	
 }
 
-@property (nonatomic, retain) NSDictionary* albumInfo;
-@property (nonatomic, retain) NSArray* playList;
+@property (nonatomic, strong) NSDictionary* albumInfo;
+@property (nonatomic, strong) NSArray* playList;
 
 @end

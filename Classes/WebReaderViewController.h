@@ -22,6 +22,6 @@
     BOOL heightChanged;
 }
 
-@property (nonatomic, retain) NSDictionary* textInfoDictionary;
+@property (nonatomic, strong) NSDictionary* textInfoDictionary;
 @property BOOL loadIndex;
 @end

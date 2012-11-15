@@ -48,8 +48,6 @@
 	UINavigationController* nvc = [[UINavigationController alloc]initWithRootViewController:controller];
 	nvc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentModalViewController:nvc animated:YES];
-	[controller release];
-	[nvc release];
 	
 }
 
@@ -109,10 +107,10 @@
 	
 	stickerIndex = 0;
 	
-	UIBarButtonItem* btnTwitterSetting = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Settings", nil)
+	UIBarButtonItem* btnTwitterSetting = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Settings", nil)
 																		  style:UIBarButtonItemStyleBordered
 																		 target:self
-																		 action:@selector(btnTwitterSettingClicked)] autorelease];
+																		 action:@selector(btnTwitterSettingClicked)];
 	
 	self.navigationItem.rightBarButtonItem = btnTwitterSetting;
 	
@@ -241,9 +239,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

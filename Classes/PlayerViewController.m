@@ -46,27 +46,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    multiTitleView = [[[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)] autorelease];
+    multiTitleView = [[MultilineTitleView alloc] initWithFrame:CGRectMake(0, 0, 180, 40)];
 	self.navigationItem.titleView = multiTitleView;
 
 	
-	MPVolumeView *volumeView = [[[MPVolumeView alloc] initWithFrame:volumeSlider.bounds] autorelease];
+	MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:volumeSlider.bounds];
 	[volumeSlider addSubview:volumeView];
     volumeView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleWidth;
 	[volumeView sizeToFit];
 	
 	
-	UIBarButtonItem* btnFav = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+	UIBarButtonItem* btnFav = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 																			target:self
-																			action:@selector(btnFavClicked)] autorelease];			
+																			action:@selector(btnFavClicked)];			
 	self.navigationItem.rightBarButtonItem = btnFav;
 	
 	srand((unsigned) time(NULL));
 	
-	self.twitterEngine = [[[MGTwitterEngine alloc] initWithDelegate:self] autorelease];
+	self.twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
 	[self.twitterEngine setConsumerKey:kOAuthConsumerKey secret:kOAuthConsumerSecret];
 	
-    UITapGestureRecognizer* recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)] autorelease];
+    UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [self.imageView addGestureRecognizer:recognizer];
     self.imageView.delegate = self;
     
@@ -199,7 +199,6 @@
 
 	
 	[actionSheet showInView:self.tabBarController.view];
-	[actionSheet release];
 	
 }
 
@@ -213,7 +212,7 @@
 		}
         if (buttonIndex == 1) {
             NSInteger count = [[self buildTwitterMessage:@""] length];
-            TweetCommentViewController* controller = [[[TweetCommentViewController alloc] initWithDelegate:self textCount:count] autorelease];
+            TweetCommentViewController* controller = [[TweetCommentViewController alloc] initWithDelegate:self textCount:count];
             [self.navigationController presentModalViewController:controller animated:YES];            
         }
 	}else {
@@ -231,7 +230,7 @@
 		}
         if (buttonIndex == 2) {
             NSInteger count = [[self buildTwitterMessage:@""] length];
-            TweetCommentViewController* controller = [[[TweetCommentViewController alloc] initWithDelegate:self textCount:count] autorelease];
+            TweetCommentViewController* controller = [[TweetCommentViewController alloc] initWithDelegate:self textCount:count];
             [self.navigationController presentModalViewController:controller animated:YES];            
         }
 	}
@@ -505,7 +504,7 @@
         NSString *message = [self buildTwitterMessage: comment];
 
 		//NSLog(@"%@",message);
-        OAToken *token = [[[OAToken alloc] initWithKey:tokenKey secret:tokenSecret] autorelease];
+        OAToken *token = [[OAToken alloc] initWithKey:tokenKey secret:tokenSecret];
         [self.twitterEngine setAccessToken:token];
 		[self.twitterEngine sendUpdate:message];
 	}else{
@@ -582,7 +581,6 @@
 		progressUpdateTimer = nil;
 		
 		[streamer stop];
-		[streamer release];
 		streamer = nil;
 	}
 }
@@ -597,13 +595,12 @@
 	[self destroyStreamer];
 	
 	NSString *escapedValue =
-	[(NSString *)CFURLCreateStringByAddingPercentEscapes(
+	(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
 														 nil,
 														 (CFStringRef)urlString,
 														 NULL,
 														 NULL,
-														 kCFStringEncodingUTF8)
-	 autorelease];
+														 kCFStringEncodingUTF8));
 	
 	NSURL *url = [NSURL URLWithString:escapedValue];
 	
@@ -784,7 +781,7 @@
         NSString* albumTitle = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"AlbumTitle"];
         NSString* artist = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Artist"];
         NSString* title = [[self.playList objectAtIndex:self.trackKey] valueForKey:@"Title"];
-        MPMediaItemArtwork* artWork = [[[MPMediaItemArtwork alloc] initWithImage:self.imageView.image] autorelease];
+        MPMediaItemArtwork* artWork = [[MPMediaItemArtwork alloc] initWithImage:self.imageView.image];
 
         if ([[[self.playList objectAtIndex:self.trackKey] allKeys] containsObject:@"Number"]) {
             //1.3
@@ -944,7 +941,6 @@
 		[progressUpdateTimer invalidate];
 		progressUpdateTimer = nil;
 	}	
-    [super dealloc];
 }
 
 

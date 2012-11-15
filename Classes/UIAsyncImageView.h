@@ -20,10 +20,10 @@
 	NSURLConnection *conn;
 	NSMutableData *data;
 	UIActivityIndicatorView *indicator;
-    id<UIAsyncImageViewDelegate> delegate;
+    id<UIAsyncImageViewDelegate> __unsafe_unretained delegate;
 }
 
-@property(nonatomic,assign) id<UIAsyncImageViewDelegate> delegate;
+@property(nonatomic,unsafe_unretained) id<UIAsyncImageViewDelegate> delegate;
 
 -(void)loadImage:(NSString *)url;
 -(void)abort;

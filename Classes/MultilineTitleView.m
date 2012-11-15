@@ -42,16 +42,10 @@
 		[self addSubview:middleText];
 		[self addSubview:bottomText];
 		
-		[topText release];
-		[middleText release];
-		[bottomText release];
     }
     return self;	
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

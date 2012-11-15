@@ -21,9 +21,9 @@
     BOOL		searchWasActive;
 	
 }
-@property (nonatomic,retain) NSArray* releaseList;
-@property (nonatomic,retain) NSMutableArray* filteredReleaseList;
-@property (nonatomic,retain) NSMutableArray* allMusicList;
+@property (nonatomic,strong) NSArray* releaseList;
+@property (nonatomic,strong) NSMutableArray* filteredReleaseList;
+@property (nonatomic,strong) NSMutableArray* allMusicList;
 @property (nonatomic, copy) NSString *savedSearchTerm;
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;

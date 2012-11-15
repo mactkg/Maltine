@@ -27,14 +27,14 @@
 	BOOL uiIsVisible;
 }
 
-@property (nonatomic, retain) IBOutlet RCUIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-@property (nonatomic, retain) NSArray *releaseList;
-@property (nonatomic, retain) NSDictionary *news;
-@property (nonatomic, retain) NSArray *textList;
-@property (nonatomic, retain) PlayerViewController* player;
-@property (retain) NSMutableArray* favoliteList;
-@property (nonatomic, retain) IBOutlet UIView *lockView;
+@property (nonatomic, strong) IBOutlet RCUIWindow *window;
+@property (nonatomic, strong) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, strong) NSArray *releaseList;
+@property (nonatomic, strong) NSDictionary *news;
+@property (nonatomic, strong) NSArray *textList;
+@property (nonatomic, strong) PlayerViewController* player;
+@property (strong) NSMutableArray* favoliteList;
+@property (nonatomic, strong) IBOutlet UIView *lockView;
 @property (nonatomic) BOOL uiIsVisible;
 
 + (MaltineAppDelegate *)sharedDelegate;

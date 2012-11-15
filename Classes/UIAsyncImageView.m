@@ -22,7 +22,7 @@
 -(void)loadImage:(NSString *)url{
 	[self abort];
 	if (!indicator) {
-		indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] autorelease];
+		indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 		indicator.frame = self.bounds;
 		indicator.hidesWhenStopped = YES;
 		indicator.contentMode = UIViewContentModeCenter;
@@ -35,13 +35,12 @@
 	data = [[NSMutableData alloc] initWithCapacity:0];
 	
 	NSString *escapedValue =
-	[(NSString *)CFURLCreateStringByAddingPercentEscapes(
+	(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
 														 nil,
 														 (CFStringRef)url,
 														 NULL,
 														 NULL,
-														 kCFStringEncodingUTF8)
-	 autorelease];
+														 kCFStringEncodingUTF8));
 	
 	NSURLRequest *req = [NSURLRequest 
 						 requestWithURL:[NSURL URLWithString:escapedValue]
@@ -77,11 +76,9 @@
 -(void)abort{
 	if(conn != nil){
 		[conn cancel];
-		[conn release];
 		conn = nil;
 	}
 	if(data != nil){
-		[data release];
 		data = nil;
 	}
 }
@@ -97,10 +94,7 @@
 
 - (void)dealloc {
 	[conn cancel];
-	[conn release];
-	[data release];
 	
-    [super dealloc];
 }
 
 

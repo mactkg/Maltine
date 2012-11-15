@@ -12,7 +12,7 @@
 
 @interface TweetCommentViewController : UIViewController<UITextViewDelegate> {
     
-    id<TweetCommentViewControllerDelegate> delegate_;
+    id<TweetCommentViewControllerDelegate> __unsafe_unretained delegate_;
     IBOutlet UITextView *commentTextView;
     IBOutlet UIToolbar* toolBar;
     IBOutlet UIBarButtonItem* btnDone;
@@ -22,7 +22,7 @@
     NSInteger textCount;
 }
 
-@property(nonatomic, assign) id<TweetCommentViewControllerDelegate> delegate;
+@property(nonatomic, unsafe_unretained) id<TweetCommentViewControllerDelegate> delegate;
 
 -(id)initWithDelegate:(id)delegate textCount:(NSInteger)count;
 -(IBAction)btnDoneClicked;

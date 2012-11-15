@@ -52,7 +52,7 @@
 	self.news = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:URL_NEWS]];
     self.textList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_TEXT]];
 	
-	PlayerViewController* controller =  [[[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil] autorelease];
+	PlayerViewController* controller =  [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
 	self.player = controller;
     
     [self.player createTimers:YES];
@@ -62,14 +62,14 @@
 	self.favoliteList = [NSMutableArray arrayWithArray:[defaults objectForKey:@"favolites"]];
 	//favが存在しない場合
 	if (self.favoliteList == nil) {
-		self.favoliteList = [[[NSMutableArray alloc] init] autorelease];
+		self.favoliteList = [[NSMutableArray alloc] init];
 	}
 	
     //Twitter Token移行(1.3 -> 2.0)
     NSString *tokenString = [defaults objectForKey:kCachedXAuthAccessTokenStringKey];
     
     if (tokenString) {
-        OAToken *token = [[[OAToken alloc] initWithHTTPResponseBody:tokenString] autorelease];
+        OAToken *token = [[OAToken alloc] initWithHTTPResponseBody:tokenString];
         NSLog(@"%@",token);
         
         [defaults setObject:token.key forKey:kOATokenKey];
@@ -169,11 +169,6 @@
 }
 
 
-- (void)dealloc {
-    [tabBarController release];
-    [window release];
-    [super dealloc];
-}
 
 @end
 

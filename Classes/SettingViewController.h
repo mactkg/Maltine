@@ -18,7 +18,7 @@
 	MGTwitterEngine* twitterEngine;
 	UITextField* activeField;
 }
-@property (nonatomic, retain) MGTwitterEngine* twitterEngine;
-@property (nonatomic, retain) NSArray* titles;
+@property (nonatomic, strong) MGTwitterEngine* twitterEngine;
+@property (nonatomic, strong) NSArray* titles;
 
 @end

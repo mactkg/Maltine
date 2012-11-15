@@ -18,10 +18,10 @@
 	IBOutlet UIAsyncImageView* albumImage;
 }
 
-@property (nonatomic,retain) IBOutlet UILabel* lblMaru;
-@property (nonatomic,retain) IBOutlet UILabel* lblAlbumTitle;
-@property (nonatomic,retain) IBOutlet UILabel* lblAlbumArtist;
-@property (nonatomic,retain) IBOutlet UIAsyncImageView* albumImage;
-@property (nonatomic,retain) IBOutlet UIButton* btnAddFavolites;
+@property (nonatomic,strong) IBOutlet UILabel* lblMaru;
+@property (nonatomic,strong) IBOutlet UILabel* lblAlbumTitle;
+@property (nonatomic,strong) IBOutlet UILabel* lblAlbumArtist;
+@property (nonatomic,strong) IBOutlet UIAsyncImageView* albumImage;
+@property (nonatomic,strong) IBOutlet UIButton* btnAddFavolites;
 
 @end

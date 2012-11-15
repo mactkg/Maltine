@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	
 	self.releaseList = [MaltineAppDelegate sharedDelegate].releaseList;
-	self.allMusicList = [[[NSMutableArray alloc] init] autorelease];
+	self.allMusicList = [[NSMutableArray alloc] init];
 	
 	for (NSDictionary* album in self.releaseList) {
 		for (NSDictionary* track in [album objectForKey:@"PlayList"]) {
@@ -49,7 +49,6 @@
 																  target:self
 																  action:@selector(btnShuffleClicked)];
 	self.navigationItem.leftBarButtonItem = btnShuffle;
-	[btnShuffle release];
 	
 }
 
@@ -64,7 +63,6 @@
 																	  target:self
 																	  action:@selector(btnPlayingClicked)];			
 		self.navigationItem.rightBarButtonItem = btnPlaying;		
-		[btnPlaying release];
 		
 	}else{
         self.navigationItem.rightBarButtonItem = nil;
@@ -162,7 +160,7 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	
         if (!self.searchDisplayController.active||(self.searchDisplayController.active && self.searchDisplayController.searchBar.selectedScopeButtonIndex == 0)) {
 			//dummyを置かないと画像分の枠を用意してくれない
@@ -174,7 +172,6 @@
 			albumImageView.layer.cornerRadius = 8.0f;
 			
 			[cell.imageView addSubview:albumImageView];	
-			[albumImageView release];
 			
 			if (!self.searchDisplayController.active) {
 				[self loadImageForCell:cell indexPath:indexPath];
@@ -275,7 +272,7 @@
 		[self.navigationController pushViewController:player animated:YES];
 		
 	}else {
-		AlbumViewController *controller = [[[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil] autorelease];
+		AlbumViewController *controller = [[AlbumViewController alloc] initWithNibName:@"AlbumViewController" bundle:nil];
 		
 		if (self.searchDisplayController.active){
 			//AlbumInfo
@@ -364,11 +361,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-	[releaseList release];
-	[filteredReleaseList release];
-}
 
 
 @end

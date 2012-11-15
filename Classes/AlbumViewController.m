@@ -32,7 +32,6 @@
 																	  target:self
 																	  action:@selector(btnPlayingClicked)];
 		self.navigationItem.rightBarButtonItem = btnPlaying;		
-		[btnPlaying release];
 		
 	}else{
         self.navigationItem.rightBarButtonItem = nil;
@@ -44,7 +43,6 @@
 	multiTitleView.middleText.text = [self.albumInfo valueForKey:@"Title"];
 	multiTitleView.bottomText.text = [self.albumInfo valueForKey:@"Artist"];
 	self.navigationItem.titleView = multiTitleView;
-	[multiTitleView release];
 
     if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
         //landscape
@@ -81,7 +79,6 @@
 													otherButtonTitles:NSLocalizedString(@"Add to Favolites",nil),nil];
 	
 	[actionSheet showInView:self.tabBarController.view];
-	[actionSheet release];
 	
 }
 
@@ -174,7 +171,6 @@
 		AlbumTableViewCell *cell = (AlbumTableViewCell*)[tableView dequeueReusableCellWithIdentifier:AlbumCellIdentifier];
 		if (cell == nil) {
 			cell = (AlbumTableViewCell*)controller.view;
-			[controller release];
 			cell.lblMaru.text = [NSString stringWithFormat:@"[%@]", [self.albumInfo valueForKey:@"Number"]];
 			cell.lblAlbumTitle.text = [self.albumInfo valueForKey:@"Title"];
 			cell.lblAlbumArtist.text = [self.albumInfo valueForKey:@"Artist"];
@@ -189,7 +185,7 @@
 		if (indexPath.section == 1) {
 			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 			if (cell == nil) {
-				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 				cell.textLabel.text = [[self.playList objectAtIndex:indexPath.row] valueForKey:@"Title"];
 				cell.detailTextLabel.text = [[self.playList objectAtIndex:indexPath.row] valueForKey:@"Artist"];
 				cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -285,9 +281,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

@@ -60,19 +60,19 @@
     
 	
 }
-@property (nonatomic, retain) NSArray* playList;
+@property (nonatomic, strong) NSArray* playList;
 @property (nonatomic) int trackKey;
-@property (nonatomic, retain) UIAsyncImageView* imageView;
-@property (nonatomic, retain) UIButton* btnPause;
-@property (nonatomic, retain) UIButton* btnPrev;
-@property (nonatomic, retain) UIButton* btnNext;
-@property (nonatomic, retain) UIView* controllerView;
-@property (nonatomic, retain) UIView* informationView;
-@property (nonatomic, retain) UIView* volumeSlider;
-@property (nonatomic, retain) AudioStreamer* streamer;
+@property (nonatomic, strong) UIAsyncImageView* imageView;
+@property (nonatomic, strong) UIButton* btnPause;
+@property (nonatomic, strong) UIButton* btnPrev;
+@property (nonatomic, strong) UIButton* btnNext;
+@property (nonatomic, strong) UIView* controllerView;
+@property (nonatomic, strong) UIView* informationView;
+@property (nonatomic, strong) UIView* volumeSlider;
+@property (nonatomic, strong) AudioStreamer* streamer;
 @property (nonatomic, assign) int currentPlayerType;
 @property BOOL stopPlayerWhenViewWillAppear;
-@property (nonatomic, retain) MGTwitterEngine* twitterEngine;
+@property (nonatomic, strong) MGTwitterEngine* twitterEngine;
 
 - (IBAction) btnPauseClicked;
 - (IBAction) btnPrevClicked;

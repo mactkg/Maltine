@@ -23,10 +23,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,7 +99,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -163,13 +159,12 @@
 {
     [MaltineAppDelegate lock];
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    self.imageData = [[[NSMutableData alloc] init] autorelease];
+    self.imageData = [[NSMutableData alloc] init];
     self.currentTextInfoDictionary = [[MaltineAppDelegate sharedDelegate].textList objectAtIndex:indexPath.row];
     
-    NSURLConnection* connection = [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:
                                                                              [NSURL URLWithString:[self.currentTextInfoDictionary objectForKey:@"Image"]]]
-                                                                   delegate:self]
-                                   autorelease];
+                                                                   delegate:self];
     [connection start];
     
 }
@@ -179,11 +174,11 @@
 {
     NSString* subTitleString = [NSString stringWithFormat:@"%@ を読む",[self.currentTextInfoDictionary objectForKey:@"SubTitle"]];
     
-    UIActionSheet* actionSheet = [[[UIActionSheet alloc] initWithTitle:@"選択して下さい"
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"選択して下さい"
                                                               delegate:self
                                                      cancelButtonTitle:@"キャンセル"
                                                 destructiveButtonTitle:nil
-                                                     otherButtonTitles:subTitleString, @"目次へ", nil] autorelease];
+                                                     otherButtonTitles:subTitleString, @"目次へ", nil];
     [actionSheet showInView:self.titleImageView];
     
 }
@@ -191,7 +186,7 @@
 #pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    WebReaderViewController* controller = [[[WebReaderViewController alloc] initWithNibName:@"WebReaderViewController" bundle:nil] autorelease];
+    WebReaderViewController* controller = [[WebReaderViewController alloc] initWithNibName:@"WebReaderViewController" bundle:nil];
     controller.textInfoDictionary = self.currentTextInfoDictionary;
     
     switch (buttonIndex) {

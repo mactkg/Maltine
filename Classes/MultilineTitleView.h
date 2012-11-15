@@ -16,7 +16,7 @@
 	UILabel* bottomText;
 }
 
-@property (nonatomic, retain) UILabel* topText;
-@property (nonatomic, retain) UILabel* middleText;
-@property (nonatomic, retain) UILabel* bottomText;
+@property (nonatomic, strong) UILabel* topText;
+@property (nonatomic, strong) UILabel* middleText;
+@property (nonatomic, strong) UILabel* bottomText;
 @end

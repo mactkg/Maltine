@@ -15,8 +15,8 @@
     IBOutlet UIImageView* titleImageView;
     NSDictionary* currentTextInfoDictionary;
 }
-@property (nonatomic, retain) NSMutableData* imageData;
-@property (nonatomic, retain) UIImageView* titleImageView;
-@property (nonatomic, retain) NSDictionary* currentTextInfoDictionary;
+@property (nonatomic, strong) NSMutableData* imageData;
+@property (nonatomic, strong) UIImageView* titleImageView;
+@property (nonatomic, strong) NSDictionary* currentTextInfoDictionary;
 
 @end

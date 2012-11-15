@@ -118,13 +118,13 @@
 	
 	self.title = NSLocalizedString(@"Settings",nil);
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																						  target:self
-																						  action:@selector(btnCancelClicked)] autorelease];
+																						  action:@selector(btnCancelClicked)];
 	
 	self.titles = [NSArray arrayWithObjects:NSLocalizedString(@"username", nil),NSLocalizedString(@"password", nil),nil];
 	
-	self.twitterEngine = [[[MGTwitterEngine alloc] initWithDelegate:self] autorelease];
+	self.twitterEngine = [[MGTwitterEngine alloc] initWithDelegate:self];
     [self.twitterEngine setConsumerKey:kOAuthConsumerKey secret:kOAuthConsumerSecret];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -208,7 +208,7 @@
     
     UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -221,7 +221,7 @@
 - (void)configureInputStringCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     
-    UITextField* field = [[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 180, cell.frame.size.height)] autorelease];
+    UITextField* field = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 180, cell.frame.size.height)];
     field.textColor = [UIColor colorWithRed:59.0/255.0 green:85.0/255.0 blue:133.0/255.0 alpha:1.0];
     field.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     field.textAlignment = UITextAlignmentLeft;
@@ -318,9 +318,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

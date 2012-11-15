@@ -29,9 +29,9 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UILabel* lblVersion;
-@property (nonatomic, retain) IBOutlet UIButton* btnTomad;
-@property (nonatomic, retain) NSArray* stickerArray;
+@property (nonatomic, strong) IBOutlet UILabel* lblVersion;
+@property (nonatomic, strong) IBOutlet UIButton* btnTomad;
+@property (nonatomic, strong) NSArray* stickerArray;
 
 - (IBAction) btnItunesClicked;
 - (IBAction) btnInfoClicked;

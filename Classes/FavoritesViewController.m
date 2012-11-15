@@ -48,7 +48,6 @@
 																	  target:self
 																	  action:@selector(btnPlayingClicked)];			
 		self.navigationItem.rightBarButtonItem = btnPlaying;		
-		[btnPlaying release];
 		
 	}else{
         self.navigationItem.rightBarButtonItem = nil;
@@ -115,7 +114,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 	MaltineAppDelegate* delegate = (MaltineAppDelegate*)[[UIApplication sharedApplication]delegate];	
@@ -170,10 +169,9 @@
 
 	if (fromIndexPath.section == toIndexPath.section) {
 		if (toIndexPath.row < [delegate.favoliteList count]) {
-			id item = [[delegate.favoliteList objectAtIndex:fromIndexPath.row] retain];
+			id item = [delegate.favoliteList objectAtIndex:fromIndexPath.row];
 			[delegate.favoliteList removeObject:item];
 			[delegate.favoliteList insertObject:item atIndex:toIndexPath.row];
-			[item release];
 			//favolitesに保存
 			//NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 			//[defaults setObject:delegate.favoliteList forKey:@"favolites"];
@@ -226,9 +224,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

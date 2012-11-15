@@ -22,10 +22,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -39,14 +35,14 @@
     
     if (![[MaltineAppDelegate sharedDelegate].player isTextPlayer] || ![[MaltineAppDelegate sharedDelegate].player.streamer isPlaying]) {
         
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(btnPlayForText)] autorelease];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(btnPlayForText)];
         [MaltineAppDelegate sharedDelegate].player.currentPlayerType = TextPlayer;
         [[MaltineAppDelegate sharedDelegate].player playForText:[self.textInfoDictionary objectForKey:@"MusicUrl"]];
 
         
     }else{
         [[MaltineAppDelegate sharedDelegate].player destroyStreamer];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(btnPlayForText)] autorelease];        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(btnPlayForText)];        
     }
     
 }
@@ -59,7 +55,7 @@
         if (pinchGesture.scale >= 0.4 && pinchGesture.scale <= 1.5) {
             //heightChanged = YES;
             textSize = (int)(pinchGesture.scale * 100);
-            NSString *jsString = [[[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", (int)(pinchGesture.scale * 100)] autorelease];
+            NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", (int)(pinchGesture.scale * 100)];
             [webView stringByEvaluatingJavaScriptFromString:jsString];
             
         }
@@ -84,7 +80,7 @@
         //[webView.scrollView removeObserver:self forKeyPath:@"contentSize"context:nil];
         //[webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
 
-        NSString *jsString = [[[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", textSize] autorelease];
+        NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", textSize];
         [webView stringByEvaluatingJavaScriptFromString:jsString];
         
     }
@@ -127,8 +123,8 @@
     self.title = [self.textInfoDictionary objectForKey:@"Title"];
     textSize = 100;
     
-    pinchGesture = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
-    segTextSize = [[[UISegmentedControl alloc] initWithItems:nil] autorelease];
+    pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+    segTextSize = [[UISegmentedControl alloc] initWithItems:nil];
     [segTextSize insertSegmentWithImage:[UIImage imageNamed:@"icon3030_22"] atIndex:0 animated:NO];
     [segTextSize insertSegmentWithImage:[UIImage imageNamed:@"icon3030_21"] atIndex:1 animated:NO];
     segTextSize.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -158,10 +154,10 @@
     [super viewWillAppear:animated];
 
     if ([[MaltineAppDelegate sharedDelegate].player isTextPlayer] && [[MaltineAppDelegate sharedDelegate].player.streamer isPlaying]) {
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(btnPlayForText)] autorelease];    
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(btnPlayForText)];    
         
     }else{
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(btnPlayForText)] autorelease]; 
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(btnPlayForText)]; 
     }
 
 }
@@ -176,9 +172,9 @@
         NSMutableDictionary* textSave = [NSMutableDictionary dictionaryWithDictionary:[defaults objectForKey:@"textSave"]];
         
         if (!textSave) {
-            textSave = [[[NSMutableDictionary alloc] init] autorelease];
+            textSave = [[NSMutableDictionary alloc] init];
         }
-        NSMutableDictionary* saveInfo = [[[NSMutableDictionary alloc] init] autorelease];
+        NSMutableDictionary* saveInfo = [[NSMutableDictionary alloc] init];
         
         [saveInfo setObject:[NSNumber numberWithFloat:currentPoint.y] forKey:@"Point"];
         [saveInfo setObject:[NSNumber numberWithInt:textSize] forKey:@"TextSize"];
@@ -213,7 +209,7 @@
                 NSNumber* savedTextSize = [saveInfo objectForKey:@"TextSize"];
                 textSize = [savedTextSize intValue];
                 
-                NSString *jsString = [[[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", [savedTextSize intValue]] autorelease];
+                NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", [savedTextSize intValue]];
                 [webView stringByEvaluatingJavaScriptFromString:jsString];
 
                 [webView.scrollView setContentOffset:CGPointMake(0, [savedPoint floatValue]) animated:NO];
