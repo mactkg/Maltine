@@ -12,7 +12,7 @@
 #import "MultilineTitleView.h"
 #import "AudioStreamer.h"
 #import "MaltineAppDelegate.h"
-#import "XAuthTwitterEngine.h"
+#import "MGTwitterEngine.h"
 #import "UIAlertView+Helper.h"
 #import "TweetCommentViewController.h"
 
@@ -23,7 +23,7 @@
 
 
 @class AudioStreamer;
-@interface PlayerViewController : UIViewController<UIActionSheetDelegate,XAuthTwitterEngineDelegate,TweetCommentViewControllerDelegate,UIAsyncImageViewDelegate> {
+@interface PlayerViewController : UIViewController<UIActionSheetDelegate,MGTwitterEngineDelegate,TweetCommentViewControllerDelegate,UIAsyncImageViewDelegate> {
 	NSArray* playList;
 	int trackKey;
 	IBOutlet UIAsyncImageView* imageView;
@@ -44,7 +44,7 @@
     int currentPlayerType;
 	BOOL stopPlayerWhenViewWillAppear;
 	
-	XAuthTwitterEngine* twitterEngine;
+	MGTwitterEngine* twitterEngine;
     
     MultilineTitleView* multiTitleView;
     
@@ -72,7 +72,7 @@
 @property (nonatomic, retain) AudioStreamer* streamer;
 @property (nonatomic, assign) int currentPlayerType;
 @property BOOL stopPlayerWhenViewWillAppear;
-@property (nonatomic, retain) XAuthTwitterEngine* twitterEngine;
+@property (nonatomic, retain) MGTwitterEngine* twitterEngine;
 
 - (IBAction) btnPauseClicked;
 - (IBAction) btnPrevClicked;

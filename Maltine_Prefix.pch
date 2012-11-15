@@ -6,3 +6,12 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
+
+#define kOAuthConsumerKey @"IERBJS05LakdQD9eKCg"
+#define kOAuthConsumerSecret @"p81vkvtQpBAi8QDq5Vrn3BYsEeVMdf9IQm631L7qZQ"
+#define kCachedXAuthAccessTokenStringKey	@"cachedXAuthAccessTokenKey"
+#define kOATokenKey @"OATokenKey"
+#define kOATokenSecret @"OATokenSecret"
+
+#define kTwitterIdStringKey @"twitteId"
+#define kTwitterPasswordStringKey @"twittePassword"

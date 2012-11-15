@@ -47,11 +47,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     self.uiIsVisible = YES;
-    /*
-    NSDictionary *credentialStorage =
-    [[NSURLCredentialStorage sharedCredentialStorage] allCredentials];
-    NSLog(@"Credentials: %@", credentialStorage);
-    */
 
 	self.releaseList = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:URL_RELEASE]];
 	self.news = [NSDictionary dictionaryWithContentsOfURL:[NSURL URLWithString:URL_NEWS]];
@@ -70,54 +65,30 @@
 		self.favoliteList = [[[NSMutableArray alloc] init] autorelease];
 	}
 	
+    //Twitter Token移行(1.3 -> 2.0)
+    NSString *tokenString = [defaults objectForKey:kCachedXAuthAccessTokenStringKey];
+    
+    if (tokenString) {
+        OAToken *token = [[[OAToken alloc] initWithHTTPResponseBody:tokenString] autorelease];
+        NSLog(@"%@",token);
+        
+        [defaults setObject:token.key forKey:kOATokenKey];
+        [defaults setObject:token.secret forKey:kOATokenSecret];
+        [defaults removeObjectForKey:kCachedXAuthAccessTokenStringKey];
+    }
+    
+    NSString *twitterPassword = [defaults objectForKey:kTwitterPasswordStringKey];
+    if (twitterPassword) {
+        [defaults removeObjectForKey:kTwitterPasswordStringKey];
+    }
+    
     [window addSubview:tabBarController.view];
+    self.window.rootViewController = tabBarController;
     [window makeKeyAndVisible];
 
-    /*
-    [[NSNotificationCenter defaultCenter]
-	 addObserver:self
-	 selector:@selector(presentAlertWithTitle:)
-	 name:ASPresentAlertWithTitleNotification
-	 object:nil];
-	[[NSThread currentThread] setName:@"Main Thread"];
-     */
     return YES;
 }
-/*
-- (void)presentAlertWithTitle:(NSNotification *)notification
-{
-    NSString *title = [[notification userInfo] objectForKey:@"title"];
-    NSString *message = [[notification userInfo] objectForKey:@"message"];
-    
-    //NSLog(@"Current Thread = %@", [NSThread currentThread]);
-    dispatch_queue_t main_queue = dispatch_get_main_queue();
-    
-    dispatch_async(main_queue, ^{
-        
-        //NSLog(@"Current Thread (in main queue) = %@", [NSThread currentThread]);
-        if (!uiIsVisible) {
-            if(kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_4_0) {
-                UILocalNotification *localNotif = [[UILocalNotification alloc] init];	
-                localNotif.alertBody = message;
-                localNotif.alertAction = NSLocalizedString(@"Open", @"");
-                [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
-                [localNotif release];
-            }
-        }
-        else {
-            UIAlertView *alert = [
-                                  [[UIAlertView alloc]
-                                   initWithTitle:title
-                                   message:message
-                                   delegate:nil
-                                   cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                   otherButtonTitles: nil]
-                                  autorelease];
-            [alert show];
-        }
-    });
-}
-*/
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
@@ -150,15 +121,7 @@
     self.uiIsVisible = YES;
 	[self.player createTimers:YES];
 	[self.player forceUIUpdate];
-    
-    /*
-	[[NSNotificationCenter defaultCenter]
-	 addObserver:self
-	 selector:@selector(presentAlertWithTitle:)
-	 name:ASPresentAlertWithTitleNotification
-	 object:nil];
-     */
-		
+    		
 }
 
 
@@ -178,11 +141,6 @@
      See also applicationDidEnterBackground:.
      */
     self.uiIsVisible = NO;
-	[[NSNotificationCenter defaultCenter]
-	 removeObserver:self
-	 name:ASPresentAlertWithTitleNotification
-	 object:nil];
-
 }
 
 #pragma mark -

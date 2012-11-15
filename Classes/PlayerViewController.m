@@ -63,10 +63,9 @@
 	
 	srand((unsigned) time(NULL));
 	
-	self.twitterEngine = [[[XAuthTwitterEngine alloc] initXAuthWithDelegate:self] autorelease];
-	self.twitterEngine.consumerKey = kOAuthConsumerKey;
-	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
-    
+	self.twitterEngine = [[[MGTwitterEngine alloc] initWithDelegate:self] autorelease];
+	[self.twitterEngine setConsumerKey:kOAuthConsumerKey secret:kOAuthConsumerSecret];
+	
     UITapGestureRecognizer* recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)] autorelease];
     [self.imageView addGestureRecognizer:recognizer];
     self.imageView.delegate = self;
@@ -498,16 +497,19 @@
 
 -(void)tweetWithComment:(NSString*)comment{
     
-	if ([self.twitterEngine isAuthorized]) {
+    NSString *tokenKey = [[NSUserDefaults standardUserDefaults] objectForKey:kOATokenKey];
+    NSString *tokenSecret = [[NSUserDefaults standardUserDefaults] objectForKey:kOATokenSecret];
+    
+	if (tokenKey && tokenSecret) {
         [MaltineAppDelegate lock];
         NSString *message = [self buildTwitterMessage: comment];
 
 		//NSLog(@"%@",message);
+        OAToken *token = [[[OAToken alloc] initWithKey:tokenKey secret:tokenSecret] autorelease];
+        [self.twitterEngine setAccessToken:token];
 		[self.twitterEngine sendUpdate:message];
 	}else{
-		
 		UIAlertViewQuick(NSLocalizedString(@"Error", nil), NSLocalizedString(@"Please sign in to Twitter from About Tab.", nil),@"OK");
-		
 	}
     
 }

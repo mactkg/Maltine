@@ -36,7 +36,7 @@
 		
 	NSString* username = usernameTextField.text;
 	NSString* password = passwordTextField.text;
-	[self.twitterEngine exchangeAccessTokenForUsername:username password:password];
+	[self.twitterEngine getXAuthAccessTokenForUsername:username password:password];
 }
 
 #pragma mark -
@@ -55,7 +55,7 @@
             [[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterIdStringKey];
         }
         if (textField.tag == 1001) {
-            [[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterPasswordStringKey];
+            //[[NSUserDefaults standardUserDefaults] setValue:textField.text forKey:kTwitterPasswordStringKey];
         }
     }
 	
@@ -78,25 +78,23 @@
 
 #pragma mark -
 #pragma mark twitter
-- (void) storeCachedTwitterXAuthAccessTokenString: (NSString *)tokenString forUsername:(NSString *)username
+- (void) accessTokenReceived:(OAToken *)token forRequest:(NSString *)connectionIdentifier{
+    NSLog(@"token: %@",token);
+    //NSLog(@"request: %@",connectionIdentifier);
+    [[NSUserDefaults standardUserDefaults] setObject:token.key forKey:kOATokenKey];
+    [[NSUserDefaults standardUserDefaults] setObject:token.secret forKey:kOATokenSecret];
+}
+
+- (void)requestSucceeded:(NSString *)connectionIdentifier
 {
-	[[NSUserDefaults standardUserDefaults] setObject:tokenString forKey:kCachedXAuthAccessTokenStringKey];
 	[MaltineAppDelegate unlock];
     UIAlertViewQuickDelegated(nil, NSLocalizedString(@"Succeeded in authorization.", nil), @"OK", self, 1);
 }
 
-- (NSString *) cachedTwitterXAuthAccessTokenStringForUsername: (NSString *)username;
-{
-	NSString *accessTokenString = [[NSUserDefaults standardUserDefaults] objectForKey:kCachedXAuthAccessTokenStringKey];	
-	//NSLog(@"About to return access token string: %@", accessTokenString);	
-	return accessTokenString;
-}
-
-- (void) twitterXAuthConnectionDidFailWithError: (NSError *)error;
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error
 {
 	[MaltineAppDelegate unlock];
     UIAlertViewQuickDelegated(NSLocalizedString(@"Error", nil), NSLocalizedString(@"Account authorization error.", nil), @"OK", self, -1);
-	//UIAlertViewQuick(@"エラー", @"Twitterのログインに失敗しました。", @"OK");
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -126,9 +124,8 @@
 	
 	self.titles = [NSArray arrayWithObjects:NSLocalizedString(@"username", nil),NSLocalizedString(@"password", nil),nil];
 	
-	self.twitterEngine = [[[XAuthTwitterEngine alloc] initXAuthWithDelegate:self] autorelease];
-	self.twitterEngine.consumerKey = kOAuthConsumerKey;
-	self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
+	self.twitterEngine = [[[MGTwitterEngine alloc] initWithDelegate:self] autorelease];
+    [self.twitterEngine setConsumerKey:kOAuthConsumerKey secret:kOAuthConsumerSecret];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -183,14 +180,17 @@
 
 	switch (section) {
 		case 0:
-			
-			if ([self.twitterEngine isAuthorized]) {
+        {
+            NSString *tokenKey = [[NSUserDefaults standardUserDefaults] objectForKey:kOATokenKey];
+            NSString *tokenSecret = [[NSUserDefaults standardUserDefaults] objectForKey:kOATokenSecret];
+            
+            if (tokenKey && tokenSecret) {
 				return NSLocalizedString(@"Account is authorized.", nil);
-			}else {
+            }else{
 				return NSLocalizedString(@"Account is not authorized.", nil);
-			}
-			
+            }
 			break;
+        }
 	}
 	return nil;
 }
@@ -241,7 +241,7 @@
 		case 1:			
 			field.secureTextEntry = YES;
 			field.returnKeyType = UIReturnKeyDone;
-			field.text = [[NSUserDefaults standardUserDefaults] stringForKey:kTwitterPasswordStringKey];			
+			//field.text = [[NSUserDefaults standardUserDefaults] stringForKey:kTwitterPasswordStringKey];
 			break;
 	}
 }
