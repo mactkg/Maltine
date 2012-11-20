@@ -546,12 +546,6 @@
 
 #pragma mark -
 #pragma mark twitter delegate
-- (NSString *) cachedTwitterXAuthAccessTokenStringForUsername: (NSString *)username;
-{
-	NSString *accessTokenString = [[NSUserDefaults standardUserDefaults] objectForKey:kCachedXAuthAccessTokenStringKey];	
-	NSLog(@"About to return access token string: %@", accessTokenString);	
-	return accessTokenString;
-}
 
 - (void)requestSucceeded:(NSString *)connectionIdentifier
 {
